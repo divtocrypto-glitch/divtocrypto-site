@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dividends to Crypto — Live Portfolio Journey</title>
+<meta name="description" content="A public, real-money journey: turning monthly dividends into crypto. Every trade logged.">
+<style>
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-size:18px}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0}
+  .yt{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#ff0033;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
+  .yt.soon{background:#2a3347;color:var(--muted);pointer-events:none}
+  .updated{color:var(--muted);font-size:13px;margin:-8px 0 18px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .v{font-size:24px;font-weight:750;margin-top:4px;font-variant-numeric:tabular-nums}
+  .s{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .up{color:var(--up)}.down{color:var(--down)}
+  .hero{border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  section{margin-top:26px}
+  h2{font-size:16px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
+  th,td{padding:10px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+  th:first-child,td:first-child{text-align:left}
+  tr:last-child td{border-bottom:0}
+  td.note{white-space:normal;text-align:left;color:var(--muted);min-width:200px}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700}
+  .buy{background:#123222;color:var(--up)}.sell{background:#3a1520;color:var(--down)}
+  .sym{font-weight:700}
+  td.empty{white-space:normal;text-align:center;padding:22px;text-align:center;color:var(--muted)}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  @media (max-width:560px){.v{font-size:20px}th,td{padding:8px 10px}.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><div class="logo">🪙</div><div><span id="brand">Dividends to Crypto</span><small>Monthly dividends → crypto, tracked in public</small></div></div>
+    <a id="yt" class="yt soon" href="#" target="_blank" rel="noopener">▶ YouTube — coming soon</a>
+  </header>
+  <div class="updated" id="updated">Loading…</div>
+
+  <div class="grid" id="cards"></div>
+
+  <section>
+    <h2>📊 Holdings</h2>
+    <div class="tbl"><table id="holdings"></table></div>
+  </section>
+
+  <section>
+    <h2>💸 Dividends</h2>
+    <div class="grid" style="margin-bottom:12px" id="divcards"></div>
+    <div class="tbl"><table id="dividends"></table></div>
+  </section>
+
+  <section>
+    <h2>🧾 Trade history</h2>
+    <div class="tbl"><table id="trades"></table></div>
+  </section>
+
+  <footer>
+    <b>Personal journey, not financial advice.</b> This page documents my own real-money experiment. Nothing here is a
+    recommendation to buy or sell anything. Crypto is volatile and you can lose money. P&amp;L uses average cost; crypto
+    prices are Robinhood mark prices at the time shown and the spread is included in trade totals. Taxes not reflected.
+  </footer>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const usd = (v, d=2) => v == null ? "—" : (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const px = v => v == null ? "—" : usd(v, v < 1 ? 6 : 2);
+const sgn = v => v == null ? "" : v > 0 ? "up" : v < 0 ? "down" : "";
+const signed = v => v == null ? "—" : (v > 0 ? "+" : "") + usd(v);
+const pct = v => v == null ? "" : (v > 0 ? "+" : "") + v.toFixed(2) + "%";
+const qty = v => v == null ? "—" : v.toLocaleString("en-US",{maximumFractionDigits:8});
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const card = (k, v, s="", cls="", extra="") => `<div class="card ${extra}"><div class="k">${k}</div><div class="v ${cls}">${v}</div><div class="s ${cls}">${s}</div></div>`;
+const table = (el, head, rows, empty) => $(el).innerHTML = `<thead><tr>${head.map(h=>`<th class="${h[1]||""}">${h[0]}</th>`).join("")}</tr></thead><tbody>${
+  rows.length ? rows.join("") : `<tr><td class="empty" colspan="${head.length}">${empty}</td></tr>`}</tbody>`;
+
+fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
+  const s = d.summary;
+  $("brand").textContent = d.brand || "Dividends to Crypto";
+  if (d.youtube_url) { const y=$("yt"); y.href=d.youtube_url; y.classList.remove("soon"); y.textContent="▶ Watch on YouTube"; }
+  $("updated").textContent = `Last updated ${d.updated}` + (d.prices_as_of ? ` · prices as of ${d.prices_as_of}` : "");
+  $("cards").innerHTML =
+    card("Current value", usd(s.current_value), `Cost basis ${usd(s.open_cost_basis)}`, "", "hero") +
+    card("Total invested", usd(s.total_invested), `net cash in · ${usd(s.gross_buys)} bought, ${usd(s.sell_proceeds)} sold`) +
+    card("Unrealized P&L", signed(s.unrealized_pl), pct(s.unrealized_pct), sgn(s.unrealized_pl)) +
+    card("Realized P&L", signed(s.realized_pl), pct(s.realized_pct), sgn(s.realized_pl)) +
+    card("Total P&L", signed(s.total_pl), pct(s.total_pct) + " incl. dividends", sgn(s.total_pl));
+  const held = d.holdings.filter(h => h.quantity);
+  table("holdings", [["Asset"],["Qty"],["Avg cost","hide-sm"],["Price"],["Value"],["Unrealized"],["Realized","hide-sm"]],
+    d.holdings.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.asset_type)}</span></td>
+      <td>${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td>${px(h.price)}</td><td>${h.quantity ? usd(h.market_value) : "closed"}</td>
+      <td class="${sgn(h.unrealized_pl)}">${h.quantity ? signed(h.unrealized_pl) : "—"}</td><td class="hide-sm ${sgn(h.realized_pl)}">${signed(h.realized_pl)}</td></tr>`),
+    "No holdings yet");
+  $("divcards").innerHTML = card("Dividends received", usd(s.dividends)) +
+    card("Dividends → crypto", usd(s.dividends_reinvested), "reinvested total", s.dividends_reinvested ? "up" : "");
+  table("dividends", [["Date"],["From"],["Amount"],["Reinvested into"]],
+    d.dividends.map(v => `<tr><td>${esc(v.date)}</td><td class="sym">${esc(v.symbol)}</td><td>${usd(v.amount)}</td><td>${esc(v.reinvested_into)||"—"}</td></tr>`),
+    "No dividends yet — the first monthly payout will show up here.");
+  table("trades", [["Date"],["Asset"],["Side"],["Qty"],["Avg price"],["Total"],["Notes","hide-sm"]],
+    d.trades.map(t => `<tr><td>${esc(t.date)}</td><td class="sym">${esc(t.symbol)}</td><td><span class="pill ${t.side}">${esc(t.side.toUpperCase())}</span></td>
+      <td>${qty(t.quantity)}</td><td>${px(t.price)}</td><td>${usd(t.total)}</td><td class="note hide-sm">${esc(t.notes)}</td></tr>`),
+    "No trades yet");
+}).catch(e => { $("updated").textContent = "Could not load status.json (open this page through a web server, not file://)."; });
+</script>
+</body>
+</html>

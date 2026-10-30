@@ -1,0 +1,115 @@
+{
+  "brand": "Dividends to Crypto",
+  "youtube_url": "",
+  "updated": "Oct 30, 2026 2:38 PM CT",
+  "prices_as_of": "Oct 30, 2026 2:36 PM CT",
+  "summary": {
+    "total_invested": 179.47,
+    "gross_buys": 204.8,
+    "sell_proceeds": 25.33,
+    "open_cost_basis": 174.9,
+    "current_value": 162.16,
+    "unrealized_pl": -12.74,
+    "unrealized_pct": -7.28,
+    "realized_pl": -4.57,
+    "realized_pct": -15.28,
+    "dividends": 0.0,
+    "dividends_reinvested": 0.0,
+    "total_pl": -17.31,
+    "total_pct": -9.65,
+    "trade_count": 6
+  },
+  "holdings": [
+    {
+      "symbol": "ENA",
+      "asset_type": "crypto",
+      "quantity": 0.0,
+      "price": 0.18533299,
+      "cost_basis": 0.0,
+      "market_value": 0.0,
+      "unrealized_pl": 0.0,
+      "realized_pl": -4.57,
+      "avg_cost": null
+    },
+    {
+      "symbol": "XCN",
+      "asset_type": "crypto",
+      "quantity": 43564.0,
+      "price": 0.003722245,
+      "cost_basis": 174.9,
+      "market_value": 162.16,
+      "unrealized_pl": -12.74,
+      "realized_pl": 0.0,
+      "avg_cost": 0.004014782848223304
+    }
+  ],
+  "trades": [
+    {
+      "date": "2026-10-29",
+      "platform": "Robinhood",
+      "asset_type": "crypto",
+      "symbol": "ENA",
+      "side": "sell",
+      "quantity": 143.88,
+      "price": 0.1760519,
+      "total": 25.33,
+      "notes": ""
+    },
+    {
+      "date": "2026-10-29",
+      "platform": "Robinhood",
+      "asset_type": "crypto",
+      "symbol": "XCN",
+      "side": "buy",
+      "quantity": 9052.0,
+      "price": 0.00386789,
+      "total": 35.02,
+      "notes": ""
+    },
+    {
+      "date": "2026-10-25",
+      "platform": "Robinhood",
+      "asset_type": "crypto",
+      "symbol": "XCN",
+      "side": "buy",
+      "quantity": 9643.0,
+      "price": 0.00413952,
+      "total": 39.92,
+      "notes": "Deployed half of deposit, kept rest for a dip"
+    },
+    {
+      "date": "2026-10-25",
+      "platform": "Robinhood",
+      "asset_type": "crypto",
+      "symbol": "ENA",
+      "side": "buy",
+      "quantity": 143.88,
+      "price": 0.207777,
+      "total": 29.9,
+      "notes": "ENA flip: target ~+4%, stop ~-5%, profits to XCN"
+    },
+    {
+      "date": "2026-10-24",
+      "platform": "Robinhood",
+      "asset_type": "crypto",
+      "symbol": "XCN",
+      "side": "buy",
+      "quantity": 1238.0,
+      "price": 0.00402497,
+      "total": 4.99,
+      "notes": ""
+    },
+    {
+      "date": "2026-10-23",
+      "platform": "Robinhood",
+      "asset_type": "crypto",
+      "symbol": "XCN",
+      "side": "buy",
+      "quantity": 23631.0,
+      "price": 0.0040185,
+      "total": 94.97,
+      "notes": ""
+    }
+  ],
+  "dividends": []
+}
