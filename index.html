@@ -3,8 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dividends to Crypto — Live Portfolio Journey</title>
+<title>DivToCrypto — Dividends to Crypto P&amp;L</title>
 <meta name="description" content="A public, real-money journey: turning monthly dividends into crypto. Every trade logged.">
+<meta name="theme-color" content="#0b1426">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://divtocrypto.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DivToCrypto">
+<meta property="og:title" content="DivToCrypto — Dividends to Crypto P&amp;L">
+<meta property="og:description" content="A public, real-money journey: turning monthly dividends into crypto. Every trade logged.">
+<meta property="og:url" content="https://divtocrypto.com/">
+<meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DivToCrypto logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@divtocrypto">
+<meta name="twitter:title" content="DivToCrypto — Dividends to Crypto P&amp;L">
+<meta name="twitter:description" content="A public, real-money journey: turning monthly dividends into crypto. Every trade logged.">
+<meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
 <style>
   :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
   *{box-sizing:border-box}
@@ -13,9 +32,11 @@
        font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
   .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
   header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em}
-  .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-size:18px}
-  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0}
+  .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+  .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
+  .wordmark{display:block;height:30px;width:auto}
+  .brand h1{margin:0;line-height:0;font-size:0}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
   .yt{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#ff0033;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
   .yt.soon{background:#2a3347;color:var(--muted);pointer-events:none}
   .updated{color:var(--muted);font-size:13px;margin:-8px 0 18px}
@@ -46,7 +67,7 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="brand"><div class="logo">🪙</div><div><span id="brand">Dividends to Crypto</span><small>Monthly dividends → crypto, tracked in public</small></div></div>
+    <a class="brand" href="./"><img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt=""><div><h1><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></h1><small><span id="brand">Dividends to Crypto</span> · monthly dividends → crypto, tracked in public</small></div></a>
     <a id="yt" class="yt soon" href="#" target="_blank" rel="noopener">▶ YouTube — coming soon</a>
   </header>
   <div class="updated" id="updated">Loading…</div>
