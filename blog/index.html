@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — DivToCrypto: Turning Monthly Dividends Into Crypto</title>
+<meta name="description" content="Weekly recaps, real P&amp;L and lessons from a public experiment: buying monthly dividend stocks and turning the dividends into crypto.">
+<meta name="theme-color" content="#0b1426">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://divtocrypto.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DivToCrypto">
+<meta property="og:title" content="Blog — DivToCrypto: Turning Monthly Dividends Into Crypto">
+<meta property="og:description" content="Weekly recaps, real P&amp;L and lessons from a public experiment: buying monthly dividend stocks and turning the dividends into crypto.">
+<meta property="og:url" content="https://divtocrypto.com/blog/">
+<meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DivToCrypto logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@divtocrypto">
+<meta name="twitter:creator" content="@divtocrypto">
+<meta name="twitter:title" content="Blog — DivToCrypto: Turning Monthly Dividends Into Crypto">
+<meta name="twitter:description" content="Weekly recaps, real P&amp;L and lessons from a public experiment: buying monthly dividend stocks and turning the dividends into crypto.">
+<meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
+<style>
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+  .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
+  .wordmark{display:block;height:30px;width:auto}
+  .brand .t{margin:0;line-height:0;font-size:0}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover{border-color:#3a4a66}
+  .nav a.on{background:#2a2350;border-color:#3a3160}
+  a{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .muted{color:var(--muted)}
+  .draft{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#3a2a10;color:var(--accent);vertical-align:middle}
+  .draftbar{margin:0 0 18px;padding:10px 14px;border:1px solid #5a4316;background:#2a2010;color:var(--accent);border-radius:12px;font-size:14px}
+  .list{display:grid;gap:12px}
+  .post-card{display:block;color:inherit;text-decoration:none;transition:border-color .15s}
+  .post-card:hover{border-color:#3a4a66}
+  .post-card h2{font-size:19px;margin:4px 0 6px;line-height:1.3;color:var(--text)}
+  .post-card p{margin:0;color:var(--muted)}
+  .meta{color:var(--muted);font-size:13px}
+  .pagehead h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+  .pagehead p{margin:0 0 20px;color:var(--muted)}
+  article{max-width:720px;margin:0 auto}
+  article h1{font-size:32px;line-height:1.2;margin:6px 0 8px;letter-spacing:-.01em}
+  .back{font-size:14px;text-decoration:none}
+  .body{font-size:17px;line-height:1.7}
+  .body h2{font-size:22px;line-height:1.3;margin:34px 0 10px}
+  .body h3{font-size:18px;margin:24px 0 8px}
+  .body p,.body ul,.body ol{margin:0 0 16px}
+  .body li{margin:4px 0}
+  .body strong{color:#fff}
+  .body code{background:#1a2233;padding:1px 6px;border-radius:6px;font-size:.9em}
+  .body blockquote{margin:0 0 16px;padding:8px 16px;border-left:3px solid var(--accent2);background:#151b2b;border-radius:0 10px 10px 0;color:#cfd6e2}
+  .body hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 18px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px;line-height:1.45}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .endcard{margin-top:30px;border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  .endcard p{margin:0 0 8px}.endcard p:last-child{margin:0}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  @media (max-width:560px){.body{font-size:16px}article h1{font-size:26px}.body h2{font-size:20px}th,td{padding:8px 10px}header{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="../"><img class="logo" src="../assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="../assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
+    <nav class="nav" aria-label="Site"><a href="../">Dashboard</a><a href="./" class="on">Blog</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a></nav>
+  </header>
+  <div class="pagehead"><h1>DivToCrypto Blog</h1>
+  <p>Weekly recaps and lessons from turning monthly dividends into crypto — real money, every trade logged.</p></div>
+  <div class="list">
+    <a class="card post-card" href="20-monthly-dividend-stocks-im-building-around.html">
+      <div class="meta"><time datetime="2026-10-31">Oct 31, 2026</time></div>
+      <h2>The 20 Monthly Dividend Stocks I&#x27;m Building Around</h2>
+      <p>The 20 monthly dividend stocks and ETFs on my watchlist (a Core 10 plus 10 higher-risk Boosters), why I want monthly payers, and the five I&#x27;m starting with.</p>
+    </a>
+    <a class="card post-card" href="week-one-down-7-percent-ena-lessons.html">
+      <div class="meta"><time datetime="2026-10-31">Oct 31, 2026</time></div>
+      <h2>Week One: Down 7% and What ENA Taught Me</h2>
+      <p>My first week turning dividends into crypto, with every trade and the real P&amp;L (down 7.3%), plus what a losing ENA trade taught me about position sizing and exits.</p>
+    </a>
+    <a class="card post-card" href="why-im-turning-dividends-into-crypto.html">
+      <div class="meta"><time datetime="2026-10-31">Oct 31, 2026</time></div>
+      <h2>Why I&#x27;m Turning Dividends Into Crypto</h2>
+      <p>My plan to buy monthly dividend stocks, turn the dividends into crypto, and log and publish every trade with real money. The strategy, the rules, and the risks.</p>
+    </a>
+  </div>
+  <footer>
+    <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
+    recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
+  </footer>
+</div>
+</body>
+</html>

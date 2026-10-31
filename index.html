@@ -37,6 +37,10 @@
   .wordmark{display:block;height:30px;width:auto}
   .brand h1{margin:0;line-height:0;font-size:0}
   .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .hdr-r{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover{border-color:#3a4a66}
   .yt{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#ff0033;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
   .yt.soon{background:#2a3347;color:var(--muted);pointer-events:none}
   .updated{color:var(--muted);font-size:13px;margin:-8px 0 18px}
@@ -68,7 +72,8 @@
 <div class="wrap">
   <header>
     <a class="brand" href="./"><img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt=""><div><h1><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></h1><small><span id="brand">Dividends to Crypto</span> · monthly dividends → crypto, tracked in public</small></div></a>
-    <a id="yt" class="yt soon" href="#" target="_blank" rel="noopener">▶ YouTube — coming soon</a>
+    <div class="hdr-r"><!--blog-nav--><nav class="nav" aria-label="Site"><a href="blog/">Blog</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a></nav><!--/blog-nav-->
+    <a id="yt" class="yt soon" href="#" target="_blank" rel="noopener">▶ YouTube — coming soon</a></div>
   </header>
   <div class="updated" id="updated">Loading…</div>
 
