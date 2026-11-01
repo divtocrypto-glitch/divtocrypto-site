@@ -1,30 +1,30 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "",
-  "updated": "Oct 31, 2026 6:43 PM CT",
-  "prices_as_of": "Oct 31, 2026 7:00 AM CT",
+  "updated": "Nov 1, 2026 10:00 AM CT",
+  "prices_as_of": "Nov 1, 2026 10:00 AM CT",
   "summary": {
-    "total_invested": 179.47,
-    "gross_buys": 204.8,
+    "total_invested": 229.45,
+    "gross_buys": 254.78,
     "sell_proceeds": 25.33,
-    "open_cost_basis": 174.9,
-    "current_value": 166.3,
-    "unrealized_pl": -8.6,
-    "unrealized_pct": -4.92,
+    "open_cost_basis": 224.88,
+    "current_value": 209.18,
+    "unrealized_pl": -15.7,
+    "unrealized_pct": -6.98,
     "realized_pl": -4.57,
     "realized_pct": -15.28,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -13.17,
-    "total_pct": -7.34,
-    "trade_count": 6
+    "total_pl": -20.27,
+    "total_pct": -8.83,
+    "trade_count": 7
   },
   "holdings": [
     {
       "symbol": "ENA",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 0.1910518,
+      "price": 0.185003325,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -34,16 +34,27 @@
     {
       "symbol": "XCN",
       "asset_type": "crypto",
-      "quantity": 43564.0,
-      "price": 0.00381736,
-      "cost_basis": 174.9,
-      "market_value": 166.3,
-      "unrealized_pl": -8.6,
+      "quantity": 56517.0,
+      "price": 0.00370116,
+      "cost_basis": 224.88,
+      "market_value": 209.18,
+      "unrealized_pl": -15.7,
       "realized_pl": 0.0,
-      "avg_cost": 0.004014782848223304
+      "avg_cost": 0.003978979775996603
     }
   ],
   "trades": [
+    {
+      "date": "2026-10-31",
+      "platform": "Robinhood",
+      "asset_type": "crypto",
+      "symbol": "XCN",
+      "side": "buy",
+      "quantity": 12953.0,
+      "price": 0.00385824,
+      "total": 49.98,
+      "notes": ""
+    },
     {
       "date": "2026-10-29",
       "platform": "Robinhood",
