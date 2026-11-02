@@ -60,6 +60,7 @@
   th:first-child,td:first-child{text-align:left}
   tr:last-child td{border-bottom:0}
   td.note{white-space:normal;text-align:left;color:var(--muted);min-width:200px}
+  .pend{background:#2a2410;color:var(--accent)}
   .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700}
   .buy{background:#123222;color:var(--up)}.sell{background:#3a1520;color:var(--down)}
   .sym{font-weight:700}
@@ -86,6 +87,13 @@
   <section>
     <h2>📊 Holdings</h2>
     <div class="tbl"><table id="holdings"></table></div>
+  </section>
+
+  <section id="monthly">
+    <h2>🗓️ Monthly Dividend Holdings</h2>
+    <div class="grid" style="margin-bottom:12px" id="mcards"></div>
+    <div class="tbl"><table id="mdiv"></table></div>
+    <div class="muted" id="mnote" style="margin-top:8px"></div>
   </section>
 
   <section>
@@ -142,6 +150,24 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
       <td>${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td>${px(h.price)}</td><td>${h.quantity ? usd(h.market_value) : "closed"}</td>
       <td class="${sgn(h.unrealized_pl)}">${h.quantity ? signed(h.unrealized_pl) : "—"}</td><td class="hide-sm ${sgn(h.realized_pl)}">${signed(h.realized_pl)}</td></tr>`),
     "No holdings yet");
+  const m = d.monthly_dividends || {holdings:[],pending:[],totals:{}};
+  const fdate = x => x ? new Date(x+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric"}) : "—";
+  const dts = r => r.ex_date ? `${r.dates_upcoming ? "" : "last: "}ex ${fdate(r.ex_date)} · pay ${fdate(r.pay_date)}` : "—";
+  const mt = m.totals || {};
+  $("mcards").innerHTML = m.holdings.length
+    ? card("Monthly payers", m.holdings.length, `value ${usd(mt.market_value)}`) + card("Est. monthly income", usd(mt.est_monthly), `${usd(mt.est_annual)} / year`, "up") + card("Received so far", usd(mt.received))
+    : card("Monthly payers", "0", m.pending.length ? "first monthly dividend buy pending" : "none yet") +
+      card("Pending buys", usd(m.pending.reduce((a,p)=>a+(p.amount||0),0)), m.pending.map(p=>p.symbol).join(", ") || "—") +
+      card("Est. monthly income", m.pending.length ? "~" + usd(m.pending.reduce((a,p)=>a+(p.est_monthly||0),0)) : usd(0), "once pending buys fill");
+  const mrows = m.holdings.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.name)}</span></td><td>${qty(h.shares)}</td>
+      <td>${px(h.avg_cost)}</td><td>${usd(h.market_value)}</td><td>${h.yield_pct.toFixed(2)}%</td><td>${usd(h.monthly_dps,3)}</td>
+      <td class="up">${usd(h.est_monthly)}</td><td>${usd(h.est_annual)}</td><td class="s">${dts(h)}</td><td>${usd(h.received)}</td></tr>`)
+    .concat(m.pending.map(p => `<tr><td><span class="sym">${esc(p.symbol)}</span> <span class="s">${esc(p.name)}</span> <span class="pill pend">PENDING</span></td>
+      <td class="s">~${qty(p.est_shares)}</td><td class="s">${usd(p.amount)} buy</td><td>—</td><td>${p.yield_pct.toFixed(2)}%</td><td>${usd(p.monthly_dps,3)}</td>
+      <td class="s">~${usd(p.est_monthly)}</td><td class="s">~${usd(p.est_annual)}</td><td class="s">${dts(p)}</td><td>${usd(p.received)}</td></tr>`));
+  table("mdiv", [["Holding"],["Shares"],["Avg cost"],["Value"],["Yield"],["Div/share/mo"],["Est. monthly"],["Est. annual"],["Ex / pay date"],["Received"]],
+    mrows, "First monthly dividend buy pending — holdings will show up here once it fills.");
+  $("mnote").textContent = m.pending.length && !m.holdings.length ? "First monthly dividend buy pending. Pending estimates use the latest price; shares and income update once the order fills. Yield and dates from Robinhood fundamentals." : "Estimates use the current declared monthly dividend; yield and dates from Robinhood fundamentals.";
   $("divcards").innerHTML = card("Dividends received", usd(s.dividends)) +
     card("Dividends → crypto", usd(s.dividends_reinvested), "reinvested total", s.dividends_reinvested ? "up" : "");
   table("dividends", [["Date"],["From"],["Amount"],["Reinvested into"]],

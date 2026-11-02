@@ -1,7 +1,7 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "",
-  "updated": "Nov 2, 2026 7:07 AM CT",
+  "updated": "Nov 2, 2026 7:15 AM CT",
   "prices_as_of": "Nov 2, 2026 7:07 AM CT",
   "summary": {
     "total_invested": 229.45,
@@ -122,5 +122,32 @@
       "notes": ""
     }
   ],
-  "dividends": []
+  "dividends": [],
+  "monthly_dividends": {
+    "as_of": "2026-11-02T07:15:00-06:00",
+    "holdings": [],
+    "pending": [
+      {
+        "symbol": "AGNC",
+        "name": "AGNC Investment Corp.",
+        "status": "pending",
+        "amount": 50.0,
+        "est_shares": 5.777,
+        "yield_pct": 16.65,
+        "monthly_dps": 0.12,
+        "est_monthly": 0.69,
+        "est_annual": 8.32,
+        "received": 0,
+        "ex_date": "2026-10-30",
+        "pay_date": "2026-11-10",
+        "dates_upcoming": false
+      }
+    ],
+    "totals": {
+      "market_value": 0,
+      "est_monthly": 0,
+      "est_annual": 0,
+      "received": 0
+    }
+  }
 }
