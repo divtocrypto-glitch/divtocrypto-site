@@ -1,22 +1,22 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 4, 2026 3:33 PM CT",
-  "prices_as_of": "Nov 4, 2026 7:08 AM CT",
+  "updated": "Nov 5, 2026 7:06 AM CT",
+  "prices_as_of": "Nov 5, 2026 7:05 AM CT",
   "summary": {
     "total_invested": 229.45,
     "gross_buys": 254.78,
     "sell_proceeds": 25.33,
     "open_cost_basis": 224.88,
-    "current_value": 198.42,
-    "unrealized_pl": -26.46,
-    "unrealized_pct": -11.77,
+    "current_value": 201.25,
+    "unrealized_pl": -23.63,
+    "unrealized_pct": -10.51,
     "realized_pl": -4.57,
     "realized_pct": -15.28,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -31.03,
-    "total_pct": -13.52,
+    "total_pl": -28.2,
+    "total_pct": -12.29,
     "trade_count": 7
   },
   "holdings": [
@@ -24,7 +24,7 @@
       "symbol": "ENA",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 0.1789216,
+      "price": 0.179437085,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -35,10 +35,10 @@
       "symbol": "XCN",
       "asset_type": "crypto",
       "quantity": 56517.0,
-      "price": 0.003510795,
+      "price": 0.003560935,
       "cost_basis": 224.88,
-      "market_value": 198.42,
-      "unrealized_pl": -26.46,
+      "market_value": 201.25,
+      "unrealized_pl": -23.63,
       "realized_pl": 0.0,
       "avg_cost": 0.003978979775996603
     }
@@ -124,7 +124,7 @@
   ],
   "dividends": [],
   "monthly_dividends": {
-    "as_of": "2026-11-04T07:08:00-06:00",
+    "as_of": "2026-11-05T07:06:16-06:00",
     "holdings": [
       {
         "symbol": "AGNC",
@@ -132,8 +132,8 @@
         "status": "held",
         "shares": 5.748514,
         "avg_cost": 8.7,
-        "market_value": 49.81,
-        "yield_pct": 16.57,
+        "market_value": 51.39,
+        "yield_pct": 16.88,
         "monthly_dps": 0.12,
         "est_monthly": 0.69,
         "est_annual": 8.28,
@@ -145,7 +145,7 @@
     ],
     "pending": [],
     "totals": {
-      "market_value": 49.81,
+      "market_value": 51.39,
       "est_monthly": 0.69,
       "est_annual": 8.28,
       "received": 0
