@@ -147,10 +147,10 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
     card("Realized P&L", signed(s.realized_pl), pct(s.realized_pct), sgn(s.realized_pl)) +
     card("Total P&L", signed(s.total_pl), pct(s.total_pct) + " incl. dividends", sgn(s.total_pl));
   const held = d.holdings.filter(h => h.quantity);
-  table("holdings", [["Asset"],["Qty"],["Avg cost","hide-sm"],["Price"],["Value"],["Unrealized"],["Realized","hide-sm"]],
-    d.holdings.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.asset_type)}</span></td>
-      <td>${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td>${px(h.price)}</td><td>${h.quantity ? usd(h.market_value) : "closed"}</td>
-      <td class="${sgn(h.unrealized_pl)}">${h.quantity ? signed(h.unrealized_pl) : "—"}</td><td class="hide-sm ${sgn(h.realized_pl)}">${signed(h.realized_pl)}</td></tr>`),
+  table("holdings", [["Asset"],["Qty"],["Avg cost","hide-sm"],["Price"],["Value"],["Unrealized"]],
+    held.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.asset_type)}</span></td>
+      <td>${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td>${px(h.price)}</td><td>${usd(h.market_value)}</td>
+      <td class="${sgn(h.unrealized_pl)}">${signed(h.unrealized_pl)}</td></tr>`),
     "No holdings yet");
   const m = d.monthly_dividends || {holdings:[],pending:[],totals:{}};
   const fdate = x => x ? new Date(x+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric"}) : "—";
