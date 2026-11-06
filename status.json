@@ -1,7 +1,7 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 6, 2026 7:41 AM CT",
+  "updated": "Nov 6, 2026 2:07 PM CT",
   "prices_as_of": "Nov 6, 2026 7:39 AM CT",
   "summary": {
     "total_invested": 229.45,
@@ -123,32 +123,36 @@
     }
   ],
   "dividends": [],
-  "monthly_dividends": {
-    "as_of": "2026-11-06T07:41:09-06:00",
-    "holdings": [
-      {
-        "symbol": "AGNC",
-        "name": "AGNC Investment Corp.",
-        "status": "held",
-        "shares": 5.748514,
-        "avg_cost": 8.7,
-        "market_value": 50.13,
-        "yield_pct": 16.23,
-        "monthly_dps": 0.12,
-        "est_monthly": 0.69,
-        "est_annual": 8.28,
-        "received": 0,
-        "ex_date": "2026-10-30",
-        "pay_date": "2026-11-10",
-        "dates_upcoming": false
+  "coinbase": {
+    "grok_trades": [],
+    "scorecard": {
+      "trade_count": 0,
+      "closed_trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate_pct": null,
+      "total_realized_pl": 0.0,
+      "best_trade": null,
+      "worst_trade": null,
+      "empty": true
+    },
+    "platforms": {
+      "robinhood": {
+        "platform": "Robinhood",
+        "trade_count": 7,
+        "gross_buys": 254.78,
+        "sell_proceeds": 25.33,
+        "net_invested": 229.45,
+        "realized_pl": -4.57
+      },
+      "coinbase": {
+        "platform": "Coinbase",
+        "trade_count": 0,
+        "gross_buys": 0,
+        "sell_proceeds": 0,
+        "net_invested": 0,
+        "realized_pl": 0.0
       }
-    ],
-    "pending": [],
-    "totals": {
-      "market_value": 50.13,
-      "est_monthly": 0.69,
-      "est_annual": 8.28,
-      "received": 0
     }
   }
 }

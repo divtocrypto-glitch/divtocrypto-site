@@ -83,7 +83,7 @@
   .tl-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
   .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid var(--line);background:#151c2b;color:var(--text)}
   .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-  .d-build{background:var(--accent2)}.d-money{background:var(--up)}.d-sell{background:var(--down)}.d-next{background:transparent;border:2px dashed var(--accent)}
+  .d-build{background:var(--accent2)}.d-money{background:var(--up)}.d-sell{background:var(--down)}.d-cb{background:#7c5cff}.d-next{background:transparent;border:2px dashed var(--accent)}
   .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin:0 0 26px}
   .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
   .v{font-size:22px;font-weight:750;margin-top:4px;font-variant-numeric:tabular-nums}
@@ -102,6 +102,8 @@
   .ev.build .ic{background:#2a2350}.ev.build .card{border-left-color:var(--accent2)}
   .ev.buy .ic,.ev.dividend .ic{background:#123222}.ev.buy .card,.ev.dividend .card{border-left-color:var(--up)}
   .ev.sell .ic{background:#3a1520}.ev.sell .card{border-left-color:var(--down)}
+  .ev.cb .ic{background:#2a2350}.ev.cb .card{border-left-color:#7c5cff}
+  .cb-tag{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:#2a2350;color:#c4b5fd;font-size:11px;font-weight:700;letter-spacing:.04em;vertical-align:middle}
   .ev.next .ic{background:#2a2010;border:2px dashed var(--accent);box-shadow:none}
   .ev.next .card{border:1px dashed #5a4316;border-left:3px dashed var(--accent);background:#17150f}
   .kind{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
@@ -132,6 +134,7 @@
     <span class="chip"><span class="dot d-build"></span>Build milestone</span>
     <span class="chip"><span class="dot d-money"></span>Financial move: buy / dividend</span>
     <span class="chip"><span class="dot d-sell"></span>Financial move: sell</span>
+    <span class="chip"><span class="dot d-cb"></span>Coinbase</span>
     <span class="chip"><span class="dot d-next"></span>Up next</span>
   </div>
   <div class="grid">

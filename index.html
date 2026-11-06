@@ -74,6 +74,14 @@
   footer .aff-foot{margin:8px 0 0}
   .tools a{color:var(--accent)}
   .tools{font-size:15px}.tools .aff{color:var(--muted);font-size:13px}.muted{color:var(--muted);font-size:13px}
+
+  .cb-note{color:var(--muted);font-size:13px;margin:-2px 0 12px}
+  .vs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .vs .card h3{margin:0 0 8px;font-size:15px}
+  .vs .row{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed var(--line);font-variant-numeric:tabular-nums}
+  .vs .row:last-child{border-bottom:0}
+  .pending{color:var(--accent);font-style:italic}
+  .cb-pill{background:#2a2350;color:#c4b5fd}
   @media (max-width:560px){.v{font-size:20px}th,td{padding:8px 10px}.hide-sm{display:none}}
 </style>
 </head>
@@ -106,6 +114,18 @@
     <h2>💸 Dividends</h2>
     <div class="grid" style="margin-bottom:12px" id="divcards"></div>
     <div class="tbl"><table id="dividends"></table></div>
+  </section>
+
+
+  <section id="coinbase-trades">
+    <h2>Coinbase trades</h2>
+    <div class="grid" style="margin-bottom:12px" id="cbscore"></div>
+    <div class="tbl"><table id="cbgrok"></table></div>
+  </section>
+
+  <section id="platforms">
+    <h2>Robinhood vs Coinbase</h2>
+    <div class="vs" id="cbvs"></div>
   </section>
 
   <section>
@@ -179,8 +199,48 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
   table("dividends", [["Date"],["From"],["Amount"],["Reinvested into"]],
     d.dividends.map(v => `<tr><td>${esc(v.date)}</td><td class="sym">${esc(v.symbol)}</td><td>${usd(v.amount)}</td><td>${esc(v.reinvested_into)||"—"}</td></tr>`),
     "No dividends yet — the first monthly payout will show up here.");
-  table("trades", [["Date"],["Asset"],["Side"],["Qty"],["Avg price"],["Total"],["Notes","hide-sm"]],
-    d.trades.map(t => `<tr><td>${esc(t.date)}</td><td class="sym">${esc(t.symbol)}</td><td><span class="pill ${t.side}">${esc(t.side.toUpperCase())}</span></td>
+
+  // --- Coinbase / Grok section ---
+  const cb = d.coinbase || {grok_trades:[], scorecard:{empty:true}, platforms:{}};
+  const sc = cb.scorecard || {};
+  const best = sc.best_trade ? `${esc(sc.best_trade.symbol)} ${signed(sc.best_trade.realized_pl)}` : "—";
+  const worst = sc.worst_trade ? `${esc(sc.worst_trade.symbol)} ${signed(sc.worst_trade.realized_pl)}` : "—";
+  $("cbscore").innerHTML =
+    card("Win rate", sc.win_rate_pct == null ? "—" : sc.win_rate_pct.toFixed(1) + "%",
+         sc.closed_trades ? `${sc.wins||0}W / ${sc.losses||0}L · ${sc.closed_trades} closed` : "no closed trades yet") +
+    card("Coinbase P&L", signed(sc.total_realized_pl || 0), "realized", sgn(sc.total_realized_pl || 0)) +
+    card("Best trade", best, sc.best_trade ? esc(sc.best_trade.time || sc.best_trade.date || "") : "—",
+         sc.best_trade && sc.best_trade.realized_pl > 0 ? "up" : "") +
+    card("Worst trade", worst, sc.worst_trade ? esc(sc.worst_trade.time || sc.worst_trade.date || "") : "—",
+         sc.worst_trade && sc.worst_trade.realized_pl < 0 ? "down" : "");
+  table("cbgrok",
+    [["When"],["Coin"],["Side"],["Price"],["Size"],["Total","hide-sm"],["P&L"],["Reason"]],
+    (cb.grok_trades || []).map(t => {
+      const reason = (t.reason && t.reason !== "pending")
+        ? esc(t.reason)
+        : `<span class="pending">pending</span>`;
+      return `<tr><td>${esc(t.time || t.date)}</td><td class="sym">${esc(t.symbol)}</td>
+        <td><span class="pill ${t.side}">${esc((t.side||"").toUpperCase())}</span></td>
+        <td>${px(t.price)}</td><td>${qty(t.quantity)}</td><td class="hide-sm">${usd(t.total)}</td>
+        <td class="${sgn(t.realized_pl)}">${t.realized_pl == null ? "—" : signed(t.realized_pl)}</td>
+        <td class="note">${reason}</td></tr>`;
+    }),
+    "No Coinbase trades yet.");
+  const plat = cb.platforms || {};
+  const sideCard = (p, note) => {
+    if (!p) return `<div class="card"><h3>—</h3><div class="s">no data</div></div>`;
+    return `<div class="card"><h3>${esc(p.platform)}</h3>
+      <div class="row"><span class="s">Trades</span><b>${p.trade_count}</b></div>
+      <div class="row"><span class="s">Gross buys</span><b>${usd(p.gross_buys)}</b></div>
+      <div class="row"><span class="s">Sell proceeds</span><b>${usd(p.sell_proceeds)}</b></div>
+      <div class="row"><span class="s">Net invested</span><b>${usd(p.net_invested)}</b></div>
+      <div class="row"><span class="s">Realized P&L</span><b class="${sgn(p.realized_pl)}">${signed(p.realized_pl)}</b></div>
+      ${note ? `<div class="s" style="margin-top:8px">${esc(note)}</div>` : ""}</div>`;
+  };
+  $("cbvs").innerHTML = sideCard(plat.robinhood) + sideCard(plat.coinbase);
+
+    table("trades", [["Date"],["Asset"],["Side"],["Qty"],["Avg price"],["Total"],["Notes","hide-sm"]],
+    d.trades.map(t => `<tr><td>${esc(t.date)}</td><td class="sym">${esc(t.symbol)} <span class="s">${esc(t.platform||"")}</span></td><td><span class="pill ${t.side}">${esc(t.side.toUpperCase())}</span></td>
       <td>${qty(t.quantity)}</td><td>${px(t.price)}</td><td>${usd(t.total)}</td><td class="note hide-sm">${esc(t.notes)}</td></tr>`),
     "No trades yet");
 }).catch(e => { $("updated").textContent = "Could not load status.json (open this page through a web server, not file://)."; });
