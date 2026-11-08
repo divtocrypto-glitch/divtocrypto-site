@@ -1,22 +1,22 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 8, 2026 7:33 AM CT",
-  "prices_as_of": "Nov 8, 2026 7:01 AM CT",
+  "updated": "Nov 8, 2026 10:05 AM CT",
+  "prices_as_of": "Nov 8, 2026 10:04 AM CT",
   "summary": {
     "total_invested": 229.45,
     "gross_buys": 254.78,
     "sell_proceeds": 25.33,
     "open_cost_basis": 224.88,
-    "current_value": 190.97,
-    "unrealized_pl": -33.91,
-    "unrealized_pct": -15.08,
+    "current_value": 191.91,
+    "unrealized_pl": -32.97,
+    "unrealized_pct": -14.66,
     "realized_pl": -4.57,
     "realized_pct": -15.28,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -38.48,
-    "total_pct": -16.77,
+    "total_pl": -37.54,
+    "total_pct": -16.36,
     "trade_count": 7
   },
   "holdings": [
@@ -24,7 +24,7 @@
       "symbol": "ENA",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 0.1535829,
+      "price": 0.15401792,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -35,10 +35,10 @@
       "symbol": "XCN",
       "asset_type": "crypto",
       "quantity": 56517.0,
-      "price": 0.003378935,
+      "price": 0.00339559,
       "cost_basis": 224.88,
-      "market_value": 190.97,
-      "unrealized_pl": -33.91,
+      "market_value": 191.91,
+      "unrealized_pl": -32.97,
       "realized_pl": 0.0,
       "avg_cost": 0.003978979775996603
     }
@@ -156,7 +156,7 @@
     }
   },
   "monthly_dividends": {
-    "as_of": "2026-11-08T07:02:00-06:00",
+    "as_of": "2026-11-08T10:05:01-06:00",
     "holdings": [
       {
         "symbol": "AGNC",
