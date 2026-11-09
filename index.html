@@ -117,6 +117,12 @@
   </section>
 
 
+  <section id="coinbase-holdings">
+    <h2>Coinbase holdings</h2>
+    <div class="grid" style="margin-bottom:12px" id="cbholdcards"></div>
+    <div class="tbl"><table id="cbholdings"></table></div>
+  </section>
+
   <section id="coinbase-trades">
     <h2>Coinbase trades</h2>
     <div class="grid" style="margin-bottom:12px" id="cbscore"></div>
@@ -207,7 +213,32 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
     "No dividends yet — the first monthly payout will show up here.");
 
   // --- Coinbase / Grok section ---
-  const cb = d.coinbase || {grok_trades:[], scorecard:{empty:true}, platforms:{}};
+  const cb = d.coinbase || {grok_trades:[], scorecard:{empty:true}, platforms:{}, holdings:{}};
+  const cbh = cb.holdings || {};
+  const usdc = cbh.usdc || null;
+  const xcnH = cbh.xcn || {none_yet:true, quantity:0};
+  $("cbholdcards").innerHTML =
+    card("USDC", usdc ? usd(usdc.rounded_usd, 0) : "—",
+         usdc ? "trading cash (rounded)" : "awaiting refresh") +
+    card("XCN (new)", xcnH.none_yet ? "none yet" : qty(xcnH.quantity),
+         xcnH.none_yet ? "no new buys yet" : `value ${usd(xcnH.market_value)}`,
+         xcnH.none_yet ? "" : sgn(xcnH.unrealized_pl));
+  const cbHoldRows = [];
+  if (usdc) {
+    cbHoldRows.push(`<tr><td><span class="sym">USDC</span> <span class="s">cash</span></td>
+      <td>${usd(usdc.balance)}</td><td class="hide-sm">$1.00</td><td>$1.00</td>
+      <td>${usd(usdc.rounded_usd, 0)}</td><td>—</td></tr>`);
+  }
+  if (!xcnH.none_yet && xcnH.quantity) {
+    cbHoldRows.push(`<tr><td><span class="sym">XCN</span> <span class="s">crypto</span></td>
+      <td>${qty(xcnH.quantity)}</td><td class="hide-sm">${px(xcnH.avg_cost)}</td><td>${px(xcnH.price)}</td>
+      <td>${usd(xcnH.market_value)}</td>
+      <td class="${sgn(xcnH.unrealized_pl)}">${signed(xcnH.unrealized_pl)}</td></tr>`);
+  }
+  table("cbholdings",
+    [["Asset"],["Qty / balance"],["Avg cost","hide-sm"],["Price"],["Value"],["Unrealized"]],
+    cbHoldRows,
+    usdc ? "No new Coinbase crypto buys yet — USDC cash is shown above." : "Coinbase holdings pending refresh.");
   const sc = cb.scorecard || {};
   const best = sc.best_trade ? `${esc(sc.best_trade.symbol)} ${signed(sc.best_trade.realized_pl)}` : "—";
   const worst = sc.worst_trade ? `${esc(sc.worst_trade.symbol)} ${signed(sc.worst_trade.realized_pl)}` : "—";

@@ -1,7 +1,7 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 9, 2026 8:11 AM CT",
+  "updated": "Nov 9, 2026 8:40 AM CT",
   "prices_as_of": "Nov 9, 2026 7:06 AM CT",
   "summary": {
     "total_invested": 229.45,
@@ -152,6 +152,22 @@
         "sell_proceeds": 0,
         "net_invested": 0,
         "realized_pl": 0.0
+      }
+    },
+    "holdings": {
+      "usdc": {
+        "balance": 312.97,
+        "rounded_usd": 313
+      },
+      "xcn": {
+        "quantity": 0.0,
+        "cost_basis": 0.0,
+        "avg_cost": null,
+        "price": 0.003295095,
+        "market_value": 0.0,
+        "unrealized_pl": 0.0,
+        "none_yet": true,
+        "fill_count": 0
       }
     }
   },
