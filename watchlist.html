@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- ga4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GP28V56YYZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GP28V56YYZ");</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
+<title>Daily Watchlist (Educational) | DivToCrypto</title>
+<meta name="description" content="Educational Stock Finder watchlist with end-of-day follow-ups. Not financial advice.">
+<meta name="theme-color" content="#0b1426">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://divtocrypto.com/watchlist.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DivToCrypto">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Daily Watchlist (Educational) | DivToCrypto">
+<meta property="og:description" content="Educational Stock Finder watchlist with end-of-day follow-ups. Not financial advice.">
+<meta property="og:url" content="https://divtocrypto.com/watchlist.html">
+<meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DivToCrypto logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@divtocrypto">
+<meta name="twitter:creator" content="@divtocrypto">
+<meta name="twitter:title" content="Daily Watchlist (Educational) | DivToCrypto">
+<meta name="twitter:description" content="Educational Stock Finder watchlist with end-of-day follow-ups. Not financial advice.">
+<meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="DivToCrypto logo">
+<style>
+  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid var(--line)}
+  .pill.ok{background:#14301f;color:var(--up);border-color:#1f4a30}
+  .pill.bad{background:#3a1518;color:var(--down);border-color:#5a2228}
+  .pill.wait{background:#2a2010;color:var(--accent);border-color:#5a4316}
+  .pill.mute{background:#1a2233;color:var(--muted)}
+  .grade{font-size:22px;font-weight:800;color:var(--accent2)}
+  .meta{color:var(--muted);font-size:13px}
+  .tbl td.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .prose h2{margin-top:28px}
+</style>
+<style>
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+  .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
+  .wordmark{display:block;height:30px;width:auto}
+  .brand .t{margin:0;line-height:0;font-size:0}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover{border-color:#3a4a66}
+  .nav a.on{background:#2a2350;border-color:#3a3160}
+  a{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .muted{color:var(--muted)}
+  .draft{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#3a2a10;color:var(--accent);vertical-align:middle}
+  .draftbar{margin:0 0 18px;padding:10px 14px;border:1px solid #5a4316;background:#2a2010;color:var(--accent);border-radius:12px;font-size:14px}
+  .list{display:grid;gap:12px}
+  .post-card{display:block;color:inherit;text-decoration:none;transition:border-color .15s}
+  .post-card:hover{border-color:#3a4a66}
+  .post-card h2{font-size:19px;margin:4px 0 6px;line-height:1.3;color:var(--text)}
+  .post-card p{margin:0;color:var(--muted)}
+  .meta{color:var(--muted);font-size:13px}
+  .pagehead h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+  .pagehead p{margin:0 0 20px;color:var(--muted)}
+  article{max-width:720px;margin:0 auto}
+  article h1{font-size:32px;line-height:1.2;margin:6px 0 8px;letter-spacing:-.01em}
+  .back{font-size:14px;text-decoration:none}
+  .body{font-size:17px;line-height:1.7}
+  .body h2{font-size:22px;line-height:1.3;margin:34px 0 10px}
+  .body h3{font-size:18px;margin:24px 0 8px}
+  .body p,.body ul,.body ol{margin:0 0 16px}
+  .body li{margin:4px 0}
+  .body strong{color:#fff}
+  .body code{background:#1a2233;padding:1px 6px;border-radius:6px;font-size:.9em}
+  .body blockquote{margin:0 0 16px;padding:8px 16px;border-left:3px solid var(--accent2);background:#151b2b;border-radius:0 10px 10px 0;color:#cfd6e2}
+  .body hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 18px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px;line-height:1.45}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .endcard{margin-top:30px;border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  .endcard p{margin:0 0 8px}.endcard p:last-child{margin:0}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  footer .aff{margin:8px 0 0}
+  .postfoot{margin-top:16px;color:var(--muted);font-size:14px}.postfoot p{margin:0 0 6px}.postfoot p:last-child{margin:0}
+  .prose{max-width:760px}.prose h2{font-size:20px;margin:26px 0 8px}.prose p,.prose li{color:#cfd6e2;font-size:16px;line-height:1.65}
+  @media (max-width:560px){.body{font-size:16px}article h1{font-size:26px}.body h2{font-size:20px}th,td{padding:8px 10px}header{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./"><img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
+    <nav class="nav" aria-label="Site"><a href="./">Dashboard</a><a href="blog/">Blog</a><a href="timeline.html">Timeline</a><a href="top30.html">Top 30 Monthly</a><a href="xcn.html">XCN</a><a href="watchlist.html">Watchlist</a><a href="skipped.html">Skipped</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a><a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok</a></nav>
+  </header>
+<div class="card" style="border-color:#5a4316;background:#2a2010"><b>Educational, not financial advice.</b> Watchlists, skips, grades and closed trades document our process for learning. Nothing here is a recommendation to buy or sell. You can lose money. Do your own research.</div>
+  <div class="pagehead"><h1>Daily watchlist</h1>
+  <p>Morning educational setups from Stock Finder for <b>2026-11-09</b>, with an end-of-day follow-up on each pick
+  (triggered or not, hit target or stop, % move). Source: company setups log.</p></div>
+  <div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">CCL</b> <span class="meta">· Stock Finder</span></div><div><span class="pill ok">triggered</span> <span class="pill bad">-0.1% move</span></div></div><p style="margin:10px 0 6px">Breakout above 30d high 31.57 (Nov 5); premarket +3.4% at 30.58 on travel/cruise strength</p><p class="meta">Entry 31.6 · Stop 31.0 · Target 32.95</p><p style="margin:10px 0 0"><b>EOD / status:</b> Triggered at 30.95 and still open above the 30.35 stop late in the session; no realized result.</p></div>
+<div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">LUV</b> <span class="meta">· Stock Finder</span></div><div><span class="pill ok">triggered</span> <span class="pill bad">-1.2% move</span></div></div><p style="margin:10px 0 6px">Breakout above 30d high 46.84; airlines bid premarket (+3.8% to 46.14)</p><p class="meta">Entry 46.9 · Stop 45.95 · Target 49.1</p><p style="margin:10px 0 0"><b>EOD / status:</b> Triggered at 46.90 but the breakout failed; still open above the 45.75 stop late in the session, no realized result.</p></div>
+<div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">DAL</b> <span class="meta">· Stock Finder</span></div><div><span class="pill mute">not triggered</span> <span class="pill ok">hit target</span></div></div><p style="margin:10px 0 6px">Gap above 30d high 89.92 (premarket 91.03); buy only on retest of 89.90-90.00 holding</p><p class="meta">Entry 90.0 · Stop 88.9 · Target 92.5</p><p style="margin:10px 0 0"><b>EOD / status:</b> Ran to its target without the pullback entry, so no trade.</p></div>
+<div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">FCX</b> <span class="meta">· Stock Finder</span></div><div><span class="pill mute">not triggered</span> <span class="pill ok">hit target</span> <span class="pill ok">+2.7% move</span></div></div><p style="margin:10px 0 6px">Pullback-to-support: gap-fill retest of Nov 6 high 60.52 after Nov 5 flush to 56.75; premarket 61.65</p><p class="meta">Entry 60.6 · Stop 59.8 · Target 62.4</p><p style="margin:10px 0 0"><b>EOD / status:</b> Ran to ~62.27 near the 62.40 target at the open without a pullback — setup invalidated as a chase.</p></div>
+<div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">PFLT</b> <span class="meta">· Stock Finder</span></div><div><span class="pill mute">not triggered</span></div></div><p style="margin:10px 0 6px">Carry-over: breakout above 7.10 (30d high 7.09); ex-div Nov 13</p><p class="meta">Entry 7.1 · Stop 6.9 · Target 7.58</p><p style="margin:10px 0 0"><b>EOD / status:</b> No fill; Chart Bot NO TRADE still stands.</p></div>
+<div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">GWRS</b> <span class="meta">· Stock Finder</span></div><div><span class="pill mute">not triggered</span> <span class="pill bad">hit stop zone</span> <span class="pill bad">-1.0% move</span></div></div><p style="margin:10px 0 6px">Carry-over: reversal trigger above 7.40 after post-earnings selloff to 7.245</p><p class="meta">Entry 7.4 · Stop 7.18 · Target 8.0</p><p style="margin:10px 0 0"><b>EOD / status:</b> Traded 7.17 under the 7.18 planned stop before ever triggering — downtrend continues.</p></div>
+<div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">UAL</b> <span class="meta">· Stock Finder</span></div><div><span class="pill mute">not triggered</span> <span class="pill ok">hit target</span></div></div><p style="margin:10px 0 6px">re-check 1.5:1: NEW conditional — buy hold of 117.50-117.60 (today low / Nov 4-5 highs reclaim); stop 116.50; target 121.50</p><p class="meta">Entry 117.55</p><p style="margin:10px 0 0"><b>EOD / status:</b> Ran to its target without the pullback entry, so no trade.</p></div>
+<div class="card"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between"><div><b style="font-size:18px">WMT</b> <span class="meta">· Stock Finder</span></div><div><span class="pill ok">triggered</span></div></div><p style="margin:10px 0 6px">Chart Bot setup: buy 125.53 on reclaim of 125.52, stop 123.55, tgt 129.17 (1.81:1 net of ~0.02 spread)</p><p class="meta">Entry 125.53</p><p style="margin:10px 0 0"><b>EOD / status:</b> not confirmed: tagged 125.53 high once (12:40 CT bar), last 125.52 at 12:44; no hold above 125.52 yet</p></div>
+  <div class="prose">
+  <h2>How to read this</h2>
+  <ul>
+  <li><b>Not triggered</b> means no order was placed — the level never printed or the setup was invalidated first.</li>
+  <li><b>Hit target / hit stop</b> describes price action relative to the planned levels, even when we did not fill.</li>
+  <li>Skipped or rejected names for the day also appear on the <a href="skipped.html">Trades we skipped</a> page when that section is on.</li>
+  </ul>
+  </div>
+
+  <footer>
+    <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
+    recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
+    Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
+    <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="disclosures.html">Disclosures</a></p>
+  </footer>
+</div>
+</body>
+</html>
