@@ -1,30 +1,30 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 10, 2026 3:53 PM CT",
-  "prices_as_of": "Nov 10, 2026 7:08 AM CT",
+  "updated": "Nov 11, 2026 7:02 AM CT",
+  "prices_as_of": "Nov 11, 2026 7:01 AM CT",
   "summary": {
-    "total_invested": 229.45,
-    "gross_buys": 254.78,
+    "total_invested": 308.95,
+    "gross_buys": 334.28,
     "sell_proceeds": 25.33,
-    "open_cost_basis": 224.88,
-    "current_value": 180.2,
-    "unrealized_pl": -44.68,
-    "unrealized_pct": -19.87,
+    "open_cost_basis": 304.38,
+    "current_value": 200.53,
+    "unrealized_pl": -24.35,
+    "unrealized_pct": -8.0,
     "realized_pl": -4.57,
     "realized_pct": -15.28,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -49.25,
-    "total_pct": -21.46,
-    "trade_count": 7
+    "total_pl": -28.92,
+    "total_pct": -9.36,
+    "trade_count": 8
   },
   "holdings": [
     {
       "symbol": "ENA",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 0.1542434,
+      "price": 0.15162205,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -32,18 +32,40 @@
       "avg_cost": null
     },
     {
+      "symbol": "ICP",
+      "asset_type": "crypto",
+      "quantity": 31.0,
+      "price": null,
+      "cost_basis": 79.5,
+      "market_value": null,
+      "unrealized_pl": null,
+      "realized_pl": 0.0,
+      "avg_cost": 2.564516129032258
+    },
+    {
       "symbol": "XCN",
       "asset_type": "crypto",
       "quantity": 56517.0,
-      "price": 0.003188335,
+      "price": 0.003548105,
       "cost_basis": 224.88,
-      "market_value": 180.2,
-      "unrealized_pl": -44.68,
+      "market_value": 200.53,
+      "unrealized_pl": -24.35,
       "realized_pl": 0.0,
       "avg_cost": 0.003978979775996603
     }
   ],
   "trades": [
+    {
+      "date": "2026-11-10",
+      "platform": "Coinbase",
+      "asset_type": "crypto",
+      "symbol": "ICP",
+      "side": "buy",
+      "quantity": 31.0,
+      "price": 2.5645,
+      "total": 79.5,
+      "notes": ""
+    },
     {
       "date": "2026-10-31",
       "platform": "Robinhood",
@@ -124,9 +146,22 @@
   ],
   "dividends": [],
   "coinbase": {
-    "grok_trades": [],
+    "grok_trades": [
+      {
+        "date": "2026-11-10",
+        "time": "Nov 10, 2026 (time pending)",
+        "symbol": "ICP",
+        "side": "buy",
+        "quantity": 31.0,
+        "price": 2.5645,
+        "total": 79.5,
+        "realized_pl": null,
+        "reason": "pending",
+        "platform": "Coinbase"
+      }
+    ],
     "scorecard": {
-      "trade_count": 0,
+      "trade_count": 1,
       "closed_trades": 0,
       "wins": 0,
       "losses": 0,
@@ -134,7 +169,7 @@
       "total_realized_pl": 0.0,
       "best_trade": null,
       "worst_trade": null,
-      "empty": true
+      "empty": false
     },
     "platforms": {
       "robinhood": {
@@ -147,23 +182,23 @@
       },
       "coinbase": {
         "platform": "Coinbase",
-        "trade_count": 0,
-        "gross_buys": 0,
+        "trade_count": 1,
+        "gross_buys": 79.5,
         "sell_proceeds": 0,
-        "net_invested": 0,
+        "net_invested": 79.5,
         "realized_pl": 0.0
       }
     },
     "holdings": {
       "usdc": {
-        "balance": 312.97,
-        "rounded_usd": 313
+        "balance": 233.17,
+        "rounded_usd": 233
       },
       "xcn": {
         "quantity": 0.0,
         "cost_basis": 0.0,
         "avg_cost": null,
-        "price": 0.003188335,
+        "price": 0.003548105,
         "market_value": 0.0,
         "unrealized_pl": 0.0,
         "none_yet": true,
@@ -172,7 +207,7 @@
     }
   },
   "monthly_dividends": {
-    "as_of": "2026-11-10T07:15:00-06:00",
+    "as_of": "2026-11-11T07:10:00-06:00",
     "holdings": [
       {
         "symbol": "AGNC",
@@ -180,8 +215,8 @@
         "status": "held",
         "shares": 5.748514,
         "avg_cost": 8.7,
-        "market_value": 51.31,
-        "yield_pct": 16.4,
+        "market_value": 50.27,
+        "yield_pct": 16.13,
         "monthly_dps": 0.12,
         "est_monthly": 0.69,
         "est_annual": 8.28,
@@ -193,7 +228,7 @@
     ],
     "pending": [],
     "totals": {
-      "market_value": 51.31,
+      "market_value": 50.27,
       "est_monthly": 0.69,
       "est_annual": 8.28,
       "received": 0
