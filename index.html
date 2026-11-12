@@ -5,6 +5,7 @@
 <!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "DivToCrypto", "alternateName": "Dividends to Crypto", "url": "https://divtocrypto.com/", "description": "A public, real-money log of turning monthly dividends into crypto.", "publisher": {"@type": "Organization", "name": "DivToCrypto", "url": "https://divtocrypto.com/", "logo": {"@type": "ImageObject", "url": "https://divtocrypto.com/assets/logo-icon-96.png"}, "sameAs": ["https://x.com/divtocrypto", "https://www.tiktok.com/@divtocrypto.com", "https://www.instagram.com/divtocrypto/", "https://www.youtube.com/@divtocrypto"]}}</script>
 <!--/seo-head-->
+<!-- Homepage is hand-maintained. build_blog.py injects nav, SEO, and AdSense only; this file is not replaced. The dashboard reads status.json in the browser. -->
 <!-- ga4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GP28V56YYZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GP28V56YYZ");</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4121243453868109" crossorigin="anonymous"></script>
 <meta charset="utf-8">
@@ -12,9 +13,6 @@
 <title>DivToCrypto — Dividends to Crypto P&amp;L</title>
 <meta name="description" content="A public, real-money journey: turning monthly dividends into crypto. Every trade logged.">
 <meta name="theme-color" content="#0b1426">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="canonical" href="https://divtocrypto.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DivToCrypto">
@@ -30,130 +28,334 @@
 <meta name="twitter:title" content="DivToCrypto — Dividends to Crypto P&amp;L">
 <meta name="twitter:description" content="A public, real-money journey: turning monthly dividends into crypto. Every trade logged.">
 <meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <style>
-  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff;--chip:#1a2233}
   *{box-sizing:border-box}
-  html{background:var(--bg)}
+  html{background:var(--bg);scroll-behavior:smooth}
   body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
        font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  a{color:var(--accent)}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#111;padding:8px 12px;border-radius:8px;font-weight:700;z-index:20}
+  .skip:focus{left:8px}
   .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
-  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
   .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
   .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
   .wordmark{display:block;height:30px;width:auto}
   .brand h1{margin:0;line-height:0;font-size:0}
-  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);margin-top:3px}
   .hdr-r{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .nav{display:flex;flex-wrap:wrap;gap:8px}
-  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
-  .nav a:hover{border-color:#3a4a66}
-  .yt{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#ff0033;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
-  .yt.soon{background:#2a3347;color:var(--muted);pointer-events:none}
-  .updated{color:var(--muted);font-size:13px;margin:-8px 0 18px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:var(--chip);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover,.nav a:focus-visible{border-color:#3a4a66;outline:none}
+  .nav a.on{background:#2a2350;border-color:#3a3160}
+  .social{display:flex;flex-wrap:wrap;gap:8px}
+  .social a{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:var(--chip);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:13px}
+  .social a:hover{border-color:#3a4a66}
+  .updated{color:var(--muted);font-size:13px;margin:0 0 8px}
+
+  /* Hero */
+  .hero{text-align:center;padding:28px 20px 32px;border:1px solid #3a3160;border-radius:18px;
+        background:linear-gradient(135deg,#1a1630,#131a26);margin-bottom:28px}
+  .hero h2{margin:0 auto 10px;font-size:clamp(22px,3.2vw,32px);line-height:1.25;letter-spacing:-.02em;font-weight:750;max-width:18.5em}
+  .hero .sub{margin:0 auto 16px;color:var(--muted);font-size:16px;max-width:42ch;line-height:1.5}
+  .hero-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--accent);color:#1a1408;text-decoration:none;font-weight:750;font-size:14px}
+  .hero-cta:hover{filter:brightness(1.05)}
+
+  /* How it works */
+  section{margin-top:32px}
+  .sec-h{margin:0 0 6px;font-size:20px;letter-spacing:-.01em}
+  .sec-l{margin:0 0 14px;color:var(--muted);font-size:14px}
+  .steps{display:grid;gap:12px;grid-template-columns:repeat(4,1fr);list-style:none;padding:0;margin:0;counter-reset:step}
+  .steps li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 18px;position:relative}
+  .step-num{width:28px;height:28px;border-radius:999px;background:#2a2350;color:#c4b5fd;font-weight:750;font-size:13px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .steps h3{margin:0 0 6px;font-size:15px;line-height:1.3}
+  .steps p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+  .steps .tip{display:block;margin-top:8px;font-size:12px;color:#c4b5fd}
+
+  /* Cards / numbers */
   .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-  .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:6px}
   .v{font-size:24px;font-weight:750;margin-top:4px;font-variant-numeric:tabular-nums}
   .s{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
   .up{color:var(--up)}.down{color:var(--down)}
-  .hero{border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
-  section{margin-top:26px}
-  h2{font-size:16px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .help{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:99px;border:1px solid #3a4a66;color:var(--muted);font-size:11px;font-weight:700;cursor:help;flex:none}
+  .help:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .portfolio-row{display:grid;gap:12px;grid-template-columns:1fr 1fr;align-items:stretch}
+  .portfolio-total{border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26);display:flex;flex-direction:column;justify-content:center;padding:20px 22px}
+  .portfolio-total .v{font-size:clamp(32px,5vw,44px);letter-spacing:-.02em;margin:6px 0 10px}
+  .breakdown{margin:8px 0 0;padding:0;list-style:none}
+  .breakdown li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px dashed var(--line);font-variant-numeric:tabular-nums;font-size:14px}
+  .breakdown li:last-child{border-bottom:0}
+  .priv-note{margin:12px 0 0;color:var(--muted);font-size:13px}
+
+  .chart-card{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center;padding:18px}
+  .donut-wrap{position:relative;width:220px;height:220px;flex:none}
+  .donut-wrap svg{width:220px;height:220px;display:block}
+  .donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;text-align:center;padding:36px}
+  .donut-center .dv{font-weight:750;font-size:18px;font-variant-numeric:tabular-nums;line-height:1.1}
+  .donut-center .dk{font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+  .legend{flex:1;min-width:180px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .legend li{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:start;font-size:13px;font-variant-numeric:tabular-nums}
+  .swatch{width:12px;height:12px;border-radius:3px;margin-top:4px;flex:none}
+  .legend .lab{color:var(--text);line-height:1.3}
+  .legend .amt{text-align:right;white-space:nowrap;color:var(--muted)}
+  .legend .amt b{display:block;color:var(--text);font-weight:650}
+
+  .metrics{margin-top:12px}
+
   .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
   table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
   th,td{padding:10px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
   th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
   th:first-child,td:first-child{text-align:left}
   tr:last-child td{border-bottom:0}
-  td.note{white-space:normal;text-align:left;color:var(--muted);min-width:200px}
-  .pend{background:#2a2410;color:var(--accent)}
+  td.note{white-space:normal;text-align:left;color:var(--muted);min-width:120px;max-width:280px}
+  td.empty{white-space:normal;text-align:center;padding:22px;color:var(--muted)}
   .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700}
   .buy{background:#123222;color:var(--up)}.sell{background:#3a1520;color:var(--down)}
   .sym{font-weight:700}
-  td.empty{white-space:normal;text-align:center;padding:22px;text-align:center;color:var(--muted)}
-  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
-  footer .aff-foot{margin:8px 0 0}
-  .tools a{color:var(--accent)}
-  .tools{font-size:15px}.tools .aff{color:var(--muted);font-size:13px}.muted{color:var(--muted);font-size:13px}
+  .pending{color:var(--accent);font-style:italic}
 
-  .cb-note{color:var(--muted);font-size:13px;margin:-2px 0 12px}
+  .split{display:grid;gap:12px;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:start}
+  .split > *{min-width:0}
+  .tbl{max-width:100%}
+  th.note,td.note{text-align:left}
+  .score .card{min-height:88px}
+  html,body{max-width:100%;overflow-x:hidden}
+
+  /* Explore */
+  .explore{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .explore a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+  .explore a:hover,.explore a:focus-visible{border-color:#3a4a66;outline:none;transform:translateY(-1px)}
+  .explore a.start{border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  .explore h3{margin:0 0 4px;font-size:16px}
+  .explore p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}
+  .explore .go{display:inline-block;margin-top:8px;color:var(--accent);font-weight:700;font-size:13px}
+
+  .more{display:inline-flex;align-items:center;margin-top:12px;padding:8px 16px;border-radius:999px;background:var(--chip);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:700;font-size:14px}
+  .more:hover,.more:focus-visible{border-color:#3a4a66;color:var(--accent);outline:none}
+  .sec-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+  .sec-head .sec-h{margin:0}
+
+  .pend{background:#2a2410;color:var(--accent)}
+  .cb-pill{background:#2a2350;color:#c4b5fd}
   .vs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
   .vs .card h3{margin:0 0 8px;font-size:15px}
   .vs .row{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed var(--line);font-variant-numeric:tabular-nums}
   .vs .row:last-child{border-bottom:0}
-  .pending{color:var(--accent);font-style:italic}
-  .cb-pill{background:#2a2350;color:#c4b5fd}
-  @media (max-width:560px){.v{font-size:20px}th,td{padding:8px 10px}.hide-sm{display:none}}
+  .tools a{color:var(--accent)}
+  .tools .aff{color:var(--muted);font-size:13px}
+  .bot-chart{width:100%;height:auto;border-radius:10px;margin-top:10px}
+  .yt{background:#ff0033;color:#fff}
+  .yt.soon{background:#2a3347;color:var(--muted);pointer-events:none}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  footer .aff-foot{margin:8px 0 0}
+  .muted{color:var(--muted);font-size:13px}
+
+  @media (max-width:800px){
+    .steps{grid-template-columns:1fr 1fr}
+    .portfolio-row,.split{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .v{font-size:20px}
+    .portfolio-total .v{font-size:32px}
+    th,td{padding:8px 10px}
+    .hide-sm{display:none !important}
+    .steps{grid-template-columns:1fr}
+    .hero{padding:22px 16px 24px}
+    .nav a{padding:7px 11px;font-size:13px}
+    .social{display:none}
+    .brand small{max-width:16rem}
+    #cbgrok td,#cbgrok th{white-space:normal}
+    .tbl td .s{display:none}
+    .tbl td:first-child,.tbl th:first-child{white-space:normal}
+  }
 </style>
 </head>
 <body>
+<a class="skip" href="#numbers">Skip to the numbers</a>
 <div class="wrap">
   <header>
-    <a class="brand" href="./"><img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt=""><div><h1><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></h1><small><span id="brand">Dividends to Crypto</span> · monthly dividends → crypto, tracked in public</small></div></a>
-    <div class="hdr-r"><!--blog-nav--><nav class="nav" aria-label="Site"><a href="blog/">Blog</a><a href="timeline.html">Timeline</a><a href="top30.html">Top 30 Monthly</a><a href="xcn.html">XCN</a><a href="watchlist.html">Watchlist</a><a href="skipped.html">Skipped</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a></nav><!--/blog-nav-->
-    <a id="yt" class="yt soon" href="#" target="_blank" rel="noopener">▶ YouTube — coming soon</a>
-    <a id="tt" class="yt" href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">♪ TikTok @divtocrypto.com</a>
-    <a id="ig" class="yt" href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">◎ Instagram @divtocrypto</a></div>
+    <a class="brand" href="./">
+      <img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt="">
+      <div>
+        <h1><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></h1>
+        <small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small>
+      </div>
+    </a>
+    <div class="hdr-r"><!--blog-nav--><nav class="nav" aria-label="Site"><a href="./" class="on">Dashboard</a><a href="blog/">Blog</a><a href="trades.html">Trades</a><a href="timeline.html">Timeline</a><a href="top30.html">Top 30 Monthly</a><a href="xcn.html">XCN</a><a href="watchlist.html">Watchlist</a><a href="skipped.html">Skipped</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a></nav><!--/blog-nav--></div>
   </header>
-  <div class="updated" id="updated">Loading…</div>
+  <div class="social" style="margin:-8px 0 16px">
+    <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a>
+    <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram</a>
+    <a id="yt" class="yt soon" href="https://www.youtube.com/@divtocrypto" target="_blank" rel="noopener">YouTube</a>
+  </div>
 
-  <div class="grid" id="cards"></div>
-  <div class="muted" id="pnote" style="margin-top:8px"></div>
-
-  <section>
-    <h2>📊 Holdings</h2>
-    <div class="tbl"><table id="holdings"></table></div>
+  <section class="hero" aria-label="What this site is">
+    <h2>We buy monthly dividend stocks, reinvest the payouts into crypto, and log every trade in public.</h2>
+    <p class="sub">A real-money experiment run with an AI bot team, shared for education — not financial advice.</p>
+    <a class="hero-cta" href="about.html">New here? Start here</a>
   </section>
 
-  <section id="monthly">
-    <h2>🗓️ Monthly Dividend Holdings</h2>
+  <section aria-labelledby="how-h">
+    <h2 class="sec-h" id="how-h">How it works</h2>
+    <p class="sec-l">Four steps. The Owner approves anything that goes public.</p>
+    <ol class="steps">
+      <li>
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3>Dividend stocks pay us monthly</h3>
+        <p>We hold stocks that send a cash dividend every month. That income is the starting point.</p>
+      </li>
+      <li>
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3>We reinvest into crypto</h3>
+        <p>Those payouts are put into crypto we follow, instead of being taken as cash.</p>
+      </li>
+      <li>
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3>AI bots find and trade setups with stops</h3>
+        <p>A small bot team researches ideas and takes small positions.</p>
+        <span class="tip">A stop is an automatic sell if the price falls to a set level, to limit a loss.</span>
+      </li>
+      <li>
+        <div class="step-num" aria-hidden="true">4</div>
+        <h3>Every result is logged here</h3>
+        <p>Wins, losses, skipped trades, and the public portfolio are posted so you can follow along.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="numbers" aria-labelledby="num-h">
+    <h2 class="sec-h" id="num-h">The public numbers</h2>
+    <p class="sec-l" id="updated">Loading…</p>
+
+    <div class="portfolio-row">
+      <div class="card portfolio-total" id="total-card">
+        <div class="k">Public portfolio total
+          <button type="button" class="help" title="The sum of holdings and cash we are allowed to show. Some holdings stay private." aria-label="What public portfolio total means">?</button>
+        </div>
+        <div class="v" id="pp-total">—</div>
+        <div class="s">Holdings and cash we’re allowed to show.</div>
+        <ul class="breakdown" id="pp-bits"></ul>
+        <p class="priv-note" id="pp-note"></p>
+      </div>
+      <div class="card chart-card" id="chart-card">
+        <div class="donut-wrap" id="donut" aria-hidden="true"></div>
+        <ul class="legend" id="legend"></ul>
+      </div>
+    </div>
+
+    <div class="grid metrics" id="cards"></div>
+  </section>
+
+  <section aria-labelledby="open-h">
+    <h2 class="sec-h" id="open-h">Open positions</h2>
+    <p class="sec-l">What we still hold. Unrealized P&amp;L is the paper gain or loss until a position is sold.</p>
+    <div class="tbl"><table id="open"></table></div>
+  </section>
+
+  <section aria-labelledby="trades-h">
+    <div class="sec-head">
+      <h2 class="sec-h" id="trades-h">Latest trades</h2>
+    </div>
+    <p class="sec-l">The five most recent public trades, newest first. Realized P&amp;L is the profit or loss after a trade is closed.</p>
+    <div class="tbl"><table id="trades"></table></div>
+    <a class="more" href="trades.html">See all trades →</a>
+  </section>
+
+  <section aria-labelledby="score-h">
+    <h2 class="sec-h" id="score-h">Bot scorecard</h2>
+    <p class="sec-l">Coinbase trades placed by the bot team after they close. The full record is on the Trades page.</p>
+    <div class="grid score" id="cbscore"></div>
+    <a class="more" href="trades.html">See the full trade record →</a>
+  </section>
+
+  <section aria-labelledby="explore-h">
+    <h2 class="sec-h" id="explore-h">Explore the site</h2>
+    <p class="sec-l">Start with About if this is your first visit.</p>
+    <div class="explore">
+      <a class="start" href="about.html">
+        <h3>New here? Start here</h3>
+        <p>What this project is, who runs it, and what it is not.</p>
+        <span class="go">Read the About page →</span>
+      </a>
+      <a href="trades.html">
+        <h3>Trades</h3>
+        <p>Open positions, the full trade log, closed results, and the bot scorecard.</p>
+        <span class="go">See all trades →</span>
+      </a>
+      <a href="blog/">
+        <h3>Daily blog</h3>
+        <p>Watchlists, results, and notes on the process.</p>
+        <span class="go">Open the blog →</span>
+      </a>
+      <a href="watchlist.html">
+        <h3>Watchlist</h3>
+        <p>What we’re watching and why — educational, not advice.</p>
+        <span class="go">See the watchlist →</span>
+      </a>
+      <a href="skipped.html">
+        <h3>Skipped trades</h3>
+        <p>Setups we passed on, and the reason we stayed out.</p>
+        <span class="go">See skipped trades →</span>
+      </a>
+      <a href="timeline.html">
+        <h3>Timeline</h3>
+        <p>The story so far, in the order it happened.</p>
+        <span class="go">Open the timeline →</span>
+      </a>
+      <a href="xcn.html">
+        <h3>XCN</h3>
+        <p>Our public Onyxcoin updates and notes.</p>
+        <span class="go">Open the XCN page →</span>
+      </a>
+      <a href="top30.html">
+        <h3>Top 30 dividend stocks</h3>
+        <p>Monthly payers we follow as part of this experiment.</p>
+        <span class="go">See the list →</span>
+      </a>
+    </div>
+  </section>
+
+
+  <section aria-labelledby="more-h">
+    <h2 class="sec-h" id="more-h">More details</h2>
+    <p class="sec-l">The rest of the public log: dividend holdings, payouts, platform comparison, and how the bot team is organized.</p>
+
+    <h2 class="sec-h" style="margin-top:22px">Monthly dividend holdings</h2>
     <div class="grid" style="margin-bottom:12px" id="mcards"></div>
     <div class="tbl"><table id="mdiv"></table></div>
     <div class="muted" id="mnote" style="margin-top:8px"></div>
-  </section>
 
-  <section>
-    <h2>💸 Dividends</h2>
+    <h2 class="sec-h" style="margin-top:28px">Dividends received</h2>
     <div class="grid" style="margin-bottom:12px" id="divcards"></div>
     <div class="tbl"><table id="dividends"></table></div>
-  </section>
 
-
-  <section id="coinbase-holdings">
-    <h2>Coinbase holdings</h2>
+    <h2 class="sec-h" style="margin-top:28px">Coinbase holdings</h2>
     <div class="grid" style="margin-bottom:12px" id="cbholdcards"></div>
     <div class="tbl"><table id="cbholdings"></table></div>
-  </section>
 
-  <section id="coinbase-trades">
-    <h2>Coinbase trades</h2>
-    <div class="grid" style="margin-bottom:12px" id="cbscore"></div>
-    <div class="tbl"><table id="cbgrok"></table></div>
-  </section>
-
-  <section id="platforms">
-    <h2>Robinhood vs Coinbase</h2>
+    <h2 class="sec-h" style="margin-top:28px">Robinhood vs Coinbase</h2>
     <div class="vs" id="cbvs"></div>
-  </section>
 
-  <section>
-    <h2>🧾 Trade history</h2>
-    <div class="tbl"><table id="trades"></table></div>
-  </section>
-
-  <section id="bots">
-    <h2>How our Grok bots work together</h2>
+    <h2 class="sec-h" style="margin-top:28px">How our Grok bots work together</h2>
     <p class="s">Owner → CEO Bot → 10 specialist bots. Scanners and intel feed Chart Bot and Grok Trader; The Watcher and Accountant report up to the CEO; the site bot runs this dashboard, the blog, Shorts and reports. Anything public is approved by a human first.</p>
-    <a href="assets/bot-org-chart.png" target="_blank" rel="noopener"><img src="assets/bot-org-chart.png" alt="Org chart of the DivToCrypto Grok bot team: Owner, CEO Bot, and 10 specialist bots" loading="lazy" style="width:100%;height:auto;border-radius:10px;margin-top:10px"></a>
+    <a href="assets/bot-org-chart.png" target="_blank" rel="noopener"><img class="bot-chart" src="assets/bot-org-chart.png" alt="Org chart of the DivToCrypto Grok bot team: Owner, CEO Bot, and 10 specialist bots" loading="lazy"></a>
     <p class="s">Click the image for the full-size version.</p>
-  </section>
-  <section>
-    <h2>📈 Charts &amp; tools</h2>
+
+    <h2 class="sec-h" style="margin-top:28px">Charts &amp; tools</h2>
     <div class="card tools">We chart our coins on <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> <span class="aff">(affiliate link)</span>. <span class="muted">If you sign up through it, we may earn a commission at no cost to you. <a href="disclosures.html">Disclosures</a></span></div>
   </section>
 
   <footer>
-    <b>Personal journey, not financial advice.</b> This page documents my own real-money experiment. Nothing here is a
+    <b>Personal journey, not financial advice.</b> This page documents a real-money experiment. Nothing here is a
     recommendation to buy or sell anything. Crypto is volatile and you can lose money. P&amp;L uses average cost; crypto
     prices are Robinhood mark prices (Coinbase public spots for Coinbase holdings) at the time shown and the spread is included in trade totals. Taxes not reflected.
     The public portfolio total includes only holdings and cash that are allowed to be shown; some holdings are kept private.
@@ -170,35 +372,143 @@ const signed = v => v == null ? "—" : (v > 0 ? "+" : "") + usd(v);
 const pct = v => v == null ? "" : (v > 0 ? "+" : "") + v.toFixed(2) + "%";
 const qty = v => v == null ? "—" : v.toLocaleString("en-US",{maximumFractionDigits:8});
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const card = (k, v, s="", cls="", extra="") => `<div class="card ${extra}"><div class="k">${k}</div><div class="v ${cls}">${v}</div><div class="s ${cls}">${s}</div></div>`;
+const tip = (label, text) => `${label} <button type="button" class="help" title="${esc(text)}" aria-label="${esc(text)}">?</button>`;
+const card = (k, v, s="", cls="") => `<div class="card"><div class="k">${k}</div><div class="v ${cls}">${v}</div><div class="s ${cls}">${s}</div></div>`;
 const table = (el, head, rows, empty) => $(el).innerHTML = `<thead><tr>${head.map(h=>`<th class="${h[1]||""}">${h[0]}</th>`).join("")}</tr></thead><tbody>${
   rows.length ? rows.join("") : `<tr><td class="empty" colspan="${head.length}">${empty}</td></tr>`}</tbody>`;
 
-fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
-  const s = d.summary;
-  $("brand").textContent = d.brand || "Dividends to Crypto";
-  if (d.youtube_url) { const y=$("yt"); y.href=d.youtube_url; y.classList.remove("soon"); y.textContent="▶ Watch on YouTube"; }
-  $("updated").textContent = `Last updated ${d.updated}` + (d.prices_as_of ? ` · prices as of ${d.prices_as_of}` : "");
-  const pp = d.public_portfolio || null;
-  const ppBits = (pp && pp.components || []).map(c => {
+const SLICE_COLORS = {
+  robinhood_crypto: "#7c5cff",
+  ccl: "#f5b83d",
+  monthly_dividends: "#22c55e",
+  robinhood_cash: "#38bdf8",
+  coinbase_usdc: "#2dd4bf"
+};
+const FALLBACK_COLORS = ["#fb7185","#a78bfa","#f97316","#84cc16","#e879f9","#60a5fa","#f4bf4f","#34d399"];
+const colorFor = (c, i) => SLICE_COLORS[c.key] || FALLBACK_COLORS[i % FALLBACK_COLORS.length];
+
+function renderDonut(components, total) {
+  const valid = (components || []).filter(c => c && c.value > 0);
+  const sum = total != null ? total : valid.reduce((a,c)=>a+c.value,0);
+  const note = $("pp-note");
+  if (!valid.length || !sum) {
+    $("donut").innerHTML = "";
+    $("legend").innerHTML = `<li class="muted">No public holdings to chart yet.</li>`;
+    return;
+  }
+  const size = 220, cx = 110, cy = 110, r = 74, sw = 28;
+  const C = 2 * Math.PI * r;
+  const gap = valid.length > 1 ? 2.5 : 0;
+  let offset = 0;
+  const slices = valid.map((c, i) => {
+    const color = colorFor(c, i);
+    const frac = c.value / sum;
+    const len = frac * C;
+    const dash = `${Math.max(0, len - gap)} ${C}`;
+    const circ = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color}" stroke-width="${sw}"
+      stroke-dasharray="${dash}" stroke-dashoffset="${-offset}" transform="rotate(-90 ${cx} ${cy})"/>`;
+    offset += len;
     const decimals = c.rounded ? 0 : 2;
-    return `${esc(c.label)} ${usd(c.value, decimals)}`;
-  }).join(" · ");
+    return { circ, color, label: c.label, value: c.value, decimals, frac };
+  });
+  $("donut").innerHTML =
+    `<svg viewBox="0 0 ${size} ${size}" role="img" aria-label="Public holdings breakdown">
+      <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#1a2233" stroke-width="${sw}"/>
+      ${slices.map(s => s.circ).join("")}
+    </svg>
+    <div class="donut-center"><div class="dv">${usd(sum)}</div><div class="dk">Public total</div></div>`;
+  $("legend").innerHTML = slices.map(s =>
+    `<li>
+      <span class="swatch" style="background:${s.color}"></span>
+      <span class="lab">${esc(s.label)}</span>
+      <span class="amt"><b>${usd(s.value, s.decimals)}</b>${(s.frac*100).toFixed(1)}%</span>
+    </li>`).join("");
+}
+
+function loadStatus(urls) {
+  const tryNext = i => {
+    if (i >= urls.length) return Promise.reject(new Error("status.json not found"));
+    return fetch(urls[i], {cache:"no-store"}).then(r => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    }).catch(() => tryNext(i+1));
+  };
+  return tryNext(0);
+}
+
+loadStatus(["status.json"]).then(d => {
+  const s = d.summary || {};
+  if (d.youtube_url) { const y=$("yt"); if (y) { y.href=d.youtube_url; y.classList.remove("soon"); y.textContent="Watch on YouTube"; } }
+  const when = t => {
+    if (!t) return "";
+    const raw = t.time || t.date || "";
+    if (/pending/i.test(raw) && t.date) return t.date;
+    return raw;
+  };
+  $("updated").textContent = `Last updated ${d.updated}` + (d.prices_as_of ? ` · prices as of ${d.prices_as_of}` : "");
+
+  const pp = d.public_portfolio || null;
+  if (pp && pp.total != null) {
+    $("pp-total").textContent = usd(pp.total);
+    $("pp-bits").innerHTML = (pp.components || []).map(c => {
+      const decimals = c.rounded ? 0 : 2;
+      return `<li><span>${esc(c.label)}</span><b>${usd(c.value, decimals)}</b></li>`;
+    }).join("");
+    $("pp-note").textContent = pp.note || "Some holdings are kept private and are not included in this total.";
+    renderDonut(pp.components || [], pp.total);
+  } else {
+    $("pp-total").textContent = usd(s.current_value);
+    $("pp-note").textContent = "Public portfolio total is not in this data file.";
+    renderDonut([], 0);
+  }
+
   $("cards").innerHTML =
-    (pp && pp.total != null ? card("Public portfolio total", usd(pp.total), ppBits, "", "hero") : "") +
-    card("Current value", usd(s.current_value), `Cost basis ${usd(s.open_cost_basis)}`, "", pp && pp.total != null ? "" : "hero") +
+    card(tip("Realized P&L", "Profit or loss from trades already closed."), signed(s.realized_pl), (pct(s.realized_pct) || "—") + " · closed trades only", sgn(s.realized_pl)) +
+    card(tip("Unrealized P&L", "Paper gain or loss on positions we still hold. It changes until we sell."), signed(s.unrealized_pl), pct(s.unrealized_pct), sgn(s.unrealized_pl)) +
+    card("Current value", usd(s.current_value), `Cost basis ${usd(s.open_cost_basis)}`) +
     card("Total invested", usd(s.total_invested), `net cash in · ${usd(s.gross_buys)} bought, ${usd(s.sell_proceeds)} sold`) +
-    card("Unrealized P&L", signed(s.unrealized_pl), pct(s.unrealized_pct), sgn(s.unrealized_pl)) +
-    card("Realized P&L", signed(s.realized_pl), pct(s.realized_pct), sgn(s.realized_pl)) +
     card("Total P&L", signed(s.total_pl), pct(s.total_pct) + " incl. dividends", sgn(s.total_pl));
-  if ($("pnote")) $("pnote").textContent = (pp && pp.note) || "";
-  const held = d.holdings.filter(h => h.quantity);
-  table("holdings", [["Asset"],["Qty"],["Avg cost","hide-sm"],["Price"],["Value"],["Unrealized"]],
-    held.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.platform ? h.platform + " · " + h.asset_type : h.asset_type)}</span></td>
-      <td>${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td>${px(h.price)}</td><td>${usd(h.market_value)}</td>
-      <td class="${sgn(h.unrealized_pl)}">${signed(h.unrealized_pl)}</td></tr>`),
-    "No holdings yet");
-  const m = d.monthly_dividends || {holdings:[],pending:[],totals:{}};
+
+  const m = d.monthly_dividends || {holdings:[], pending:[]};
+  const mHeld = (m.holdings || []).filter(h => h.shares);
+  const openHold = (d.holdings || []).filter(h => h.quantity);
+  const openRows = [
+    ...openHold.map(h => `<tr>
+      <td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.platform ? h.platform + " · " + h.asset_type : h.asset_type)}</span></td>
+      <td class="hide-sm">${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td class="hide-sm">${px(h.price)}</td>
+      <td>${usd(h.market_value)}</td><td class="${sgn(h.unrealized_pl)}">${signed(h.unrealized_pl)}</td></tr>`),
+    ...mHeld.map(h => `<tr>
+      <td><span class="sym">${esc(h.symbol)}</span> <span class="s">monthly dividend stock</span></td>
+      <td class="hide-sm">${Number(h.shares).toLocaleString("en-US",{maximumFractionDigits:4})}</td><td class="hide-sm">${px(h.avg_cost)}</td><td class="hide-sm">—</td>
+      <td>${usd(h.market_value)}</td><td class="s">est. ${usd(h.est_monthly)}/mo</td></tr>`)
+  ];
+  table("open",
+    [["Asset"],["Qty","hide-sm"],["Avg cost","hide-sm"],["Price","hide-sm"],["Value"],["Unrealized"]],
+    openRows,
+    "No open positions yet.");
+
+  const trades = d.trades || [];
+  table("trades",
+    [["Date"],["Asset"],["Side"],["Qty","hide-sm"],["Avg price","hide-sm"],["Total"],["Notes","hide-sm note"]],
+    trades.slice(0, 5).map(t => `<tr><td>${esc(t.date)}</td><td class="sym">${esc(t.symbol)} <span class="s">${esc(t.platform||"")}</span></td>
+      <td><span class="pill ${esc(t.side)}">${esc((t.side||"").toUpperCase())}</span></td>
+      <td class="hide-sm">${qty(t.quantity)}</td><td class="hide-sm">${px(t.price)}</td><td>${usd(t.total)}</td>
+      <td class="note hide-sm">${esc(t.notes)}</td></tr>`),
+    "No trades yet.");
+
+  const cb = d.coinbase || {grok_trades:[], scorecard:{empty:true}, platforms:{}, holdings:{}};
+  const sc = cb.scorecard || {};
+  const best = sc.best_trade ? `${esc(sc.best_trade.symbol)} ${signed(sc.best_trade.realized_pl)}` : "—";
+  const worst = sc.worst_trade ? `${esc(sc.worst_trade.symbol)} ${signed(sc.worst_trade.realized_pl)}` : "—";
+  $("cbscore").innerHTML =
+    card("Win rate", sc.win_rate_pct == null ? "—" : sc.win_rate_pct.toFixed(1) + "%",
+         sc.closed_trades ? `${sc.wins||0}W / ${sc.losses||0}L · ${sc.closed_trades} closed` : "no closed trades yet") +
+    card("Coinbase P&L", signed(sc.total_realized_pl || 0), "realized, after close", sgn(sc.total_realized_pl || 0)) +
+    card("Best trade", best, sc.best_trade ? esc(when(sc.best_trade)) : "—",
+         sc.best_trade && sc.best_trade.realized_pl > 0 ? "up" : "") +
+    card("Worst trade", worst, sc.worst_trade ? esc(when(sc.worst_trade)) : "—",
+         sc.worst_trade && sc.worst_trade.realized_pl < 0 ? "down" : "");
+
   const fdate = x => x ? new Date(x+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric"}) : "—";
   const dts = r => r.ex_date ? `${r.dates_upcoming ? "" : "last: "}ex ${fdate(r.ex_date)} · pay ${fdate(r.pay_date)}` : "—";
   const mt = m.totals || {};
@@ -207,10 +517,10 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
     : card("Monthly payers", "0", m.pending.length ? "first monthly dividend buy pending" : "none yet") +
       card("Pending buys", usd(m.pending.reduce((a,p)=>a+(p.amount||0),0)), m.pending.map(p=>p.symbol).join(", ") || "—") +
       card("Est. monthly income", m.pending.length ? "~" + usd(m.pending.reduce((a,p)=>a+(p.est_monthly||0),0)) : usd(0), "once pending buys fill");
-  const mrows = m.holdings.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.name)}</span></td><td>${qty(h.shares)}</td>
+  const mrows = (m.holdings || []).map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.name)}</span></td><td>${qty(h.shares)}</td>
       <td>${px(h.avg_cost)}</td><td>${usd(h.market_value)}</td><td>${h.yield_pct.toFixed(2)}%</td><td>${usd(h.monthly_dps,3)}</td>
       <td class="up">${usd(h.est_monthly)}</td><td>${usd(h.est_annual)}</td><td class="s">${dts(h)}</td><td>${usd(h.received)}</td></tr>`)
-    .concat(m.pending.map(p => `<tr><td><span class="sym">${esc(p.symbol)}</span> <span class="s">${esc(p.name)}</span> <span class="pill pend">PENDING</span></td>
+    .concat((m.pending || []).map(p => `<tr><td><span class="sym">${esc(p.symbol)}</span> <span class="s">${esc(p.name)}</span> <span class="pill pend">PENDING</span></td>
       <td class="s">~${qty(p.est_shares)}</td><td class="s">${usd(p.amount)} buy</td><td>—</td><td>${p.yield_pct.toFixed(2)}%</td><td>${usd(p.monthly_dps,3)}</td>
       <td class="s">~${usd(p.est_monthly)}</td><td class="s">~${usd(p.est_annual)}</td><td class="s">${dts(p)}</td><td>${usd(p.received)}</td></tr>`));
   table("mdiv", [["Holding"],["Shares"],["Avg cost"],["Value"],["Yield"],["Div/share/mo"],["Est. monthly"],["Est. annual"],["Ex / pay date"],["Received"]],
@@ -219,11 +529,9 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
   $("divcards").innerHTML = card("Dividends received", usd(s.dividends)) +
     card("Dividends → crypto", usd(s.dividends_reinvested), "reinvested total", s.dividends_reinvested ? "up" : "");
   table("dividends", [["Date"],["From"],["Amount"],["Reinvested into"]],
-    d.dividends.map(v => `<tr><td>${esc(v.date)}</td><td class="sym">${esc(v.symbol)}</td><td>${usd(v.amount)}</td><td>${esc(v.reinvested_into)||"—"}</td></tr>`),
+    (d.dividends || []).map(v => `<tr><td>${esc(v.date)}</td><td class="sym">${esc(v.symbol)}</td><td>${usd(v.amount)}</td><td>${esc(v.reinvested_into)||"—"}</td></tr>`),
     "No dividends yet — the first monthly payout will show up here.");
 
-  // --- Coinbase / Grok section ---
-  const cb = d.coinbase || {grok_trades:[], scorecard:{empty:true}, platforms:{}, holdings:{}};
   const cbh = cb.holdings || {};
   const usdc = cbh.usdc || null;
   const xcnH = cbh.xcn || {none_yet:true, quantity:0};
@@ -249,48 +557,22 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
     [["Asset"],["Qty / balance"],["Avg cost","hide-sm"],["Price"],["Value"],["Unrealized"]],
     cbHoldRows,
     usdc ? "No new Coinbase crypto buys yet — USDC cash is shown above." : "Coinbase holdings pending refresh.");
-  const sc = cb.scorecard || {};
-  const best = sc.best_trade ? `${esc(sc.best_trade.symbol)} ${signed(sc.best_trade.realized_pl)}` : "—";
-  const worst = sc.worst_trade ? `${esc(sc.worst_trade.symbol)} ${signed(sc.worst_trade.realized_pl)}` : "—";
-  $("cbscore").innerHTML =
-    card("Win rate", sc.win_rate_pct == null ? "—" : sc.win_rate_pct.toFixed(1) + "%",
-         sc.closed_trades ? `${sc.wins||0}W / ${sc.losses||0}L · ${sc.closed_trades} closed` : "no closed trades yet") +
-    card("Coinbase P&L", signed(sc.total_realized_pl || 0), "realized", sgn(sc.total_realized_pl || 0)) +
-    card("Best trade", best, sc.best_trade ? esc(sc.best_trade.time || sc.best_trade.date || "") : "—",
-         sc.best_trade && sc.best_trade.realized_pl > 0 ? "up" : "") +
-    card("Worst trade", worst, sc.worst_trade ? esc(sc.worst_trade.time || sc.worst_trade.date || "") : "—",
-         sc.worst_trade && sc.worst_trade.realized_pl < 0 ? "down" : "");
-  table("cbgrok",
-    [["When"],["Coin"],["Side"],["Price"],["Size"],["Total","hide-sm"],["P&L"],["Reason"]],
-    (cb.grok_trades || []).map(t => {
-      const reason = (t.reason && t.reason !== "pending")
-        ? esc(t.reason)
-        : `<span class="pending">pending</span>`;
-      return `<tr><td>${esc(t.time || t.date)}</td><td class="sym">${esc(t.symbol)}</td>
-        <td><span class="pill ${t.side}">${esc((t.side||"").toUpperCase())}</span></td>
-        <td>${px(t.price)}</td><td>${qty(t.quantity)}</td><td class="hide-sm">${usd(t.total)}</td>
-        <td class="${sgn(t.realized_pl)}">${t.realized_pl == null ? "—" : signed(t.realized_pl)}</td>
-        <td class="note">${reason}</td></tr>`;
-    }),
-    "No Coinbase trades yet.");
+
   const plat = cb.platforms || {};
-  const sideCard = (p, note) => {
+  const sideCard = (p) => {
     if (!p) return `<div class="card"><h3>—</h3><div class="s">no data</div></div>`;
     return `<div class="card"><h3>${esc(p.platform)}</h3>
       <div class="row"><span class="s">Trades</span><b>${p.trade_count}</b></div>
       <div class="row"><span class="s">Gross buys</span><b>${usd(p.gross_buys)}</b></div>
       <div class="row"><span class="s">Sell proceeds</span><b>${usd(p.sell_proceeds)}</b></div>
       <div class="row"><span class="s">Net invested</span><b>${usd(p.net_invested)}</b></div>
-      <div class="row"><span class="s">Realized P&L</span><b class="${sgn(p.realized_pl)}">${signed(p.realized_pl)}</b></div>
-      ${note ? `<div class="s" style="margin-top:8px">${esc(note)}</div>` : ""}</div>`;
+      <div class="row"><span class="s">Realized P&L</span><b class="${sgn(p.realized_pl)}">${signed(p.realized_pl)}</b></div></div>`;
   };
   $("cbvs").innerHTML = sideCard(plat.robinhood) + sideCard(plat.coinbase);
 
-    table("trades", [["Date"],["Asset"],["Side"],["Qty"],["Avg price"],["Total"],["Notes","hide-sm"]],
-    d.trades.map(t => `<tr><td>${esc(t.date)}</td><td class="sym">${esc(t.symbol)} <span class="s">${esc(t.platform||"")}</span></td><td><span class="pill ${t.side}">${esc(t.side.toUpperCase())}</span></td>
-      <td>${qty(t.quantity)}</td><td>${px(t.price)}</td><td>${usd(t.total)}</td><td class="note hide-sm">${esc(t.notes)}</td></tr>`),
-    "No trades yet");
-}).catch(e => { $("updated").textContent = "Could not load status.json (open this page through a web server, not file://)."; });
+}).catch(() => {
+  $("updated").textContent = "Could not load status.json. Serve this folder over http, or keep status.json next to this page.";
+});
 </script>
 </body>
 </html>

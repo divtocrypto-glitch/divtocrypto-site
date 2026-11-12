@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- ga4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GP28V56YYZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GP28V56YYZ");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4121243453868109" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
+<title>Trade record | DivToCrypto</title>
+<meta name="description" content="The public trade record: open positions, every logged trade, closed results, and the Coinbase bot scorecard. Educational, not financial advice.">
+<meta name="theme-color" content="#0b1426">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://divtocrypto.com/trades.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DivToCrypto">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Trade record | DivToCrypto">
+<meta property="og:description" content="The public trade record: open positions, every logged trade, closed results, and the Coinbase bot scorecard. Educational, not financial advice.">
+<meta property="og:url" content="https://divtocrypto.com/trades.html">
+<meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DivToCrypto logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@divtocrypto">
+<meta name="twitter:creator" content="@divtocrypto">
+<meta name="twitter:title" content="Trade record | DivToCrypto">
+<meta name="twitter:description" content="The public trade record: open positions, every logged trade, closed results, and the Coinbase bot scorecard. Educational, not financial advice.">
+<meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="DivToCrypto logo">
+
+<style>
+  .pagehead h1{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.02em;line-height:1.2;margin:0 0 8px}
+  .pagehead p{margin:0;max-width:54ch;line-height:1.5}
+  .updated{color:var(--muted);font-size:13px;margin:10px 0 0}
+  .sec-h{margin:26px 0 6px;font-size:20px;letter-spacing:-.01em}
+  .sec-l{margin:0 0 14px;color:var(--muted);font-size:14px}
+  .explain{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+  .explain .card h3{margin:0 0 6px;font-size:15px}
+  .explain .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin:0 0 12px}
+  .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .v{font-size:24px;font-weight:750;margin-top:4px;font-variant-numeric:tabular-nums}
+  .s{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .up{color:var(--up)}.down{color:var(--down)}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+  .filters button{display:inline-flex;align-items:center;padding:7px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+  .filters button:hover,.filters button:focus-visible{border-color:#3a4a66;outline:none}
+  .filters button.on{background:#2a2350;border-color:#3a3160}
+  .tbl{margin:0}
+  table{font-variant-numeric:tabular-nums}
+  th,td{text-align:right;white-space:nowrap;vertical-align:middle}
+  th:first-child,td:first-child{text-align:left}
+  th.note,td.note{white-space:normal;text-align:left;color:var(--muted);min-width:120px;max-width:320px}
+  td.empty{white-space:normal;text-align:center;padding:22px;color:var(--muted)}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700}
+  .buy{background:#123222;color:var(--up)}.sell{background:#3a1520;color:var(--down)}
+  .sym{font-weight:700}
+  .pending{color:var(--accent);font-style:italic}
+  @media (max-width:800px){.explain{grid-template-columns:1fr}}
+  @media (max-width:560px){
+    .v{font-size:20px}
+    .hide-sm{display:none !important}
+    #cbgrok td,#cbgrok th,#trades td,#trades th{white-space:normal}
+    .tbl td .s{display:none}
+    .tbl td:first-child,.tbl th:first-child{white-space:normal}
+  }
+</style>
+<style>
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+  .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
+  .wordmark{display:block;height:30px;width:auto}
+  .brand .t{margin:0;line-height:0;font-size:0}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover{border-color:#3a4a66}
+  .nav a.on{background:#2a2350;border-color:#3a3160}
+  a{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .muted{color:var(--muted)}
+  .draft{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#3a2a10;color:var(--accent);vertical-align:middle}
+  .draftbar{margin:0 0 18px;padding:10px 14px;border:1px solid #5a4316;background:#2a2010;color:var(--accent);border-radius:12px;font-size:14px}
+  .list{display:grid;gap:12px}
+  .post-card{display:block;color:inherit;text-decoration:none;transition:border-color .15s}
+  .post-card:hover{border-color:#3a4a66}
+  .post-card h2{font-size:19px;margin:4px 0 6px;line-height:1.3;color:var(--text)}
+  .post-card p{margin:0;color:var(--muted)}
+  .meta{color:var(--muted);font-size:13px}
+  .pagehead h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+  .pagehead p{margin:0 0 20px;color:var(--muted)}
+  article{max-width:720px;margin:0 auto}
+  article h1{font-size:32px;line-height:1.2;margin:6px 0 8px;letter-spacing:-.01em}
+  .back{font-size:14px;text-decoration:none}
+  .body{font-size:17px;line-height:1.7}
+  .body h2{font-size:22px;line-height:1.3;margin:34px 0 10px}
+  .body h3{font-size:18px;margin:24px 0 8px}
+  .body p,.body ul,.body ol{margin:0 0 16px}
+  .body li{margin:4px 0}
+  .body strong{color:#fff}
+  .body code{background:#1a2233;padding:1px 6px;border-radius:6px;font-size:.9em}
+  .body blockquote{margin:0 0 16px;padding:8px 16px;border-left:3px solid var(--accent2);background:#151b2b;border-radius:0 10px 10px 0;color:#cfd6e2}
+  .body hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 18px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px;line-height:1.45}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .endcard{margin-top:30px;border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  .endcard p{margin:0 0 8px}.endcard p:last-child{margin:0}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  footer .aff{margin:8px 0 0}
+  .postfoot{margin-top:16px;color:var(--muted);font-size:14px}.postfoot p{margin:0 0 6px}.postfoot p:last-child{margin:0}
+  .prose{max-width:760px}.prose h2{font-size:20px;margin:26px 0 8px}.prose p,.prose li{color:#cfd6e2;font-size:16px;line-height:1.65}
+  @media (max-width:560px){.body{font-size:16px}article h1{font-size:26px}.body h2{font-size:20px}th,td{padding:8px 10px}header{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./"><img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
+    <nav class="nav" aria-label="Site"><a href="./">Dashboard</a><a href="blog/">Blog</a><a href="trades.html" class="on">Trades</a><a href="timeline.html">Timeline</a><a href="top30.html">Top 30 Monthly</a><a href="xcn.html">XCN</a><a href="watchlist.html">Watchlist</a><a href="skipped.html">Skipped</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a><a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok</a></nav>
+  </header>
+  <div class="pagehead">
+    <h1>Trade record</h1>
+    <p>Every public trade we’re allowed to show — what we still hold, the full history, and results after a close. Educational, not financial advice.</p>
+    <p class="updated" id="updated">Loading…</p>
+  </div>
+
+  <section aria-labelledby="terms-h">
+    <h2 class="sec-h" id="terms-h">A few terms</h2>
+    <p class="sec-l">Plain-language notes for reading the tables below.</p>
+    <div class="explain">
+      <div class="card">
+        <h3>Stop</h3>
+        <p>An automatic sell if the price falls to a set level, to limit a loss.</p>
+      </div>
+      <div class="card">
+        <h3>Realized P&amp;L</h3>
+        <p>The profit or loss from a trade that is already closed. It does not change after the sell fills.</p>
+      </div>
+      <div class="card">
+        <h3>Unrealized P&amp;L</h3>
+        <p>The paper gain or loss on a position we still hold. It moves with the price until we sell.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="open-h">
+    <h2 class="sec-h" id="open-h">Open positions</h2>
+    <p class="sec-l">What we still hold. Unrealized P&amp;L is the paper gain or loss until a position is sold.</p>
+    <div class="tbl"><table id="open"></table></div>
+  </section>
+
+  <section id="history" aria-labelledby="hist-h">
+    <h2 class="sec-h" id="hist-h">Full trade history</h2>
+    <p class="sec-l">All public trades, newest first. Some holdings and trades stay private and are not listed here.</p>
+    <div class="filters" role="group" aria-label="Filter trades by platform">
+      <button type="button" class="on" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="Robinhood" aria-pressed="false">Robinhood</button>
+      <button type="button" data-filter="Coinbase" aria-pressed="false">Coinbase</button>
+    </div>
+    <p class="muted" id="trade-count"></p>
+    <div class="tbl"><table id="trades"></table></div>
+  </section>
+
+  <section aria-labelledby="closed-h">
+    <h2 class="sec-h" id="closed-h">Closed trades</h2>
+    <p class="sec-l">Finished positions only, with realized P&amp;L — the profit or loss after the sell filled.</p>
+    <div class="tbl"><table id="closed"></table></div>
+  </section>
+
+  <section aria-labelledby="score-h">
+    <h2 class="sec-h" id="score-h">Bot scorecard</h2>
+    <p class="sec-l">Coinbase trades placed by the bot team, after they close. The Owner approves anything that goes public.</p>
+    <div class="grid" id="cbscore"></div>
+    <div class="tbl"><table id="cbgrok"></table></div>
+  </section>
+
+<script>
+const $ = id => document.getElementById(id);
+const usd = (v, d=2) => v == null ? "—" : (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const px = v => v == null ? "—" : usd(v, v < 1 ? 6 : 2);
+const sgn = v => v == null ? "" : v > 0 ? "up" : v < 0 ? "down" : "";
+const signed = v => v == null ? "—" : (v > 0 ? "+" : "") + usd(v);
+const qty = v => v == null ? "—" : v.toLocaleString("en-US",{maximumFractionDigits:8});
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const card = (k, v, s="", cls="") => `<div class="card"><div class="k">${k}</div><div class="v ${cls}">${v}</div><div class="s ${cls}">${s}</div></div>`;
+const table = (el, head, rows, empty) => $(el).innerHTML = `<thead><tr>${head.map(h=>`<th class="${h[1]||""}">${h[0]}</th>`).join("")}</tr></thead><tbody>${
+  rows.length ? rows.join("") : `<tr><td class="empty" colspan="${head.length}">${empty}</td></tr>`}</tbody>`;
+
+fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
+  const when = t => {
+    if (!t) return "";
+    const raw = t.time || t.date || "";
+    if (/pending/i.test(raw) && t.date) return t.date;
+    return raw;
+  };
+  $("updated").textContent = `Last updated ${d.updated}` + (d.prices_as_of ? ` · prices as of ${d.prices_as_of}` : "");
+
+  const m = d.monthly_dividends || {holdings:[], pending:[]};
+  const mHeld = (m.holdings || []).filter(h => h.shares);
+  const openHold = (d.holdings || []).filter(h => h.quantity);
+  const openRows = [
+    ...openHold.map(h => `<tr>
+      <td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.platform ? h.platform + " · " + h.asset_type : h.asset_type)}</span></td>
+      <td class="hide-sm">${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td class="hide-sm">${px(h.price)}</td>
+      <td>${usd(h.market_value)}</td><td class="${sgn(h.unrealized_pl)}">${signed(h.unrealized_pl)}</td></tr>`),
+    ...mHeld.map(h => `<tr>
+      <td><span class="sym">${esc(h.symbol)}</span> <span class="s">monthly dividend stock</span></td>
+      <td class="hide-sm">${Number(h.shares).toLocaleString("en-US",{maximumFractionDigits:4})}</td><td class="hide-sm">${px(h.avg_cost)}</td><td class="hide-sm">—</td>
+      <td>${usd(h.market_value)}</td><td class="s">est. ${usd(h.est_monthly)}/mo</td></tr>`)
+  ];
+  table("open",
+    [["Asset"],["Qty","hide-sm"],["Avg cost","hide-sm"],["Price","hide-sm"],["Value"],["Unrealized"]],
+    openRows,
+    "No open positions yet.");
+
+  const allTrades = d.trades || [];
+  const realizedBySym = {};
+  (d.holdings || []).forEach(h => {
+    if (h.realized_pl) realizedBySym[h.symbol] = h.realized_pl;
+  });
+  const cb = d.coinbase || {grok_trades:[], scorecard:{empty:true}};
+  (cb.grok_trades || []).forEach(t => {
+    if (t.realized_pl != null && t.symbol) realizedBySym[t.symbol] = t.realized_pl;
+  });
+
+  const tradeHead = [["Date"],["Asset"],["Side"],["Qty","hide-sm"],["Avg price","hide-sm"],["Total"],["Notes","hide-sm note"]];
+  const tradeRow = t => `<tr><td>${esc(t.date)}</td><td class="sym">${esc(t.symbol)} <span class="s">${esc(t.platform||"")}</span></td>
+      <td><span class="pill ${esc(t.side)}">${esc((t.side||"").toUpperCase())}</span></td>
+      <td class="hide-sm">${qty(t.quantity)}</td><td class="hide-sm">${px(t.price)}</td><td>${usd(t.total)}</td>
+      <td class="note hide-sm">${esc(t.notes)}</td></tr>`;
+
+  const renderHistory = (filter) => {
+    const rows = filter === "all" ? allTrades : allTrades.filter(t => (t.platform || "") === filter);
+    table("trades", tradeHead, rows.map(tradeRow),
+      filter === "all" ? "No trades yet." : `No public ${filter} trades to show.`);
+    const n = rows.length, tot = allTrades.length;
+    $("trade-count").textContent = filter === "all"
+      ? `${tot} public trade${tot===1?"":"s"}`
+      : `Showing ${n} of ${tot} public trades · ${filter} only`;
+  };
+  renderHistory("all");
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filters button").forEach(b => {
+        b.classList.toggle("on", b === btn);
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      renderHistory(btn.dataset.filter);
+    });
+  });
+
+  const closed = allTrades.filter(t => (t.side || "").toLowerCase() === "sell");
+  table("closed",
+    [["Date"],["Asset"],["Qty","hide-sm"],["Price","hide-sm"],["Proceeds"],["Realized P&L"],["Notes","note hide-sm"]],
+    closed.map(t => {
+      const pl = t.realized_pl != null ? t.realized_pl : realizedBySym[t.symbol];
+      return `<tr><td>${esc(t.date)}</td><td class="sym">${esc(t.symbol)} <span class="s">${esc(t.platform||"")}</span></td>
+        <td class="hide-sm">${qty(t.quantity)}</td><td class="hide-sm">${px(t.price)}</td><td>${usd(t.total)}</td>
+        <td class="${sgn(pl)}">${pl == null ? "—" : signed(pl)}</td>
+        <td class="note hide-sm">${esc(t.notes)}</td></tr>`;
+    }),
+    "No closed trades yet.");
+
+  const sc = cb.scorecard || {};
+  const best = sc.best_trade ? `${esc(sc.best_trade.symbol)} ${signed(sc.best_trade.realized_pl)}` : "—";
+  const worst = sc.worst_trade ? `${esc(sc.worst_trade.symbol)} ${signed(sc.worst_trade.realized_pl)}` : "—";
+  $("cbscore").innerHTML =
+    card("Win rate", sc.win_rate_pct == null ? "—" : sc.win_rate_pct.toFixed(1) + "%",
+         sc.closed_trades ? `${sc.wins||0}W / ${sc.losses||0}L · ${sc.closed_trades} closed` : "no closed trades yet") +
+    card("Coinbase P&L", signed(sc.total_realized_pl || 0), "realized, after close", sgn(sc.total_realized_pl || 0)) +
+    card("Best trade", best, sc.best_trade ? esc(when(sc.best_trade)) : "—",
+         sc.best_trade && sc.best_trade.realized_pl > 0 ? "up" : "") +
+    card("Worst trade", worst, sc.worst_trade ? esc(when(sc.worst_trade)) : "—",
+         sc.worst_trade && sc.worst_trade.realized_pl < 0 ? "down" : "");
+  table("cbgrok",
+    [["When"],["Coin"],["Side"],["Price","hide-sm"],["Size","hide-sm"],["P&L"],["Reason","note"]],
+    (cb.grok_trades || []).map(t => {
+      const reason = (t.reason && t.reason !== "pending") ? esc(t.reason) : `<span class="pending">pending</span>`;
+      return `<tr><td>${esc(when(t))}</td><td class="sym">${esc(t.symbol)}</td>
+        <td><span class="pill ${esc(t.side)}">${esc((t.side||"").toUpperCase())}</span></td>
+        <td class="hide-sm">${px(t.price)}</td><td class="hide-sm">${qty(t.quantity)}</td>
+        <td class="${sgn(t.realized_pl)}">${t.realized_pl == null ? "—" : signed(t.realized_pl)}</td>
+        <td class="note">${reason}</td></tr>`;
+    }),
+    "No Coinbase trades yet.");
+}).catch(() => {
+  $("updated").textContent = "Could not load status.json.";
+});
+</script>
+
+  <footer>
+    <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
+    recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
+    Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
+    <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="disclosures.html">Disclosures</a></p>
+  </footer>
+</div>
+</body>
+</html>
