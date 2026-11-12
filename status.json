@@ -1,36 +1,31 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 12, 2026 7:29 AM CT",
-  "prices_as_of": "Nov 12, 2026 7:29 AM CT",
+  "updated": "Nov 12, 2026 7:38 AM CT",
+  "prices_as_of": "Nov 12, 2026 7:38 AM CT",
   "summary": {
-    "total_invested": 308.95,
+    "total_invested": 231.59,
     "gross_buys": 334.28,
-    "sell_proceeds": 25.33,
-    "open_cost_basis": 304.38,
-    "current_value": 266.34,
-    "unrealized_pl": -38.04,
-    "unrealized_pct": -12.5,
-    "realized_pl": -4.57,
-    "realized_pct": -15.28,
+    "sell_proceeds": 102.69,
+    "open_cost_basis": 224.88,
+    "current_value": 188.29,
+    "unrealized_pl": -36.59,
+    "unrealized_pct": -16.27,
+    "realized_pl": -6.71,
+    "realized_pct": -6.13,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -42.61,
-    "total_pct": -13.79,
-    "trade_count": 8
+    "total_pl": -43.3,
+    "total_pct": -18.7,
+    "trade_count": 9
   },
   "public_portfolio": {
-    "total": 747.62,
+    "total": 746.57,
     "components": [
       {
         "key": "robinhood_crypto",
         "label": "Robinhood crypto (XCN)",
         "value": 188.29
-      },
-      {
-        "key": "icp",
-        "label": "ICP",
-        "value": 78.05
       },
       {
         "key": "ccl",
@@ -51,12 +46,12 @@
       {
         "key": "coinbase_usdc",
         "label": "Coinbase USDC",
-        "value": 233,
+        "value": 310,
         "rounded": true
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 12, 2026 7:29 AM CT"
+    "as_of": "Nov 12, 2026 7:38 AM CT"
   },
   "holdings": [
     {
@@ -74,14 +69,14 @@
     {
       "symbol": "ICP",
       "asset_type": "crypto",
-      "quantity": 31.0,
-      "price": 2.5178,
-      "cost_basis": 79.5,
-      "market_value": 78.05,
-      "unrealized_pl": -1.45,
-      "realized_pl": 0.0,
+      "quantity": 0.0,
+      "price": 2.5121,
+      "cost_basis": 0.0,
+      "market_value": 0.0,
+      "unrealized_pl": -0.0,
+      "realized_pl": -2.14,
       "platform": "Coinbase",
-      "avg_cost": 2.564516129032258
+      "avg_cost": null
     },
     {
       "symbol": "XCN",
@@ -109,6 +104,17 @@
     }
   ],
   "trades": [
+    {
+      "date": "2026-11-12",
+      "platform": "Coinbase",
+      "asset_type": "crypto",
+      "symbol": "ICP",
+      "side": "sell",
+      "quantity": 31.0,
+      "price": 2.49538,
+      "total": 77.36,
+      "notes": "Stop filled"
+    },
     {
       "date": "2026-11-10",
       "platform": "Coinbase",
@@ -212,17 +218,41 @@
         "realized_pl": null,
         "reason": "pending",
         "platform": "Coinbase"
+      },
+      {
+        "date": "2026-11-12",
+        "time": "Nov 12, 2026 (time pending)",
+        "symbol": "ICP",
+        "side": "sell",
+        "quantity": 31.0,
+        "price": 2.49538,
+        "total": 77.36,
+        "realized_pl": -2.14,
+        "reason": "Stop filled",
+        "platform": "Coinbase"
       }
     ],
     "scorecard": {
-      "trade_count": 1,
-      "closed_trades": 0,
+      "trade_count": 2,
+      "closed_trades": 1,
       "wins": 0,
-      "losses": 0,
-      "win_rate_pct": null,
-      "total_realized_pl": 0.0,
-      "best_trade": null,
-      "worst_trade": null,
+      "losses": 1,
+      "win_rate_pct": 0.0,
+      "total_realized_pl": -2.14,
+      "best_trade": {
+        "symbol": "ICP",
+        "side": "sell",
+        "realized_pl": -2.14,
+        "date": "2026-11-12",
+        "time": "Nov 12, 2026 (time pending)"
+      },
+      "worst_trade": {
+        "symbol": "ICP",
+        "side": "sell",
+        "realized_pl": -2.14,
+        "date": "2026-11-12",
+        "time": "Nov 12, 2026 (time pending)"
+      },
       "empty": false
     },
     "platforms": {
@@ -236,16 +266,16 @@
       },
       "coinbase": {
         "platform": "Coinbase",
-        "trade_count": 1,
+        "trade_count": 2,
         "gross_buys": 79.5,
-        "sell_proceeds": 0,
-        "net_invested": 79.5,
-        "realized_pl": 0.0
+        "sell_proceeds": 77.36,
+        "net_invested": 2.14,
+        "realized_pl": -2.14
       }
     },
     "holdings": {
       "usdc": {
-        "rounded_usd": 233
+        "rounded_usd": 310
       },
       "xcn": {
         "quantity": 0.0,
