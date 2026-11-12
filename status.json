@@ -1,26 +1,26 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 12, 2026 7:09 AM CT",
-  "prices_as_of": "Nov 12, 2026 7:09 AM CT",
+  "updated": "Nov 12, 2026 7:29 AM CT",
+  "prices_as_of": "Nov 12, 2026 7:29 AM CT",
   "summary": {
     "total_invested": 308.95,
     "gross_buys": 334.28,
     "sell_proceeds": 25.33,
     "open_cost_basis": 304.38,
-    "current_value": 266.2,
-    "unrealized_pl": -38.18,
-    "unrealized_pct": -12.54,
+    "current_value": 266.34,
+    "unrealized_pl": -38.04,
+    "unrealized_pct": -12.5,
     "realized_pl": -4.57,
     "realized_pct": -15.28,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -42.75,
-    "total_pct": -13.84,
+    "total_pl": -42.61,
+    "total_pct": -13.79,
     "trade_count": 8
   },
   "public_portfolio": {
-    "total": 747.48,
+    "total": 747.62,
     "components": [
       {
         "key": "robinhood_crypto",
@@ -30,7 +30,7 @@
       {
         "key": "icp",
         "label": "ICP",
-        "value": 77.91
+        "value": 78.05
       },
       {
         "key": "ccl",
@@ -56,7 +56,7 @@
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 12, 2026 7:09 AM CT"
+    "as_of": "Nov 12, 2026 7:29 AM CT"
   },
   "holdings": [
     {
@@ -75,10 +75,10 @@
       "symbol": "ICP",
       "asset_type": "crypto",
       "quantity": 31.0,
-      "price": 2.51335,
+      "price": 2.5178,
       "cost_basis": 79.5,
-      "market_value": 77.91,
-      "unrealized_pl": -1.59,
+      "market_value": 78.05,
+      "unrealized_pl": -1.45,
       "realized_pl": 0.0,
       "platform": "Coinbase",
       "avg_cost": 2.564516129032258
