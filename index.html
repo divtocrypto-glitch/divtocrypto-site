@@ -97,6 +97,7 @@
   <div class="updated" id="updated">Loading…</div>
 
   <div class="grid" id="cards"></div>
+  <div class="muted" id="pnote" style="margin-top:8px"></div>
 
   <section>
     <h2>📊 Holdings</h2>
@@ -153,7 +154,8 @@
   <footer>
     <b>Personal journey, not financial advice.</b> This page documents my own real-money experiment. Nothing here is a
     recommendation to buy or sell anything. Crypto is volatile and you can lose money. P&amp;L uses average cost; crypto
-    prices are Robinhood mark prices at the time shown and the spread is included in trade totals. Taxes not reflected.
+    prices are Robinhood mark prices (Coinbase public spots for Coinbase holdings) at the time shown and the spread is included in trade totals. Taxes not reflected.
+    The public portfolio total includes only holdings and cash that are allowed to be shown; some holdings are kept private.
     Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
     <p class="aff-foot">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="disclosures.html">Disclosures</a></p>
   </footer>
@@ -176,15 +178,22 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
   $("brand").textContent = d.brand || "Dividends to Crypto";
   if (d.youtube_url) { const y=$("yt"); y.href=d.youtube_url; y.classList.remove("soon"); y.textContent="▶ Watch on YouTube"; }
   $("updated").textContent = `Last updated ${d.updated}` + (d.prices_as_of ? ` · prices as of ${d.prices_as_of}` : "");
+  const pp = d.public_portfolio || null;
+  const ppBits = (pp && pp.components || []).map(c => {
+    const decimals = c.rounded ? 0 : 2;
+    return `${esc(c.label)} ${usd(c.value, decimals)}`;
+  }).join(" · ");
   $("cards").innerHTML =
-    card("Current value", usd(s.current_value), `Cost basis ${usd(s.open_cost_basis)}`, "", "hero") +
+    (pp && pp.total != null ? card("Public portfolio total", usd(pp.total), ppBits, "", "hero") : "") +
+    card("Current value", usd(s.current_value), `Cost basis ${usd(s.open_cost_basis)}`, "", pp && pp.total != null ? "" : "hero") +
     card("Total invested", usd(s.total_invested), `net cash in · ${usd(s.gross_buys)} bought, ${usd(s.sell_proceeds)} sold`) +
     card("Unrealized P&L", signed(s.unrealized_pl), pct(s.unrealized_pct), sgn(s.unrealized_pl)) +
     card("Realized P&L", signed(s.realized_pl), pct(s.realized_pct), sgn(s.realized_pl)) +
     card("Total P&L", signed(s.total_pl), pct(s.total_pct) + " incl. dividends", sgn(s.total_pl));
+  if ($("pnote")) $("pnote").textContent = (pp && pp.note) || "";
   const held = d.holdings.filter(h => h.quantity);
   table("holdings", [["Asset"],["Qty"],["Avg cost","hide-sm"],["Price"],["Value"],["Unrealized"]],
-    held.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.asset_type)}</span></td>
+    held.map(h => `<tr><td><span class="sym">${esc(h.symbol)}</span> <span class="s">${esc(h.platform ? h.platform + " · " + h.asset_type : h.asset_type)}</span></td>
       <td>${qty(h.quantity)}</td><td class="hide-sm">${px(h.avg_cost)}</td><td>${px(h.price)}</td><td>${usd(h.market_value)}</td>
       <td class="${sgn(h.unrealized_pl)}">${signed(h.unrealized_pl)}</td></tr>`),
     "No holdings yet");
@@ -225,8 +234,8 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
          xcnH.none_yet ? "" : sgn(xcnH.unrealized_pl));
   const cbHoldRows = [];
   if (usdc) {
-    cbHoldRows.push(`<tr><td><span class="sym">USDC</span> <span class="s">cash</span></td>
-      <td>${usd(usdc.balance)}</td><td class="hide-sm">$1.00</td><td>$1.00</td>
+    cbHoldRows.push(`<tr><td><span class="sym">USDC</span> <span class="s">cash (rounded)</span></td>
+      <td>${usd(usdc.rounded_usd, 0)}</td><td class="hide-sm">$1.00</td><td>$1.00</td>
       <td>${usd(usdc.rounded_usd, 0)}</td><td>—</td></tr>`);
   }
   if (!xcnH.none_yet && xcnH.quantity) {
