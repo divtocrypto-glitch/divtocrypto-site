@@ -1,57 +1,52 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 12, 2026 3:48 PM CT",
-  "prices_as_of": "Nov 12, 2026 3:48 PM CT",
+  "updated": "Nov 13, 2026 7:10 AM CT",
+  "prices_as_of": "Nov 13, 2026 7:10 AM CT",
   "summary": {
     "total_invested": 231.59,
     "gross_buys": 334.28,
     "sell_proceeds": 102.69,
     "open_cost_basis": 224.88,
-    "current_value": 188.29,
-    "unrealized_pl": -36.59,
-    "unrealized_pct": -16.27,
+    "current_value": 182.72,
+    "unrealized_pl": -42.16,
+    "unrealized_pct": -18.75,
     "realized_pl": -6.71,
     "realized_pct": -6.13,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -43.3,
-    "total_pct": -18.7,
+    "total_pl": -48.87,
+    "total_pct": -21.1,
     "trade_count": 9
   },
   "public_portfolio": {
-    "total": 746.57,
+    "total": 914.83,
     "components": [
       {
         "key": "robinhood_crypto",
         "label": "Robinhood crypto (XCN)",
-        "value": 188.29
-      },
-      {
-        "key": "ccl",
-        "label": "CCL",
-        "value": 30.53
+        "value": 182.72
       },
       {
         "key": "monthly_dividends",
         "label": "AGNC (dividend holdings)",
-        "value": 48.75
+        "value": 47.11
       },
       {
         "key": "robinhood_cash",
         "label": "Robinhood cash",
-        "value": 169,
+        "value": 400,
         "rounded": true
       },
       {
         "key": "coinbase_usdc",
         "label": "Coinbase USDC",
-        "value": 310,
+        "value": 285,
         "rounded": true
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 12, 2026 3:48 PM CT"
+    "as_of": "Nov 13, 2026 7:10 AM CT"
   },
   "holdings": [
     {
@@ -70,7 +65,7 @@
       "symbol": "ICP",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 2.5831,
+      "price": 2.6195,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": -0.0,
@@ -82,25 +77,13 @@
       "symbol": "XCN",
       "asset_type": "crypto",
       "quantity": 56517.0,
-      "price": 0.0033315,
+      "price": 0.00323294,
       "cost_basis": 224.88,
-      "market_value": 188.29,
-      "unrealized_pl": -36.59,
+      "market_value": 182.72,
+      "unrealized_pl": -42.16,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 0.003978979775996603
-    },
-    {
-      "symbol": "CCL",
-      "asset_type": "stock",
-      "platform": "Robinhood",
-      "quantity": 1.0,
-      "price": 30.53,
-      "cost_basis": 31.04,
-      "market_value": 30.53,
-      "unrealized_pl": -0.51,
-      "realized_pl": 0.0,
-      "avg_cost": 31.04
     }
   ],
   "trades": [
@@ -275,13 +258,13 @@
     },
     "holdings": {
       "usdc": {
-        "rounded_usd": 310
+        "rounded_usd": 285
       },
       "xcn": {
         "quantity": 0.0,
         "cost_basis": 0.0,
         "avg_cost": null,
-        "price": 0.0033315,
+        "price": 0.00323294,
         "market_value": 0.0,
         "unrealized_pl": 0.0,
         "none_yet": true,
@@ -290,7 +273,7 @@
     }
   },
   "monthly_dividends": {
-    "as_of": "2026-11-12T13:09:16+00:00",
+    "as_of": "2026-11-13T13:10:09+00:00",
     "holdings": [
       {
         "symbol": "AGNC",
@@ -298,8 +281,8 @@
         "status": "held",
         "shares": 5.748514,
         "avg_cost": 8.7,
-        "market_value": 48.75,
-        "yield_pct": 16.13,
+        "market_value": 47.11,
+        "yield_pct": 16.98,
         "monthly_dps": 0.12,
         "est_monthly": 0.69,
         "est_annual": 8.28,
@@ -311,7 +294,7 @@
     ],
     "pending": [],
     "totals": {
-      "market_value": 48.75,
+      "market_value": 47.11,
       "est_monthly": 0.69,
       "est_annual": 8.28,
       "received": 0
