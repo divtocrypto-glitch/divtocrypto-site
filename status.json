@@ -1,8 +1,8 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 18, 2026 7:30 AM CT",
-  "prices_as_of": "Nov 18, 2026 7:30 AM CT",
+  "updated": "Nov 18, 2026 10:04 AM CT",
+  "prices_as_of": "Nov 18, 2026 10:04 AM CT",
   "summary": {
     "total_invested": 331.62,
     "gross_buys": 434.31,
@@ -46,7 +46,7 @@
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 18, 2026 7:30 AM CT"
+    "as_of": "Nov 18, 2026 10:04 AM CT"
   },
   "holdings": [
     {
@@ -65,7 +65,7 @@
       "symbol": "ICP",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 2.2366,
+      "price": 2.21265,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": -0.0,
