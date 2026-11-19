@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- ga4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GP28V56YYZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GP28V56YYZ");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4121243453868109" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
+<title>Inside Our AI Trading Bot&#x27;s ETF Dip-Buy Book: The First Closed Trade (XLY) and the Rules Behind It | DivToCrypto</title>
+<meta name="description" content="How our AI trading bot&#x27;s rsi2 + IBS ETF dip-buy book works, step by step, and what its first closed trade (XLY, +$0.81) does and doesn&#x27;t tell us.">
+<meta name="theme-color" content="#0b1426">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://divtocrypto.com/blog/ai-trading-bot-etf-dip-buy-first-closed-trade-xly.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DivToCrypto">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Inside Our AI Trading Bot&#x27;s ETF Dip-Buy Book: The First Closed Trade (XLY) and the Rules Behind It | DivToCrypto">
+<meta property="og:description" content="How our AI trading bot&#x27;s rsi2 + IBS ETF dip-buy book works, step by step, and what its first closed trade (XLY, +$0.81) does and doesn&#x27;t tell us.">
+<meta property="og:url" content="https://divtocrypto.com/blog/ai-trading-bot-etf-dip-buy-first-closed-trade-xly.html">
+<meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DivToCrypto logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@divtocrypto">
+<meta name="twitter:creator" content="@divtocrypto">
+<meta name="twitter:title" content="Inside Our AI Trading Bot&#x27;s ETF Dip-Buy Book: The First Closed Trade (XLY) and the Rules Behind It | DivToCrypto">
+<meta name="twitter:description" content="How our AI trading bot&#x27;s rsi2 + IBS ETF dip-buy book works, step by step, and what its first closed trade (XLY, +$0.81) does and doesn&#x27;t tell us.">
+<meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="DivToCrypto logo">
+<meta property="article:published_time" content="2026-11-19">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Inside Our AI Trading Bot's ETF Dip-Buy Book: The First Closed Trade (XLY) and the Rules Behind It", "description": "How our AI trading bot's rsi2 + IBS ETF dip-buy book works, step by step, and what its first closed trade (XLY, +$0.81) does and doesn't tell us.", "datePublished": "2026-11-19", "dateModified": "2026-11-19", "mainEntityOfPage": "https://divtocrypto.com/blog/ai-trading-bot-etf-dip-buy-first-closed-trade-xly.html", "url": "https://divtocrypto.com/blog/ai-trading-bot-etf-dip-buy-first-closed-trade-xly.html", "image": "https://divtocrypto.com/assets/og-image.png", "author": {"@type": "Organization", "name": "DivToCrypto", "url": "https://divtocrypto.com/"}, "inLanguage": "en-US", "isPartOf": {"@type": "Blog", "name": "DivToCrypto Blog", "url": "https://divtocrypto.com/blog/"}, "publisher": {"@type": "Organization", "name": "DivToCrypto", "url": "https://divtocrypto.com/", "logo": {"@type": "ImageObject", "url": "https://divtocrypto.com/assets/logo-icon-96.png"}}}</script>
+<style>
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+  .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
+  .wordmark{display:block;height:30px;width:auto}
+  .brand .t{margin:0;line-height:0;font-size:0}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover{border-color:#3a4a66}
+  .nav a.on{background:#2a2350;border-color:#3a3160}
+  a{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .muted{color:var(--muted)}
+  .draft{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#3a2a10;color:var(--accent);vertical-align:middle}
+  .draftbar{margin:0 0 18px;padding:10px 14px;border:1px solid #5a4316;background:#2a2010;color:var(--accent);border-radius:12px;font-size:14px}
+  .list{display:grid;gap:12px}
+  .post-card{display:block;color:inherit;text-decoration:none;transition:border-color .15s}
+  .post-card:hover{border-color:#3a4a66}
+  .post-card h2{font-size:19px;margin:4px 0 6px;line-height:1.3;color:var(--text)}
+  .post-card p{margin:0;color:var(--muted)}
+  .meta{color:var(--muted);font-size:13px}
+  .pagehead h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+  .pagehead p{margin:0 0 20px;color:var(--muted)}
+  article{max-width:720px;margin:0 auto}
+  article h1{font-size:32px;line-height:1.2;margin:6px 0 8px;letter-spacing:-.01em}
+  .back{font-size:14px;text-decoration:none}
+  .body{font-size:17px;line-height:1.7}
+  .body h2{font-size:22px;line-height:1.3;margin:34px 0 10px}
+  .body h3{font-size:18px;margin:24px 0 8px}
+  .body p,.body ul,.body ol{margin:0 0 16px}
+  .body li{margin:4px 0}
+  .body strong{color:#fff}
+  .body code{background:#1a2233;padding:1px 6px;border-radius:6px;font-size:.9em}
+  .body blockquote{margin:0 0 16px;padding:8px 16px;border-left:3px solid var(--accent2);background:#151b2b;border-radius:0 10px 10px 0;color:#cfd6e2}
+  .body hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 18px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px;line-height:1.45}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .endcard{margin-top:30px;border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  .endcard p{margin:0 0 8px}.endcard p:last-child{margin:0}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  footer .aff{margin:8px 0 0}
+  .postfoot{margin-top:16px;color:var(--muted);font-size:14px}.postfoot p{margin:0 0 6px}.postfoot p:last-child{margin:0}
+  .prose{max-width:760px}.prose h2{font-size:20px;margin:26px 0 8px}.prose p,.prose li{color:#cfd6e2;font-size:16px;line-height:1.65}
+  @media (max-width:560px){.body{font-size:16px}article h1{font-size:26px}.body h2{font-size:20px}th,td{padding:8px 10px}header{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="../"><img class="logo" src="../assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="../assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
+    <nav class="nav" aria-label="Site"><a href="../">Dashboard</a><a href="./" class="on">Blog</a><a href="../trades.html">Trades</a><a href="../social.html">Social</a><a href="../timeline.html">Timeline</a><a href="../top30.html">Top 30 Monthly</a><a href="../xcn.html">XCN</a><a href="../watchlist.html">Watchlist</a><a href="../skipped.html">Skipped</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a><a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok</a></nav>
+  </header>
+  <article>
+    <a class="back" href="./">← All posts</a>
+    <h1>Inside Our AI Trading Bot&#x27;s ETF Dip-Buy Book: The First Closed Trade (XLY) and the Rules Behind It</h1>
+    <div class="meta">By DivToCrypto · <time datetime="2026-11-19">Nov 19, 2026</time> · 4 min read</div>
+    <div class="body">
+<p>On Monday, Nov 16, 2026, our bot team switched on a new <strong>ETF dip-buy book</strong>. Two days later it closed its first trade: a small gain on <strong>XLY</strong>, the consumer discretionary sector ETF. It's the first closed winner in our public trade log, after three small stop-outs.</p>
+<p>This post walks through exactly how that trade happened, the rules Grok Trader follows, and why one winning trade proves almost nothing. Every number below comes from our own logs, and every public trade is on the <a href="/trades.html">Trades page</a>.</p>
+<p><strong>Educational, not financial advice.</strong> Nothing here is a recommendation to buy or sell anything.</p>
+<h2 id="quick-refresher-who-does-what">Quick refresher: who does what</h2>
+<p>DivToCrypto is a public, real-money experiment run by a small team of AI bots, with the Owner approving the rules. Stock Finder builds the morning <a href="/watchlist.html">watchlist</a>, Chart Bot checks the bigger trend, and <strong>Grok Trader</strong> places the trades. For the full story of how the team was set up, read <a href="/blog/how-im-using-ai-bots-grok-bot-to-run-divtocrypto.html">How I'm Using AI Bots (Grok Bot) to Run DivToCrypto</a>.</p>
+<p>The morning watchlist hunts for same-day breakouts. The new ETF book is different: it buys short-term <strong>dips</strong> in big, liquid ETFs and holds them for a few days.</p>
+<h2 id="the-two-rules-in-the-book">The two rules in the book</h2>
+<p>The book runs two "buy the dip" rules side by side, as described in our <a href="/blog/process-update-2026-11-18-etf-dip-buy-book-and-quiet-watchlists.html">Nov 18 process update</a>:</p>
+<ul><li><strong>rsi2.</strong> RSI is a common momentum gauge. A 2-day RSI looks at just the last two days, so a very low reading means an ETF had a sharp, short pullback. When the rule fires, the bot buys. It sells on the first daily close above the 5-day average, or after 10 trading days, whichever comes first.</li><li><strong>IBS (internal bar strength).</strong> IBS measures where the price closed inside the day's range. Near 0 means it closed near the day's low. The bot buys when IBS is under 0.2 and sells on a later day when it closes near its high (IBS over 0.8) or trades above the prior day's high.</li></ul>
+<p>Both rules check prices at about <strong>2:55 PM Central</strong>, a few minutes before the close, so the signal is based on nearly the full day.</p>
+<h2 id="how-the-money-is-split">How the money is split</h2>
+<p>The book has <strong>4 slots</strong>, each worth about a quarter of the account, bought as fractional shares. rsi2 signals fill slots first, then IBS signals, lowest IBS first. There's only one position per ETF, and if all four slots are full, new signals are skipped.</p>
+<p>One rule surprises people: these trades have <strong>no stop-loss</strong>. That's on purpose. The rules were tested without stops, and dip-buy rules often need room to dip a little further before they bounce. Adding a stop the backtest never used would mean running a different strategy than the one we tested. The risk control is the position size (a quarter of the book per slot), the list of large, diversified ETFs, and the time limit on rsi2 trades.</p>
+<h2 id="the-trade-log-step-by-step">The trade log, step by step</h2>
+<p>Here's what our <a href="/trades.html">trade log</a> shows for the book so far:</p>
+<p><strong>Monday, Nov 16, about 2:55 PM CT.</strong> All four slots filled at about $74.88 each:</p>
+<ul><li><strong>XLY</strong>: 0.634093 shares at $118.0899 (rsi2 signal)</li><li><strong>XLB</strong>: 1.455195 shares at $51.457 (rsi2 signal)</li><li><strong>SPY</strong>: 0.101319 shares at $739.0499 (rsi2 signal)</li><li><strong>XLV</strong>: 0.399067 shares at $187.6375 (IBS signal)</li></ul>
+<p><strong>Wednesday, Nov 18, about 2:55 PM CT.</strong> XLY hit its rsi2 exit. The bot sold all 0.634093 shares at <strong>$119.3721</strong>, for $75.69 in proceeds against $74.88 in cost. That's a realized gain of <strong>$0.81</strong>, about <strong>+1.1%</strong> in two trading days, with no fees recorded on the trade.</p>
+<p>That freed a slot, and the same afternoon the bot used it to buy <strong>XLF</strong> (financials): 1.30808 shares at $56.495, about $73.90, on an rsi2 signal.</p>
+<p>As of this morning, <strong>XLB, SPY, XLV and XLF are still open</strong>. We don't report results on open trades. When they close, the final numbers go on the Trades page.</p>
+<h2 id="what-one-winning-trade-tells-us-not-much">What one winning trade tells us (not much)</h2>
+<p>It's tempting to celebrate. But one trade is a sample size of one. Here's how we're thinking about it:</p>
+<ol><li><strong>The win was small on purpose.</strong> Dip-buy rules aim for lots of small wins. A typical gain is a percent or two, not a moonshot.</li><li><strong>Losing trades will come.</strong> In testing, the combined book was profitable in 19 of 22 years, which also means it had losing years. Because there's no stop, an individual trade can go further against us than our breakout trades do.</li><li><strong>The real test is dozens of trades.</strong> We'll judge the book on its full record across many closed trades, not on its first exit.</li></ol>
+<p>For comparison, our three earlier closed trades were all stop-outs: ENA (-$4.57), ICP (about -$3.24 after fees) and 1 share of CCL (-$0.80). Those came from a different style, short-term breakouts with tight stops. Our post on <a href="/blog/how-our-ai-trading-bot-decides-when-not-to-trade.html">how the bot decides when not to trade</a> covers what those taught us.</p>
+<h2 id="how-this-fits-the-bigger-plan">How this fits the bigger plan</h2>
+<p>The long-term plan hasn't changed: buy monthly dividend stocks, then reinvest the payouts into trading stocks and crypto, with AI handling the trading. A steady, rules-based ETF book could become a calmer engine alongside the crypto side. If you're curious about the income side, start with our breakdowns of <a href="/blog/realty-income-o-monthly-dividend-explained.html">Realty Income (O)</a> and <a href="/blog/main-street-capital-main-monthly-dividend-explained.html">Main Street Capital (MAIN)</a>.</p>
+<h2 id="follow-along">Follow along</h2>
+<p>Every trade, win or loss, goes on the <a href="/trades.html">Trades page</a>. The daily <a href="/watchlist.html">watchlist</a> shows what the bots are watching, and the <a href="/">homepage</a> has the live dashboard. We'll post the result of each ETF trade when it closes.</p>
+<p><em>Educational, not financial advice. Past results and backtests don't guarantee future returns. Trading involves risk, including loss of the money you put in.</em></p>
+    </div>
+    <div class="card endcard">
+      <p><b>Not financial advice.</b> This is my personal log with real money, not a recommendation to buy or sell anything. Do your own research; crypto is volatile and you can lose money.</p>
+      <p>See every trade and the current P&amp;L on the <a href="https://divtocrypto.com/">live DivToCrypto dashboard</a>, and follow along on X at <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a> and on TikTok at <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">@divtocrypto.com</a>.</p>
+    </div>
+    <div class="postfoot">
+      <p>Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../disclosures.html">Disclosures</a></p>
+    </div>
+  </article>
+  <footer>
+    <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
+    recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
+    Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
+    <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../disclosures.html">Disclosures</a></p>
+  </footer>
+</div>
+</body>
+</html>
