@@ -1,61 +1,66 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 21, 2026 7:00 AM CT",
-  "prices_as_of": "Nov 21, 2026 7:00 AM CT",
+  "updated": "Nov 21, 2026 7:20 AM CT",
+  "prices_as_of": "Nov 21, 2026 7:25 AM CT",
   "summary": {
-    "total_invested": 630.15,
-    "gross_buys": 838.77,
+    "total_invested": 731.96,
+    "gross_buys": 940.58,
     "sell_proceeds": 208.62,
-    "open_cost_basis": 623.45,
-    "current_value": 555.02,
-    "unrealized_pl": -68.43,
-    "unrealized_pct": -10.98,
+    "open_cost_basis": 725.26,
+    "current_value": 647.03,
+    "unrealized_pl": -78.23,
+    "unrealized_pct": -10.79,
     "realized_pl": -6.7,
     "realized_pct": -3.11,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -75.13,
-    "total_pct": -11.92,
-    "trade_count": 18
+    "total_pl": -84.93,
+    "total_pct": -11.6,
+    "trade_count": 19
   },
   "public_portfolio": {
-    "total": 703.21,
+    "total": 692.4,
     "components": [
       {
         "key": "robinhood_crypto",
         "label": "Robinhood crypto (XCN)",
-        "value": 267.02
+        "value": 262.35
       },
       {
         "key": "spy",
         "label": "SPY",
-        "value": 72.53
+        "value": 70.0
       },
       {
         "key": "xlb",
         "label": "XLB",
-        "value": 71.94
+        "value": 70.36
+      },
+      {
+        "key": "xle",
+        "label": "XLE",
+        "value": 102.09
       },
       {
         "key": "xlf",
         "label": "XLF",
-        "value": 72.73
+        "value": 71.45
       },
       {
         "key": "xlv",
         "label": "XLV",
-        "value": 70.81
+        "value": 70.77
       },
       {
         "key": "monthly_dividends",
         "label": "AGNC (dividend holdings)",
-        "value": 45.18
+        "value": 44.38
       },
       {
         "key": "robinhood_cash",
         "label": "Robinhood cash",
-        "value": 102,
+        "value": 0,
         "rounded": true
       },
       {
@@ -66,7 +71,7 @@
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 21, 2026 7:00 AM CT"
+    "as_of": "Nov 21, 2026 7:25 AM CT"
   },
   "holdings": [
     {
@@ -97,7 +102,7 @@
       "symbol": "ICP",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 1.93005,
+      "price": 1.94705,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": -0.0,
@@ -109,10 +114,10 @@
       "symbol": "SPY",
       "asset_type": "stock",
       "quantity": 0.101319,
-      "price": 715.84,
+      "price": 690.91,
       "cost_basis": 74.88,
-      "market_value": 72.53,
-      "unrealized_pl": -2.35,
+      "market_value": 70.0,
+      "unrealized_pl": -4.88,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 739.0519053681934
@@ -121,10 +126,10 @@
       "symbol": "XCN",
       "asset_type": "crypto",
       "quantity": 89688.0,
-      "price": 0.002977195,
+      "price": 0.002925115,
       "cost_basis": 324.91,
-      "market_value": 267.02,
-      "unrealized_pl": -57.89,
+      "market_value": 262.35,
+      "unrealized_pl": -62.56,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 0.003622669699402373
@@ -133,22 +138,34 @@
       "symbol": "XLB",
       "asset_type": "stock",
       "quantity": 1.455195,
-      "price": 49.435,
+      "price": 48.35,
       "cost_basis": 74.88,
-      "market_value": 71.94,
-      "unrealized_pl": -2.94,
+      "market_value": 70.36,
+      "unrealized_pl": -4.52,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 51.45702122395967
     },
     {
+      "symbol": "XLE",
+      "asset_type": "stock",
+      "quantity": 1.685177,
+      "price": 60.58,
+      "cost_basis": 101.81,
+      "market_value": 102.09,
+      "unrealized_pl": 0.28,
+      "realized_pl": 0.0,
+      "platform": "Robinhood",
+      "avg_cost": 60.415018719101916
+    },
+    {
       "symbol": "XLF",
       "asset_type": "stock",
       "quantity": 1.30808,
-      "price": 55.6,
+      "price": 54.625,
       "cost_basis": 73.9,
-      "market_value": 72.73,
-      "unrealized_pl": -1.17,
+      "market_value": 71.45,
+      "unrealized_pl": -2.45,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 56.49501559537644
@@ -157,10 +174,10 @@
       "symbol": "XLV",
       "asset_type": "stock",
       "quantity": 0.399067,
-      "price": 177.44,
+      "price": 177.35,
       "cost_basis": 74.88,
-      "market_value": 70.81,
-      "unrealized_pl": -4.07,
+      "market_value": 70.77,
+      "unrealized_pl": -4.11,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 187.63766485327025
@@ -169,7 +186,7 @@
       "symbol": "XLY",
       "asset_type": "stock",
       "quantity": 0.0,
-      "price": 115.85,
+      "price": 112.51,
       "cost_basis": -0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -179,6 +196,17 @@
     }
   ],
   "trades": [
+    {
+      "date": "2026-11-20",
+      "platform": "Robinhood",
+      "asset_type": "stock",
+      "symbol": "XLE",
+      "side": "buy",
+      "quantity": 1.685177,
+      "price": 60.415,
+      "total": 101.81,
+      "notes": "Bot trade (rsi2-beyond4), ~2:56 PM CT."
+    },
     {
       "date": "2026-11-18",
       "platform": "Robinhood",
@@ -432,10 +460,10 @@
     "platforms": {
       "robinhood": {
         "platform": "Robinhood",
-        "trade_count": 16,
-        "gross_buys": 759.27,
+        "trade_count": 17,
+        "gross_buys": 861.08,
         "sell_proceeds": 131.26,
-        "net_invested": 628.01,
+        "net_invested": 729.82,
         "realized_pl": -4.56
       },
       "coinbase": {
@@ -455,7 +483,7 @@
         "quantity": 0.0,
         "cost_basis": 0.0,
         "avg_cost": null,
-        "price": 0.002977195,
+        "price": 0.002925115,
         "market_value": 0.0,
         "unrealized_pl": 0.0,
         "none_yet": true,
@@ -464,7 +492,7 @@
     }
   },
   "monthly_dividends": {
-    "as_of": "2026-11-20T13:17:29+00:00",
+    "as_of": "2026-11-21T13:25:00+00:00",
     "holdings": [
       {
         "symbol": "AGNC",
@@ -472,8 +500,8 @@
         "status": "held",
         "shares": 5.748514,
         "avg_cost": 8.7,
-        "market_value": 45.18,
-        "yield_pct": 18.38,
+        "market_value": 44.38,
+        "yield_pct": 18.32,
         "monthly_dps": 0.12,
         "est_monthly": 0.69,
         "est_annual": 8.28,
@@ -485,7 +513,7 @@
     ],
     "pending": [],
     "totals": {
-      "market_value": 45.18,
+      "market_value": 44.38,
       "est_monthly": 0.69,
       "est_annual": 8.28,
       "received": 0
