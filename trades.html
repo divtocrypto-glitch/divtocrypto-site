@@ -6,8 +6,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
-<title>Trade record | DivToCrypto</title>
-<meta name="description" content="The public trade record: open positions, every logged trade, closed results, and the Coinbase bot scorecard. Educational, not financial advice.">
+<title>Trade Record: Every Public Trade, Strategy and P&amp;L | DivToCrypto</title>
+<meta name="description" content="Every public DivToCrypto trade: open positions, full history and closed results, plus how each Grok AI strategy works and how P&amp;L is calculated. Educational, not financial advice.">
 <meta name="theme-color" content="#0b1426">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -16,8 +16,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DivToCrypto">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Trade record | DivToCrypto">
-<meta property="og:description" content="The public trade record: open positions, every logged trade, closed results, and the Coinbase bot scorecard. Educational, not financial advice.">
+<meta property="og:title" content="Trade Record: Every Public Trade, Strategy and P&amp;L | DivToCrypto">
+<meta property="og:description" content="Every public DivToCrypto trade: open positions, full history and closed results, plus how each Grok AI strategy works and how P&amp;L is calculated. Educational, not financial advice.">
 <meta property="og:url" content="https://divtocrypto.com/trades.html">
 <meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -26,8 +26,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@divtocrypto">
 <meta name="twitter:creator" content="@divtocrypto">
-<meta name="twitter:title" content="Trade record | DivToCrypto">
-<meta name="twitter:description" content="The public trade record: open positions, every logged trade, closed results, and the Coinbase bot scorecard. Educational, not financial advice.">
+<meta name="twitter:title" content="Trade Record: Every Public Trade, Strategy and P&amp;L | DivToCrypto">
+<meta name="twitter:description" content="Every public DivToCrypto trade: open positions, full history and closed results, plus how each Grok AI strategy works and how P&amp;L is calculated. Educational, not financial advice.">
 <meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="DivToCrypto logo">
 
@@ -128,12 +128,12 @@
 <div class="wrap">
   <header>
     <a class="brand" href="./"><img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
-    <nav class="nav" aria-label="Site"><a href="./">Dashboard</a><a href="blog/">Blog</a><a href="trades.html" class="on">Trades</a><a href="social.html">Social</a><a href="timeline.html">Timeline</a><a href="top30.html">Top 30 Monthly</a><a href="xcn.html">XCN</a><a href="watchlist.html">Watchlist</a><a href="skipped.html">Skipped</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a><a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok</a></nav>
+    <nav class="nav" aria-label="Site"><a href="./">Home</a><a href="trades.html" class="on">Trades</a><a href="top30.html">Top 30</a><a href="blog/">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
   </header>
   <div class="pagehead">
     <h1>Trade record</h1>
     <p>Every public trade we’re allowed to show — what we still hold, the full history, and results after a close. Educational, not financial advice.</p>
-    <p class="updated" id="updated">Last updated Nov 21, 2026 7:30 AM CT · prices as of Nov 21, 2026 7:30 AM CT</p>
+    <p class="updated" id="updated">Last updated Nov 22, 2026 4:57 AM CT · prices as of Nov 22, 2026 4:57 AM CT</p>
   </div>
 
   <section aria-labelledby="terms-h">
@@ -153,6 +153,26 @@
         <p>The paper gain or loss on a position we still hold. It moves with the price until we sell.</p>
       </div>
     </div>
+  </section>
+
+  <section aria-labelledby="strat-h" class="prose" style="max-width:none">
+    <h2 class="sec-h" id="strat-h">The strategies behind these trades</h2>
+    <p class="sec-l">Every trade note carries a tag. Here's what each tag means. Full details are in <a href="blog/how-we-use-grok-ai-to-trade-stocks-our-rules-and-real-trades.html">How We Use Grok AI to Trade Stocks</a>.</p>
+    <div class="explain">
+      <div class="card">
+        <h3>rsi2: ETF dip buy</h3>
+        <p>Buys one of 16 large ETFs at about 2:55 PM CT when its 2-day RSI is under 10 and it trades above its 200-day average. Sells at the first close above the 5-day average or after 10 trading days. No stop, as tested; risk is limited by position size and the time limit. <b>rsi2-beyond4</b> marks positions opened after the original four-position cap was removed on Nov 20.</p>
+      </div>
+      <div class="card">
+        <h3>ibs: ETF dip buy</h3>
+        <p>Internal bar strength = (price − day's low) ÷ (day's high − day's low). Buys when IBS is under 0.2 near the close; sells when IBS is over 0.8 or price tops the prior day's high. Same 16 ETFs, no stop, one position per ETF.</p>
+      </div>
+      <div class="card">
+        <h3>Breakouts (orb)</h3>
+        <p>Same-day stock breakouts above the opening range, only on stocks in play with 2x relative volume, a green first 5-minute bar and SPY above VWAP. Needs at least 1.5:1 reward-to-risk after costs. Always has a stop. Out by about 2:30 PM CT.</p>
+      </div>
+    </div>
+    <p class="sec-l" style="margin-top:12px">Position size: each ETF dip-buy position is up to one-quarter of the account value. Breakouts use settled cash and must clear the reward-to-risk test at the entry price. Crypto trades on Coinbase are paused while a new crypto strategy is tested. Strategies that tested poorly (VWAP pullbacks, oversold reversals) are paused.</p>
   </section>
 
   <section aria-labelledby="open-h">
@@ -184,6 +204,25 @@
     <p class="sec-l">Coinbase trades placed by the bot team, after they close. The Owner approves anything that goes public.</p>
     <div class="grid" id="cbscore"></div>
     <div class="tbl"><table id="cbgrok"></table></div>
+  </section>
+
+  <section aria-labelledby="how-pl-works" class="prose" style="max-width:none">
+    <h2 class="sec-h" id="how-pl-works">How P&amp;L is calculated</h2>
+    <p>We use the <b>average cost</b> method, with fees included in cost.</p>
+    <ul>
+      <li><b>Cost basis</b> = total paid for a position, including fees. Average cost = cost basis ÷ shares or coins held.</li>
+      <li><b>Realized P&amp;L</b> = sale proceeds − (average cost × quantity sold). It's locked in when the sell fills. Example: XLY was bought for $74.88 and sold for $75.69, a realized gain of $0.81.</li>
+      <li><b>Unrealized P&amp;L</b> = current market value − cost basis for what we still hold. It moves with the latest price shown in "Last updated."</li>
+      <li><b>Dividends</b> are tracked separately and aren't mixed into trade P&amp;L.</li>
+      <li>Taxes aren't reflected. Prices for open positions come from broker quotes at publish time.</li>
+    </ul>
+    <h2 class="sec-h" id="trades-faq">FAQ</h2>
+    <p><b>Is every trade shown?</b><br>Every public trade is shown, wins and losses. A few holdings and trades are private and aren't listed, and we never publish account numbers or order IDs.</p>
+    <p><b>Who places the trades?</b><br>Grok Trader, one of our Grok AI bots, places trades only when a written rule signals. The Owner approves every rule in writing. The bots that publish this page have read-only access.</p>
+    <p><b>Why do some trades have no stop-loss?</b><br>The ETF dip-buy rules (rsi2, ibs) were tested without stops, so we run them that way. Breakout trades always have a stop.</p>
+    <p><b>Why are the positions so small?</b><br>It's a small real-money account. The point is to test the rules in public before scaling anything.</p>
+    <p><b>How often is this page updated?</b><br>Whenever the site is published, usually every market day. The "Last updated" line at the top shows when.</p>
+    <p><b>Is this financial advice?</b><br>No. It's an educational record of our own trades. Nothing here is a recommendation to buy or sell anything.</p>
   </section>
 
 <script>
@@ -305,6 +344,7 @@ fetch("status.json", {cache:"no-store"}).then(r => r.json()).then(d => {
     recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
     Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
     <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="disclosures.html">Disclosures</a></p>
+    <p class="aff">Explore: <a class="fx" href="timeline.html">Timeline</a> · <a class="fx" href="xcn.html">XCN dashboard</a> · <a class="fx" href="watchlist.html">Daily watchlist</a> · <a class="fx" href="skipped.html">Skipped trades</a> · <a class="fx" href="social.html">Social &amp; videos</a></p>
   </footer>
 </div>
 </body>

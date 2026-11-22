@@ -6,8 +6,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
-<title>About | DivToCrypto</title>
-<meta name="description" content="What DivToCrypto is: a public, real-money log of turning dividends into crypto.">
+<title>About DivToCrypto: Who Runs It, How Numbers Are Sourced | DivToCrypto</title>
+<meta name="description" content="The story behind DivToCrypto, who runs it, how our Grok AI bot team works, and the editorial standards and sources behind every number.">
 <meta name="theme-color" content="#0b1426">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -16,8 +16,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DivToCrypto">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="About | DivToCrypto">
-<meta property="og:description" content="What DivToCrypto is: a public, real-money log of turning dividends into crypto.">
+<meta property="og:title" content="About DivToCrypto: Who Runs It, How Numbers Are Sourced | DivToCrypto">
+<meta property="og:description" content="The story behind DivToCrypto, who runs it, how our Grok AI bot team works, and the editorial standards and sources behind every number.">
 <meta property="og:url" content="https://divtocrypto.com/about.html">
 <meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -26,8 +26,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@divtocrypto">
 <meta name="twitter:creator" content="@divtocrypto">
-<meta name="twitter:title" content="About | DivToCrypto">
-<meta name="twitter:description" content="What DivToCrypto is: a public, real-money log of turning dividends into crypto.">
+<meta name="twitter:title" content="About DivToCrypto: Who Runs It, How Numbers Are Sourced | DivToCrypto">
+<meta name="twitter:description" content="The story behind DivToCrypto, who runs it, how our Grok AI bot team works, and the editorial standards and sources behind every number.">
 <meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="DivToCrypto logo">
 <style>
@@ -90,29 +90,71 @@
 <div class="wrap">
   <header>
     <a class="brand" href="./"><img class="logo" src="assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
-    <nav class="nav" aria-label="Site"><a href="./">Dashboard</a><a href="blog/">Blog</a><a href="trades.html">Trades</a><a href="social.html">Social</a><a href="timeline.html">Timeline</a><a href="top30.html">Top 30 Monthly</a><a href="xcn.html">XCN</a><a href="watchlist.html">Watchlist</a><a href="skipped.html">Skipped</a><a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a><a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok</a></nav>
+    <nav class="nav" aria-label="Site"><a href="./">Home</a><a href="trades.html">Trades</a><a href="top30.html">Top 30</a><a href="blog/">Blog</a><a href="about.html" class="on">About</a><a href="contact.html">Contact</a></nav>
   </header>
   <article class="prose">
     <div class="pagehead"><h1>About DivToCrypto</h1>
-    <div class="meta">By DivToCrypto</div></div>
-    <p>DivToCrypto is a public dashboard and blog that tracks a real-money experiment: taking monthly dividends and putting them into crypto, with every trade and holding logged in the open.</p>
-    <p>The site is run by the Owner of DivToCrypto, with help from a team of Grok AI bots that scan markets, chart ideas, keep the books and publish the dashboard. A human still approves anything that goes public.</p>
-    <h2 id="what-you-will-find">What you will find here</h2>
+    <div class="meta">By DivToCrypto · Last updated <time datetime="2026-11-22">Nov 22, 2026</time></div></div>
+    <p><b>We buy monthly dividend stocks, reinvest the payouts into trading stocks and crypto while using Grok AI to trade.</b> DivToCrypto is the public record of that plan: a live dashboard, a full trade log and a blog that explains what we did, why, and how it worked out, including the losses.</p>
+
+    <h2 id="the-story">The project story</h2>
+    <p>DivToCrypto started in late October 2026 with a simple question: can a small account use the steady cash from monthly dividend payers to fund higher-risk trades, without the trading side eating the income side? Most dividend investors reinvest into more of the same stock. We wanted to see what happens when the monthly payouts instead feed a rules-based trading book, with every step written down.</p>
+    <p>The first public trade was logged on October 23, 2026. Our first lessons came fast. An early crypto trade (ENA) had its stop written in a note instead of placed as a real order, and the planned 5% loss became about 15%. That mistake is why every exit rule is now written before entry and placed in the market where possible. You can read the full story in <a href="blog/week-one-down-7-percent-ena-lessons.html">Week One: Down 7% and What ENA Taught Me</a>.</p>
+    <p>Since then the trading side has moved toward rules that have been backtested before going live, such as a short-term ETF dip-buy book using a 2-day RSI rule and an internal bar strength (IBS) rule. Strategies that tested poorly were paused rather than kept for hope. The <a href="trades.html">Trades page</a> explains each strategy, and the <a href="timeline.html">Timeline</a> lists every build step.</p>
+
+    <h2 id="who-runs-it">Who runs DivToCrypto</h2>
+    <p>The site is owned and run by the <b>Owner</b> of DivToCrypto, who sets the rules, approves every strategy change in writing, and funds the account. We keep the Owner's personal details private on purpose, the same way we keep account numbers private.</p>
+    <p>Day-to-day work is done by a small team of Grok AI bots, each with one narrow job:</p>
     <ul>
-      <li>A live P&amp;L dashboard of company trades and holdings</li>
-      <li>A timeline of steps taken so far</li>
-      <li>Daily and weekly blog posts, including XCN (Onyxcoin) updates</li>
-      <li>A ranked list of monthly dividend stocks we watch</li>
+      <li><b>Stock Finder</b> builds the morning watchlist with a planned entry, stop and target for each setup.</li>
+      <li><b>Chart Bot</b> gives a non-blocking second opinion on the bigger trend.</li>
+      <li><b>Grok Trader</b> checks each signal against the written rules and places the trades the rules allow.</li>
+      <li><b>The Watcher</b> compares fills with quoted prices and scores each strategy separately.</li>
+      <li><b>The Accountant</b> reconciles the books each night.</li>
+      <li><b>Site and social</b> builds this website, writes the articles and makes the videos.</li>
     </ul>
+    <p>Bots follow rules; they do not get to override them. News, a confident read or a chart opinion never changes a tested signal, and position size comes only from the written rules, never from how sure a model feels. All articles are published under the byline <b>DivToCrypto</b>.</p>
+
+    <h2 id="editorial-standards">Editorial standards</h2>
+    <ul>
+      <li><b>No invented numbers.</b> Every price, trade, yield and P&amp;L figure comes from our own broker records or from a source we cite. If we can't verify a number, we leave it out or label it as pending.</li>
+      <li><b>Losses get the same space as wins.</b> Every public trade stays on the record after it closes, win or lose.</li>
+      <li><b>Sources are linked.</b> Articles about a company or fund cite its filings, press releases or fact sheets. When we do our own math on a company's numbers, we say so.</li>
+      <li><b>No hype and no price predictions.</b> When we summarize someone else's opinion, it is labeled as theirs.</li>
+      <li><b>Corrections.</b> If we get something wrong, we fix the page and note the update date. Email us if you spot an error.</li>
+      <li><b>Educational, not financial advice.</b> Nothing here is a recommendation to buy or sell anything.</li>
+    </ul>
+
+    <h2 id="how-numbers-are-sourced">How our numbers are sourced</h2>
+    <ul>
+      <li><b>Trades and holdings:</b> read-only snapshots from our Robinhood and Coinbase accounts, refreshed when the site is published. The bots that build the site cannot place or change orders.</li>
+      <li><b>P&amp;L:</b> average cost with fees included. Realized P&amp;L is locked in when a position is sold; unrealized P&amp;L moves with the latest price. The method is explained on the <a href="trades.html#how-pl-works">Trades page</a>.</li>
+      <li><b>Monthly dividend data:</b> the <a href="top30.html">Top 30 list</a> uses market prices plus each company's or fund's latest confirmed monthly payout. It is refreshed weekly.</li>
+      <li><b>Crypto prices:</b> broker quotes, plus CoinGecko for XCN market data.</li>
+      <li><b>Privacy:</b> we never publish account numbers, order IDs or wallet addresses. Some holdings and trades are private and are not shown.</li>
+    </ul>
+
+    <h2 id="update-schedule">What gets updated, and when</h2>
+    <ul>
+      <li>Dashboard and trade record: every time the site is published, usually daily on market days.</li>
+      <li>Top 30 monthly dividend stocks: weekly.</li>
+      <li>XCN roundup: one post per week.</li>
+      <li>In-depth articles on dividend stocks and our trading rules: several times a week.</li>
+    </ul>
+
+    <h2 id="money">How the site makes money</h2>
+    <p>The site may show Google ads and uses one affiliate link: <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). A commission never changes what we log. Details are on the <a href="disclosures.html">Disclosures</a> page.</p>
+
     <h2 id="what-this-is-not">What this is not</h2>
-    <p>Nothing on this site is financial, investment, tax or legal advice. Crypto is volatile and you can lose money. Results shown are personal and not typical. See our <a href="terms.html">Terms</a> and <a href="disclosures.html">Disclosures</a>.</p>
-    <p>Questions? Reach us on the <a href="contact.html">Contact</a> page.</p>
+    <p>Nothing on this site is financial, investment, tax or legal advice. Markets and crypto are volatile and you can lose money. Results shown are personal and not typical. See our <a href="terms.html">Terms</a> and <a href="disclosures.html">Disclosures</a>.</p>
+    <p>Questions or corrections? Reach us on the <a href="contact.html">Contact</a> page.</p>
   </article>
   <footer>
     <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
     recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
     Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
     <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="disclosures.html">Disclosures</a></p>
+    <p class="aff">Explore: <a class="fx" href="timeline.html">Timeline</a> · <a class="fx" href="xcn.html">XCN dashboard</a> · <a class="fx" href="watchlist.html">Daily watchlist</a> · <a class="fx" href="skipped.html">Skipped trades</a> · <a class="fx" href="social.html">Social &amp; videos</a></p>
   </footer>
 </div>
 </body>
