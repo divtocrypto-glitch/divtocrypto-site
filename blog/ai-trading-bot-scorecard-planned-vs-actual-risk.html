@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- ga4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GP28V56YYZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GP28V56YYZ");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4121243453868109" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
+<title>AI Trading Bot Scorecard: Planned Risk vs. Actual Losses on Every Closed Trade (and Why Win Rate Misleads) | DivToCrypto</title>
+<meta name="description" content="A trade-by-trade post-mortem of our AI bot&#x27;s closed trades: planned stop vs. actual loss in R, fees, holding time, the win rate we&#x27;d need to break even, and what 20 watchlist plans show.">
+<meta name="theme-color" content="#0b1426">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://divtocrypto.com/blog/ai-trading-bot-scorecard-planned-vs-actual-risk.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DivToCrypto">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="AI Trading Bot Scorecard: Planned Risk vs. Actual Losses on Every Closed Trade (and Why Win Rate Misleads) | DivToCrypto">
+<meta property="og:description" content="A trade-by-trade post-mortem of our AI bot&#x27;s closed trades: planned stop vs. actual loss in R, fees, holding time, the win rate we&#x27;d need to break even, and what 20 watchlist plans show.">
+<meta property="og:url" content="https://divtocrypto.com/blog/ai-trading-bot-scorecard-planned-vs-actual-risk.html">
+<meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DivToCrypto logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@divtocrypto">
+<meta name="twitter:creator" content="@divtocrypto">
+<meta name="twitter:title" content="AI Trading Bot Scorecard: Planned Risk vs. Actual Losses on Every Closed Trade (and Why Win Rate Misleads) | DivToCrypto">
+<meta name="twitter:description" content="A trade-by-trade post-mortem of our AI bot&#x27;s closed trades: planned stop vs. actual loss in R, fees, holding time, the win rate we&#x27;d need to break even, and what 20 watchlist plans show.">
+<meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="DivToCrypto logo">
+<meta property="article:published_time" content="2026-11-23">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AI Trading Bot Scorecard: Planned Risk vs. Actual Losses on Every Closed Trade (and Why Win Rate Misleads)", "description": "A trade-by-trade post-mortem of our AI bot's closed trades: planned stop vs. actual loss in R, fees, holding time, the win rate we'd need to break even, and what 20 watchlist plans show.", "datePublished": "2026-11-23", "dateModified": "2026-11-23", "articleSection": "AI Trading Rules & Process", "mainEntityOfPage": "https://divtocrypto.com/blog/ai-trading-bot-scorecard-planned-vs-actual-risk.html", "url": "https://divtocrypto.com/blog/ai-trading-bot-scorecard-planned-vs-actual-risk.html", "image": "https://divtocrypto.com/assets/og-image.png", "author": {"@type": "Organization", "name": "DivToCrypto", "url": "https://divtocrypto.com/"}, "inLanguage": "en-US", "isPartOf": {"@type": "Blog", "name": "DivToCrypto Blog", "url": "https://divtocrypto.com/blog/"}, "publisher": {"@type": "Organization", "name": "DivToCrypto", "url": "https://divtocrypto.com/", "logo": {"@type": "ImageObject", "url": "https://divtocrypto.com/assets/logo-icon-96.png"}}}</script>
+<style>
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+  .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
+  .wordmark{display:block;height:30px;width:auto}
+  .brand .t{margin:0;line-height:0;font-size:0}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover{border-color:#3a4a66}
+  .nav a.on{background:#2a2350;border-color:#3a3160}
+  a{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .muted{color:var(--muted)}
+  .draft{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#3a2a10;color:var(--accent);vertical-align:middle}
+  .draftbar{margin:0 0 18px;padding:10px 14px;border:1px solid #5a4316;background:#2a2010;color:var(--accent);border-radius:12px;font-size:14px}
+  .list{display:grid;gap:12px}
+  .post-card{display:block;color:inherit;text-decoration:none;transition:border-color .15s}
+  .post-card:hover{border-color:#3a4a66}
+  .post-card h2{font-size:19px;margin:4px 0 6px;line-height:1.3;color:var(--text)}
+  .post-card p{margin:0;color:var(--muted)}
+  .meta{color:var(--muted);font-size:13px}
+  .pagehead h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+  .pagehead p{margin:0 0 20px;color:var(--muted)}
+  article{max-width:720px;margin:0 auto}
+  article h1{font-size:32px;line-height:1.2;margin:6px 0 8px;letter-spacing:-.01em}
+  .back{font-size:14px;text-decoration:none}
+  .body{font-size:17px;line-height:1.7}
+  .body h2{font-size:22px;line-height:1.3;margin:34px 0 10px}
+  .body h3{font-size:18px;margin:24px 0 8px}
+  .body p,.body ul,.body ol{margin:0 0 16px}
+  .body li{margin:4px 0}
+  .body strong{color:#fff}
+  .body code{background:#1a2233;padding:1px 6px;border-radius:6px;font-size:.9em}
+  .body blockquote{margin:0 0 16px;padding:8px 16px;border-left:3px solid var(--accent2);background:#151b2b;border-radius:0 10px 10px 0;color:#cfd6e2}
+  .body hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 18px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px;line-height:1.45}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .endcard{margin-top:30px;border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  .endcard p{margin:0 0 8px}.endcard p:last-child{margin:0}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  footer .aff{margin:8px 0 0}
+  .postfoot{margin-top:16px;color:var(--muted);font-size:14px}.postfoot p{margin:0 0 6px}.postfoot p:last-child{margin:0}
+  .prose{max-width:760px}.prose h2{font-size:20px;margin:26px 0 8px}.prose p,.prose li{color:#cfd6e2;font-size:16px;line-height:1.65}
+  @media (max-width:560px){.body{font-size:16px}article h1{font-size:26px}.body h2{font-size:20px}th,td{padding:8px 10px}header{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="../"><img class="logo" src="../assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="../assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
+    <nav class="nav" aria-label="Site"><a href="../">Home</a><a href="../trades.html">Trades</a><a href="../top30.html">Top 30</a><a href="./" class="on">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+  </header>
+  <article>
+    <a class="back" href="./">← All posts</a>
+    <h1>AI Trading Bot Scorecard: Planned Risk vs. Actual Losses on Every Closed Trade (and Why Win Rate Misleads)</h1>
+    <div class="meta">By DivToCrypto · <time datetime="2026-11-23">Nov 23, 2026</time> · AI Trading Rules &amp; Process · 7 min read</div>
+    <div class="body">
+<p>Most trading scorecards stop at "win rate." Ours is 33%: one winner out of three closed trades since the company launched on Nov 2, 2026. On its own, that number doesn't tell you much. This post runs the closed trades through harder tests: How big was each loss compared with the <em>planned</em> loss? How much did fees take? What win rate would this system need just to break even?</p>
+<p>Every number here comes from our own logs: the <a href="/trades.html">Trades page</a>, our weekly report card, and Grok Trader's end-of-day reports. Earlier posts explained the rules (<a href="/blog/how-we-use-grok-ai-to-trade-stocks-our-rules-and-real-trades.html">How We Use Grok AI to Trade Stocks</a>) and the skips (<a href="/blog/how-our-ai-trading-bot-decides-when-not-to-trade.html">How Our AI Trading Bot Decides When Not to Trade</a>). This one is the audit.</p>
+<p><strong>Educational, not financial advice.</strong> Nothing here is a recommendation to buy or sell anything.</p>
+<h2 id="a-quick-word-on-r">A quick word on "R"</h2>
+<p>Traders measure losses in <strong>R</strong>: the amount you planned to lose if your stop is hit. Buy at $10 with a stop at $9, and 1R is $1 per share. A trade that hits its stop should lose about 1R. If losses keep coming in at 1.3R or 1.5R, something between the plan and the fill is costing you money.</p>
+<p>Two of our three closed trades had written stops. The third came from the ETF dip-buy book, which has no stop by design, so we score it in percent.</p>
+<h2 id="the-scorecard-every-closed-trade-since-launch">The scorecard: every closed trade since launch</h2>
+<div class="tbl"><table><thead><tr><th>Trade</th><th>Entry</th><th>Planned stop</th><th>Exit</th><th>Planned 1R</th><th>Actual result</th><th>Result in R</th><th>Held</th></tr></thead><tbody><tr><td>CCL, 1 share (stock breakout)</td><td>$31.04, Nov 9</td><td>$30.35</td><td>$30.24, Nov 12 (stop)</td><td>$0.69</td><td>−$0.80 (−2.6%)</td><td><strong>−1.16R</strong></td><td>about 67 hours</td></tr><tr><td>ICP, 31 coins (crypto breakout)</td><td>$2.5645, Nov 10</td><td>$2.4962</td><td>$2.4954, Nov 12 (stop)</td><td>$2.12</td><td>−$2.14 before fees, −$3.24 after $1.09 fees (−4.1%)</td><td><strong>−1.01R before fees, −1.53R after</strong></td><td>about 35 hours</td></tr><tr><td>XLY (ETF dip buy, rsi2)</td><td>$74.88, Nov 16</td><td>none (as tested)</td><td>$75.69, Nov 18 (rule exit)</td><td>n/a</td><td>+$0.81 (+1.1%)</td><td>n/a</td><td>about 48 hours</td></tr></tbody></table></div>
+<p>Totals from our weekly report card: <strong>3 closed trades, 1 win, net −$3.23 after $1.09 in fees.</strong> (An earlier ENA crypto trade came before the company launched and isn't in the company books. We covered it in <a href="/blog/week-one-down-7-percent-ena-lessons.html">Week One: Down 7% and What ENA Taught Me</a>.)</p>
+<p>Holding times come from fill timestamps (Central Time). No trade lasted more than three days.</p>
+<h2 id="post-mortem-1-ccl-lost-16-more-than-planned">Post-mortem 1: CCL lost 16% more than planned</h2>
+<p>With a $32.95 target, CCL risked $0.69 from the $31.04 fill to make $1.91, about <strong>2.8 to 1</strong>, with a real resting stop.</p>
+<p>It still lost 1.16R, and the extra came from two places:</p>
+<ul><li><strong>Entry slippage.</strong> The watchlist trigger was $30.95, but the fill was $31.04, 9 cents higher. That made the risk bigger before the trade even started.</li><li><strong>Gap risk.</strong> On Nov 12 the stock opened below the stop. A stop order becomes a market order once it's touched, so it filled at $30.24, 11 cents under $30.35.</li></ul>
+<p>Those 20 cents were a quarter of the 80-cent loss. Neither was a rule break, but it's why backtests that assume perfect fills look better than real life.</p>
+<h2 id="post-mortem-2-icp-s-stop-worked-but-fees-didn-t">Post-mortem 2: ICP's stop worked, but fees didn't</h2>
+<p>ICP's stop worked almost perfectly. It filled at $2.4954 against a planned $2.4962, less than a tenth of a cent away. On price alone, the loss was 1.01R, exactly what the plan called for.</p>
+<p>Then fees took $1.09 on a trade of about $79.50. That turned a 1R loss into a <strong>1.53R</strong> loss. Fees on that one trade came to more than half of the total planned risk.</p>
+<p>The team's backtests later agreed: once retail fees of roughly 0.5% to 0.9% were included, every Coinbase rule tested lost money over 12 months (breakouts averaged −0.29R per trade). Coinbase trading has been paused since Nov 13 until a new crypto strategy is approved.</p>
+<h2 id="the-math-that-matters-what-win-rate-would-break-even">The math that matters: what win rate would break even?</h2>
+<p>Here's the simplest test of whether a trading system can work. On our closed trades:</p>
+<ul><li><strong>Average win:</strong> $0.81 (+1.1%), one trade</li><li><strong>Average loss:</strong> $2.02 after fees (about −3.3%), two trades</li><li><strong>Win/loss ratio:</strong> about 0.4. Each win made back about 40% of an average loss.</li></ul>
+<p>To break even with that ratio, you divide the average loss by the average win plus the average loss: $2.02 ÷ ($0.81 + $2.02) ≈ <strong>71%</strong>. Our actual rate is 33%.</p>
+<p>Three trades is far too few to judge anything, and it mixes three strategies. But it's the right question to ask of any bot. The breakout plans were <em>designed</em> at about 2.7 to 2.8 to 1, which would only need roughly a 26% to 27% win rate. Slippage, gaps and fees pushed real results the other way.</p>
+<h2 id="win-rate-vs-marked-to-market-the-etf-book">Win rate vs. marked-to-market: the ETF book</h2>
+<p>The ETF dip-buy book has a perfect record on closed trades: one for one. Here's what the book looked like at the Nov 20 close (prices from our latest snapshot):</p>
+<div class="tbl"><table><thead><tr><th>Open ETF</th><th>Bought</th><th>Cost</th><th>Value at Nov 20 close</th><th>Unrealized</th></tr></thead><tbody><tr><td>SPY</td><td>Nov 16 at $739.05</td><td>$74.88</td><td>$70.00</td><td>−$4.88 (−6.5%)</td></tr><tr><td>XLB</td><td>Nov 16 at $51.46</td><td>$74.88</td><td>$70.36</td><td>−$4.52 (−6.0%)</td></tr><tr><td>XLV</td><td>Nov 16 at $187.64</td><td>$74.88</td><td>$70.77</td><td>−$4.11 (−5.5%)</td></tr><tr><td>XLF</td><td>Nov 18 at $56.50</td><td>$73.90</td><td>$71.45</td><td>−$2.45 (−3.3%)</td></tr><tr><td>XLE</td><td>Nov 20 at $60.42</td><td>$101.81</td><td>$102.09</td><td>+$0.28 (+0.3%)</td></tr><tr><td><strong>Total open</strong></td><td></td><td><strong>$400.35</strong></td><td><strong>$384.67</strong></td><td><strong>−$15.68 (−3.9%)</strong></td></tr></tbody></table></div>
+<p>So the closed record says +$0.81, while the book as a whole was down about $14.87. That's why our shared lessons file says no-stop rules "can show early wins while open losers pile up; judge on marked-to-market equity."</p>
+<p>Two more takeaways from the table:</p>
+<ul><li><strong>These positions move together.</strong> The three Nov 16 buys all fell between 5% and 7%. Five tickers isn't five separate bets when one market drop hits them all.</li><li><strong>The XLY exit helped.</strong> XLY was sold at $119.37 on Nov 18 and last traded at $112.51 in our snapshot, about 5.7% lower. One data point, not proof.</li></ul>
+<p>These are still open, and their written exit rules decide when they close, not the current loss. Live numbers are on the <a href="/trades.html">Trades page</a>.</p>
+<h2 id="what-20-watchlist-plans-show">What 20 watchlist plans show</h2>
+<p>Real trades are only part of the record. Stock Finder's <a href="/watchlist.html">watchlist</a> logged 20 plans on Nov 9, 10 and 11, each with a trigger, stop and target, and The Watcher graded every one at the end of the day:</p>
+<div class="tbl"><table><thead><tr><th>Watchlist outcome (Nov 9–11)</th><th>Plans</th></tr></thead><tbody><tr><td>Triggered, then reached target (on paper)</td><td>2 (AAON, CRWV)</td></tr><tr><td>Triggered, then hit the stop</td><td>1 (AVGO)</td></tr><tr><td>Triggered, unresolved by the close</td><td>6</td></tr><tr><td>Never triggered, ran to target without us</td><td>3 (FCX, DAL, UAL)</td></tr><tr><td>Never triggered, fell through the stop first</td><td>1 (GWRS)</td></tr><tr><td>Never triggered, nothing decisive</td><td>7</td></tr><tr><td><strong>Total</strong></td><td><strong>20</strong></td></tr></tbody></table></div>
+<p>Only one of these plans (CCL) became a live trade. Most triggered plans hit neither stop nor target that day, and some paper "winners" ran past the no-chase level before the bot could enter. That's why same-day setups now have a time exit around 2:30 PM CT, and why breakout targets must sit within about one day's normal range. The daily results are in posts like <a href="/blog/watchlist-and-results-2026-11-11.html">Watchlist and Results: Nov 11, 2026</a>.</p>
+<h2 id="what-the-bots-learned">What the bots learned</h2>
+<ol><li><strong>Measure losses in R.</strong> Ours came in at 1.16R and 1.53R, not 1R. Planned reward-to-risk means little until slippage and fees are counted.</li><li><strong>Fees are part of the stop.</strong> On small crypto trades, they can be half of an R.</li><li><strong>Win rate needs a partner.</strong> Pair it with the average win compared with the average loss. Neither number works without the other.</li><li><strong>Score no-stop books by their total value</strong>, open positions included, not just closed trades.</li><li><strong>Small samples prove nothing.</strong> Each strategy is reviewed only after 20 trades.</li></ol>
+<p>Our long-term plan doesn't depend on these trades. The core is buy-and-hold monthly dividend stocks. See the <a href="/top30.html">Top 30 monthly dividend stocks</a>, and follow live totals on the <a href="/">dashboard</a>.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>What does "R" mean in trading?</strong> R is your planned risk: the distance from entry to stop, times position size. A −1R loss means the trade lost exactly what was planned.</p>
+<p><strong>Why did a trade with a stop lose more than the stop?</strong> A stop becomes a market order once touched. If a stock opens below it, like CCL did, you get the next available price. Fees add to the loss too.</p>
+<p><strong>Is a 33% win rate bad?</strong> Not on its own. A system that makes three times its risk on winners can profit at 33%. Ours didn't: at our win/loss ratio, it would need about 71%.</p>
+<p><strong>Why don't the ETF trades have stops?</strong> They were tested without stops, so adding one would mean running an untested strategy. Risk is managed with position size and a time limit.</p>
+<h2 id="sources">Sources</h2>
+<ul><li>DivToCrypto <a href="/trades.html">trade record</a>, weekly report card (week ending Nov 23, 2026), watchlist end-of-day log, and Grok Trader end-of-day reports (Nov 10–12, 2026)</li><li>DivToCrypto team rules, backtest notes and shared lessons file (internal, summarized above)</li><li>Larry Connors and Cesar Alvarez, <em>Short Term Trading Strategies That Work</em> (2008), the source of the 2-day RSI dip-buy rule</li></ul>
+<p><em>Educational, not financial advice. This is a process log of our own real-money experiment, not a recommendation to buy or sell any stock or crypto. Past results don't guarantee future returns, and you can lose money.</em></p>
+    </div>
+    <div class="card endcard">
+      <p><b>Not financial advice.</b> This is my personal log with real money, not a recommendation to buy or sell anything. Do your own research; crypto is volatile and you can lose money.</p>
+      <p>See every trade and the current P&amp;L on the <a href="https://divtocrypto.com/">live DivToCrypto dashboard</a>, and follow along on X at <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a> and on TikTok at <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">@divtocrypto.com</a>.</p>
+    </div>
+    <div class="card endcard"><h2>Related posts</h2><ul><li><a href="how-we-use-grok-ai-to-trade-stocks-our-rules-and-real-trades.html">How We Use Grok AI to Trade Stocks: Our Written Rules and Every Real Trade So Far</a> <span class="meta">· Nov 22, 2026</span></li><li><a href="ai-trading-bot-etf-dip-buy-first-closed-trade-xly.html">Inside Our AI Trading Bot&#x27;s ETF Dip-Buy Book: The First Closed Trade (XLY) and the Rules Behind It</a> <span class="meta">· Nov 19, 2026</span></li><li><a href="process-update-2026-11-18-etf-dip-buy-book-and-quiet-watchlists.html">Process Update (Nov 18): Our New ETF Dip-Buy Book, Three Quiet Watchlist Days and What We Changed</a> <span class="meta">· Nov 18, 2026</span></li><li><a href="how-our-ai-trading-bot-decides-when-not-to-trade.html">How Our AI Trading Bot Decides When Not to Trade: 41 Skips, 3 Closed Trades and the Rules Behind Them</a> <span class="meta">· Nov 16, 2026</span></li></ul><p class="meta">Browse everything on the <a href="./">blog index</a>, or see the <a href="../top30.html">Top 30 monthly dividend stocks</a> and the <a href="../trades.html">trade record</a>.</p></div>
+    <div class="postfoot">
+      <p>Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../disclosures.html">Disclosures</a></p>
+    </div>
+  </article>
+  <footer>
+    <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
+    recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
+    Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
+    <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../disclosures.html">Disclosures</a></p>
+    <p class="aff">Explore: <a class="fx" href="../timeline.html">Timeline</a> · <a class="fx" href="../xcn.html">XCN dashboard</a> · <a class="fx" href="../watchlist.html">Daily watchlist</a> · <a class="fx" href="../skipped.html">Skipped trades</a> · <a class="fx" href="../report-card.html">Report card</a> · <a class="fx" href="../social.html">Social &amp; videos</a></p>
+  </footer>
+</div>
+</body>
+</html>
