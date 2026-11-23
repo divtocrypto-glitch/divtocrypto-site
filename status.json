@@ -1,31 +1,31 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 22, 2026 10:15 AM CT",
-  "prices_as_of": "Nov 22, 2026 10:15 AM CT",
+  "updated": "Nov 23, 2026 7:23 AM CT",
+  "prices_as_of": "Nov 23, 2026 7:23 AM CT",
   "summary": {
     "total_invested": 731.96,
     "gross_buys": 940.58,
     "sell_proceeds": 208.62,
     "open_cost_basis": 725.26,
-    "current_value": 652.04,
-    "unrealized_pl": -73.22,
-    "unrealized_pct": -10.1,
+    "current_value": 652.34,
+    "unrealized_pl": -72.92,
+    "unrealized_pct": -10.05,
     "realized_pl": -6.7,
     "realized_pct": -3.11,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -79.92,
-    "total_pct": -10.92,
+    "total_pl": -79.62,
+    "total_pct": -10.88,
     "trade_count": 19
   },
   "public_portfolio": {
-    "total": 697.41,
+    "total": 697.71,
     "components": [
       {
         "key": "robinhood_crypto",
         "label": "Robinhood crypto (XCN)",
-        "value": 267.36
+        "value": 267.66
       },
       {
         "key": "spy",
@@ -71,7 +71,7 @@
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 22, 2026 10:15 AM CT"
+    "as_of": "Nov 23, 2026 7:23 AM CT"
   },
   "holdings": [
     {
@@ -102,7 +102,7 @@
       "symbol": "ICP",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 1.94565,
+      "price": 2.04885,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": -0.0,
@@ -126,10 +126,10 @@
       "symbol": "XCN",
       "asset_type": "crypto",
       "quantity": 89688.0,
-      "price": 0.002981045,
+      "price": 0.002984375,
       "cost_basis": 324.91,
-      "market_value": 267.36,
-      "unrealized_pl": -57.55,
+      "market_value": 267.66,
+      "unrealized_pl": -57.25,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 0.003622669699402373
@@ -483,7 +483,7 @@
         "quantity": 0.0,
         "cost_basis": 0.0,
         "avg_cost": null,
-        "price": 0.002981045,
+        "price": 0.002984375,
         "market_value": 0.0,
         "unrealized_pl": 0.0,
         "none_yet": true,
@@ -492,7 +492,7 @@
     }
   },
   "monthly_dividends": {
-    "as_of": "2026-11-22T13:19:45.393Z",
+    "as_of": "2026-11-23T13:22:55.625Z",
     "holdings": [
       {
         "symbol": "AGNC",
@@ -501,7 +501,7 @@
         "shares": 5.748514,
         "avg_cost": 8.7,
         "market_value": 44.38,
-        "yield_pct": 18.32,
+        "yield_pct": 18.63,
         "monthly_dps": 0.12,
         "est_monthly": 0.69,
         "est_annual": 8.28,
