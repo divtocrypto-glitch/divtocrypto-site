@@ -1,36 +1,31 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 25, 2026 10:03 AM CT",
-  "prices_as_of": "Nov 25, 2026 10:03 AM CT",
+  "updated": "Nov 25, 2026 3:42 PM CT",
+  "prices_as_of": "Nov 25, 2026 3:42 PM CT",
   "summary": {
-    "total_invested": 441.02,
+    "total_invested": 338.08,
     "gross_buys": 940.58,
-    "sell_proceeds": 499.56,
-    "open_cost_basis": 426.72,
-    "current_value": 359.72,
-    "unrealized_pl": -67.0,
-    "unrealized_pct": -15.7,
-    "realized_pl": -14.3,
-    "realized_pct": -2.78,
+    "sell_proceeds": 602.5,
+    "open_cost_basis": 324.91,
+    "current_value": 257.9,
+    "unrealized_pl": -67.01,
+    "unrealized_pct": -20.62,
+    "realized_pl": -13.17,
+    "realized_pct": -2.14,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -81.3,
-    "total_pct": -18.43,
-    "trade_count": 23
+    "total_pl": -80.18,
+    "total_pct": -23.72,
+    "trade_count": 24
   },
   "public_portfolio": {
-    "total": 697.57,
+    "total": 595.75,
     "components": [
       {
         "key": "robinhood_crypto",
         "label": "Robinhood crypto (XCN)",
         "value": 257.9
-      },
-      {
-        "key": "xle",
-        "label": "XLE",
-        "value": 101.82
       },
       {
         "key": "monthly_dividends",
@@ -51,7 +46,7 @@
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 25, 2026 10:03 AM CT"
+    "as_of": "Nov 25, 2026 3:42 PM CT"
   },
   "holdings": [
     {
@@ -82,7 +77,7 @@
       "symbol": "ICP",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 1.9642,
+      "price": 2.0246,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": -0.0,
@@ -129,14 +124,14 @@
     {
       "symbol": "XLE",
       "asset_type": "stock",
-      "quantity": 1.685177,
+      "quantity": 0.0,
       "price": 60.42,
-      "cost_basis": 101.81,
-      "market_value": 101.82,
-      "unrealized_pl": 0.01,
-      "realized_pl": 0.0,
+      "cost_basis": 0.0,
+      "market_value": 0.0,
+      "unrealized_pl": 0.0,
+      "realized_pl": 1.13,
       "platform": "Robinhood",
-      "avg_cost": 60.415018719101916
+      "avg_cost": null
     },
     {
       "symbol": "XLF",
@@ -176,6 +171,17 @@
     }
   ],
   "trades": [
+    {
+      "date": "2026-11-25",
+      "platform": "Robinhood",
+      "asset_type": "stock",
+      "symbol": "XLE",
+      "side": "sell",
+      "quantity": 1.685177,
+      "price": 61.0827,
+      "total": 102.94,
+      "notes": "Bot trade (rsi2-beyond4), ~2:55 PM CT."
+    },
     {
       "date": "2026-11-24",
       "platform": "Robinhood",
@@ -484,11 +490,11 @@
     "platforms": {
       "robinhood": {
         "platform": "Robinhood",
-        "trade_count": 21,
+        "trade_count": 22,
         "gross_buys": 861.08,
-        "sell_proceeds": 422.2,
-        "net_invested": 438.88,
-        "realized_pl": -12.16
+        "sell_proceeds": 525.14,
+        "net_invested": 335.94,
+        "realized_pl": -11.03
       },
       "coinbase": {
         "platform": "Coinbase",
