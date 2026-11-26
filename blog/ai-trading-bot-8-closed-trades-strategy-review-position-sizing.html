@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- ga4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GP28V56YYZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-GP28V56YYZ");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4121243453868109" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- google-site-verification: set GSC_VERIFICATION in build_blog.py -->
+<title>Our AI Trading Bot Went Flat for Thanksgiving: A Strategy-by-Strategy Review of All 8 Closed Trades and the Position-Sizing Math | DivToCrypto</title>
+<meta name="description" content="Our AI trading bot closed its last open position on Nov 25. We review all 8 closed bot trades by strategy, show the position-sizing math behind each dollar result, and list the rules that changed.">
+<meta name="theme-color" content="#0b1426">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://divtocrypto.com/blog/ai-trading-bot-8-closed-trades-strategy-review-position-sizing.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DivToCrypto">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Our AI Trading Bot Went Flat for Thanksgiving: A Strategy-by-Strategy Review of All 8 Closed Trades and the Position-Sizing Math | DivToCrypto">
+<meta property="og:description" content="Our AI trading bot closed its last open position on Nov 25. We review all 8 closed bot trades by strategy, show the position-sizing math behind each dollar result, and list the rules that changed.">
+<meta property="og:url" content="https://divtocrypto.com/blog/ai-trading-bot-8-closed-trades-strategy-review-position-sizing.html">
+<meta property="og:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DivToCrypto logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@divtocrypto">
+<meta name="twitter:creator" content="@divtocrypto">
+<meta name="twitter:title" content="Our AI Trading Bot Went Flat for Thanksgiving: A Strategy-by-Strategy Review of All 8 Closed Trades and the Position-Sizing Math | DivToCrypto">
+<meta name="twitter:description" content="Our AI trading bot closed its last open position on Nov 25. We review all 8 closed bot trades by strategy, show the position-sizing math behind each dollar result, and list the rules that changed.">
+<meta name="twitter:image" content="https://divtocrypto.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="DivToCrypto logo">
+<meta property="article:published_time" content="2026-11-26">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Our AI Trading Bot Went Flat for Thanksgiving: A Strategy-by-Strategy Review of All 8 Closed Trades and the Position-Sizing Math", "description": "Our AI trading bot closed its last open position on Nov 25. We review all 8 closed bot trades by strategy, show the position-sizing math behind each dollar result, and list the rules that changed.", "datePublished": "2026-11-26", "dateModified": "2026-11-26", "articleSection": "AI Trading Rules & Process", "mainEntityOfPage": "https://divtocrypto.com/blog/ai-trading-bot-8-closed-trades-strategy-review-position-sizing.html", "url": "https://divtocrypto.com/blog/ai-trading-bot-8-closed-trades-strategy-review-position-sizing.html", "image": "https://divtocrypto.com/assets/og-image.png", "author": {"@type": "Organization", "name": "DivToCrypto", "url": "https://divtocrypto.com/"}, "inLanguage": "en-US", "isPartOf": {"@type": "Blog", "name": "DivToCrypto Blog", "url": "https://divtocrypto.com/blog/"}, "publisher": {"@type": "Organization", "name": "DivToCrypto", "url": "https://divtocrypto.com/", "logo": {"@type": "ImageObject", "url": "https://divtocrypto.com/assets/logo-icon-96.png"}}}</script>
+<style>
+  :root{--bg:#0b0f17;--card:#131a26;--line:#222c3d;--text:#e7ecf3;--muted:#8b97a9;--up:#22c55e;--down:#f04452;--accent:#f5b83d;--accent2:#7c5cff}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 10% -10%,#1b2340 0,transparent 60%),var(--bg);color:var(--text);
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+  header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+  .logo{width:48px;height:48px;border-radius:12px;display:block;flex:none;box-shadow:0 0 0 1px #24304a,0 6px 18px rgba(34,197,94,.12)}
+  .wordmark{display:block;height:30px;width:auto}
+  .brand .t{margin:0;line-height:0;font-size:0}
+  .brand small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:3px}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  .nav a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:#1a2233;border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+  .nav a:hover{border-color:#3a4a66}
+  .nav a.on{background:#2a2350;border-color:#3a3160}
+  a{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .muted{color:var(--muted)}
+  .draft{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#3a2a10;color:var(--accent);vertical-align:middle}
+  .draftbar{margin:0 0 18px;padding:10px 14px;border:1px solid #5a4316;background:#2a2010;color:var(--accent);border-radius:12px;font-size:14px}
+  .list{display:grid;gap:12px}
+  .post-card{display:block;color:inherit;text-decoration:none;transition:border-color .15s}
+  .post-card:hover{border-color:#3a4a66}
+  .post-card h2{font-size:19px;margin:4px 0 6px;line-height:1.3;color:var(--text)}
+  .post-card p{margin:0;color:var(--muted)}
+  .meta{color:var(--muted);font-size:13px}
+  .pagehead h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+  .pagehead p{margin:0 0 20px;color:var(--muted)}
+  article{max-width:720px;margin:0 auto}
+  article h1{font-size:32px;line-height:1.2;margin:6px 0 8px;letter-spacing:-.01em}
+  .back{font-size:14px;text-decoration:none}
+  .body{font-size:17px;line-height:1.7}
+  .body h2{font-size:22px;line-height:1.3;margin:34px 0 10px}
+  .body h3{font-size:18px;margin:24px 0 8px}
+  .body p,.body ul,.body ol{margin:0 0 16px}
+  .body li{margin:4px 0}
+  .body strong{color:#fff}
+  .body code{background:#1a2233;padding:1px 6px;border-radius:6px;font-size:.9em}
+  .body blockquote{margin:0 0 16px;padding:8px 16px;border-left:3px solid var(--accent2);background:#151b2b;border-radius:0 10px 10px 0;color:#cfd6e2}
+  .body hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+  .tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 18px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px;line-height:1.45}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .endcard{margin-top:30px;border-color:#3a3160;background:linear-gradient(135deg,#1a1630,#131a26)}
+  .endcard p{margin:0 0 8px}.endcard p:last-child{margin:0}
+  footer{margin-top:34px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}
+  footer .aff{margin:8px 0 0}
+  .postfoot{margin-top:16px;color:var(--muted);font-size:14px}.postfoot p{margin:0 0 6px}.postfoot p:last-child{margin:0}
+  .prose{max-width:760px}.prose h2{font-size:20px;margin:26px 0 8px}.prose p,.prose li{color:#cfd6e2;font-size:16px;line-height:1.65}
+  @media (max-width:560px){.body{font-size:16px}article h1{font-size:26px}.body h2{font-size:20px}th,td{padding:8px 10px}header{gap:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="../"><img class="logo" src="../assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="../assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
+    <nav class="nav" aria-label="Site"><a href="../">Home</a><a href="../trades.html">Trades</a><a href="../top30.html">Top 30</a><a href="./" class="on">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+  </header>
+  <article>
+    <a class="back" href="./">← All posts</a>
+    <h1>Our AI Trading Bot Went Flat for Thanksgiving: A Strategy-by-Strategy Review of All 8 Closed Trades and the Position-Sizing Math</h1>
+    <div class="meta">By DivToCrypto · <time datetime="2026-11-26">Nov 26, 2026</time> · AI Trading Rules &amp; Process · 7 min read</div>
+    <div class="body">
+<p>On Wednesday, Nov 25, at 2:55 PM Central, Grok Trader sold its last ETF position (XLE) for a small gain. For the first time since the ETF dip-buy book opened on Nov 16, the bot holds <strong>no open trades</strong>. With markets closed for Thanksgiving, it's a good time to take stock.</p>
+<p>Earlier posts covered <a href="/blog/how-we-use-grok-ai-to-trade-stocks-our-rules-and-real-trades.html">our rules</a>, <a href="/blog/ai-trading-bot-scorecard-planned-vs-actual-risk.html">how planned risk compared with actual losses</a> and <a href="/blog/process-update-2026-11-25-etf-book-first-full-cycle-and-report-card.html">the ETF book's first full cycle</a>. This one asks different questions: which <em>strategy</em> drove the results, and how does position size turn a percentage move into a dollar result?</p>
+<p>Every number comes from our own <a href="/trades.html">trade log</a> and the bots' end-of-day reports.</p>
+<p><strong>Educational only, not financial advice.</strong> Nothing here is a recommendation to buy or sell anything.</p>
+<h2 id="the-complete-record-8-closed-bot-trades">The complete record: 8 closed bot trades</h2>
+<p>These are all the trades the bot team has closed since the company launched. Our trade log uses "proceeds minus cost" for realized P&amp;L. Robinhood charged no commissions on the stock and ETF trades. The one crypto trade (ICP) paid $1.09 in fees, which is included below.</p>
+<div class="tbl"><table><thead><tr><th>#</th><th>Symbol</th><th>Strategy</th><th>Bought</th><th>Sold</th><th>Cost</th><th>Days held</th><th>Result</th><th>Return</th></tr></thead><tbody><tr><td>1</td><td>CCL</td><td>Stock breakout</td><td>Nov 9</td><td>Nov 12 (stop)</td><td>$31.04</td><td>3</td><td>-$0.80</td><td>-2.6%</td></tr><tr><td>2</td><td>ICP</td><td>Crypto breakout</td><td>Nov 10</td><td>Nov 12 (stop)</td><td>$79.50</td><td>2</td><td>-$3.24 after fees</td><td>-4.1%</td></tr><tr><td>3</td><td>XLY</td><td>ETF dip buy (rsi2)</td><td>Nov 16</td><td>Nov 18</td><td>$74.88</td><td>2</td><td>+$0.81</td><td>+1.1%</td></tr><tr><td>4</td><td>XLB</td><td>ETF dip buy (rsi2)</td><td>Nov 16</td><td>Nov 23</td><td>$74.88</td><td>7</td><td>-$2.23</td><td>-3.0%</td></tr><tr><td>5</td><td>SPY</td><td>ETF dip buy (rsi2)</td><td>Nov 16</td><td>Nov 23</td><td>$74.88</td><td>7</td><td>-$1.68</td><td>-2.2%</td></tr><tr><td>6</td><td>XLV</td><td>ETF dip buy (ibs)</td><td>Nov 16</td><td>Nov 23</td><td>$74.88</td><td>7</td><td>-$3.17</td><td>-4.2%</td></tr><tr><td>7</td><td>XLF</td><td>ETF dip buy (rsi2)</td><td>Nov 18</td><td>Nov 24</td><td>$73.90</td><td>6</td><td>-$0.52</td><td>-0.7%</td></tr><tr><td>8</td><td>XLE</td><td>ETF dip buy (rsi2, beyond 4 slots)</td><td>Nov 20</td><td>Nov 25</td><td>$101.81</td><td>5</td><td>+$1.13</td><td>+1.1%</td></tr><tr><td></td><td><strong>Total</strong></td><td></td><td></td><td></td><td><strong>$585.77</strong></td><td></td><td><strong>-$9.70</strong></td><td><strong>-1.7%</strong></td></tr></tbody></table></div>
+<p>"Days held" counts calendar days. Two wins, six losses, <strong>-$9.70 realized</strong>, matching Grok Trader's Nov 25 running total.</p>
+<h2 id="results-by-strategy">Results by strategy</h2>
+<p>Split by strategy, the picture is clearer:</p>
+<div class="tbl"><table><thead><tr><th>Strategy</th><th>Trades</th><th>Wins</th><th>Realized</th><th>Share of total loss</th></tr></thead><tbody><tr><td>Stock breakout (CCL)</td><td>1</td><td>0</td><td>-$0.80</td><td>8%</td></tr><tr><td>Crypto breakout (ICP)</td><td>1</td><td>0</td><td>-$3.24</td><td>33%</td></tr><tr><td>ETF dip buy, rsi2 (first 4 slots)</td><td>4</td><td>1</td><td>-$3.62</td><td>37%</td></tr><tr><td>ETF dip buy, rsi2 beyond 4 slots</td><td>1</td><td>1</td><td>+$1.13</td><td>gain</td></tr><tr><td>ETF dip buy, ibs</td><td>1</td><td>0</td><td>-$3.17</td><td>33%</td></tr></tbody></table></div>
+<p>Three things stand out:</p>
+<ol><li><strong>One crypto trade did a third of the damage.</strong> ICP's price loss was $2.14. Fees added $1.09, about 1.4% of the trade. That's why crypto trading is paused until a new strategy is backtested with fees included.</li><li><strong>The rsi2 rule, taken as a whole, is close to flat.</strong> Its five trades lost a combined $2.49 on about $400 of positions, roughly -0.6%.</li><li><strong>The ibs rule has one trade, and it lost the most.</strong> XLV fell 4.2%, the worst result of any trade. One sample tells us nothing yet; we review ibs after 20 trades.</li></ol>
+<h2 id="the-position-sizing-math-behind-every-dollar">The position-sizing math behind every dollar</h2>
+<p>Our rules size each ETF position at <strong>up to a quarter of the account</strong>, using live balances at the time of the trade. On Nov 16 that came to $74.88 per position. Here's what that means in practice:</p>
+<ul><li><strong>A 1% move on a $75 position is 75 cents.</strong> XLY's +1.1% became +$0.81. XLV's -4.2% became -$3.17. The positions are small on purpose while we test the rules with real fills.</li><li><strong>Four quarter-sized positions use the whole account.</strong> On Nov 16 the bot opened four positions in one afternoon, $299.52 in total. They were all tied to the same broad market. At the Nov 20 close those four were down a combined $16.20, about <strong>5.4%</strong> of the money in them. Four positions, one bet.</li><li><strong>Bigger accounts mean bigger slots, not different math.</strong> XLE, bought Nov 20, was $101.81 because a quarter of the account was worth more that day. Its +1.1% move earned $1.13, a bit more than XLY's similar move.</li></ul>
+<p>Compare trades by percentage. Dollars only show how much was on the line.</p>
+<h2 id="win-size-vs-loss-size">Win size vs. loss size</h2>
+<p>The ETF book's two winners averaged <strong>+1.1%</strong>. Its four losers averaged <strong>-2.5%</strong>. When losses are more than twice the size of wins, you need to win about <strong>70%</strong> of the time just to break even (2.5 divided by 1.1 plus 2.5). The ETF book won 2 of 6, or 33%.</p>
+<p>That sounds bad, but six trades is far too few to judge. Dip-buy rules like rsi2 are meant to win often and small. Four of the six were bought on the same afternoon, just before the market slid. Our standing rule is to judge a strategy only after at least 20 trades, and none of ours has reached that yet.</p>
+<p>What we <em>can</em> check is whether the rules ran as written. They did. Every ETF exit came from the rule itself: a close above the 5-day average for rsi2, and the ibs exit for XLV. None of the six reached the 10-trading-day time limit.</p>
+<h2 id="the-trades-we-didn-t-take-since-monday">The trades we didn't take since Monday</h2>
+<p>Since Nov 23, Stock Finder also sent breakout plans that never became real trades. Here's how they played out, from our <a href="/watchlist.html">Watchlist page</a>:</p>
+<div class="tbl"><table><thead><tr><th>Date</th><th>Plan</th><th>Why no live trade</th><th>What happened next</th></tr></thead><tbody><tr><td>Nov 23</td><td>NVDA breakout</td><td>No settled cash</td><td>Triggered, then hit its stop (paper -1R)</td></tr><tr><td>Nov 23</td><td>AXTI breakout</td><td>No settled cash</td><td>Triggered, then hit its stop (paper -1R)</td></tr><tr><td>Nov 24</td><td>XLF opening-range breakout</td><td>Ask above the no-chase price</td><td>Breakout failed back under VWAP</td></tr><tr><td>Nov 25</td><td>DIS buy-stop at $123.70</td><td>Price ran past the no-chase price</td><td>Closed near $125.61</td></tr></tbody></table></div>
+<p>Three of the four plans failed, and the no-chase rule kept us out of one of them. DIS shows the cost of that rule: it ran without us. A no-chase rule isn't meant to win every time. It keeps entries close to the planned stop so the risk stays the size we planned. Every pass is logged on the <a href="/skipped.html">skipped trades page</a>.</p>
+<h2 id="what-changed-in-the-rules-after-real-results">What changed in the rules after real results</h2>
+<p>Each change came from a real result, and each was approved by the Owner:</p>
+<ul><li><strong>Nov 13: Coinbase crypto trading paused.</strong> After ICP, backtests showed every crypto rule we tested lost money once retail fees were included.</li><li><strong>Nov 14: Seven AI trading guardrails.</strong> These include fresh broker data for every decision, no overriding tested rules, never sizing from model confidence, and pricing every trade after spread and fees.</li><li><strong>Nov 18: ETF orders moved to 2:55 PM CT.</strong> Orders placed at 3:00 PM were filling late, so the run now starts five minutes earlier.</li><li><strong>Nov 20: The four-position cap was removed.</strong> Extra positions are tagged "rsi2-beyond4" and scored on their own, because the original test only used four slots. XLE was the first one, and it closed green.</li></ul>
+<p>One decision is still open: <strong>how to share cash between strategies.</strong> A full ETF book uses all settled cash, and that's why the NVDA and AXTI plans had no money behind them on Nov 23.</p>
+<h2 id="what-the-bots-learned">What the bots learned</h2>
+<ul><li><strong>Count your real positions.</strong> Four ETFs bought the same afternoon behaved like one position.</li><li><strong>Fees are part of position size.</strong> ICP's fees (about 1.4%) were bigger than XLY's entire winning move (+1.1%).</li><li><strong>Skipped trades need a scorecard too.</strong> Paper results show whether the filters are worth what they cost.</li></ul>
+<h2 id="what-s-next">What's next</h2>
+<p>Markets close early Friday, Nov 27, at 12:00 PM CT. The ETF scan runs at 2:51 PM, after that close, so no new ETF positions will open until the next full session. The morning breakout strategy still runs Friday. Meanwhile, the long-term side of the plan keeps going: monthly dividend stocks, with our first AGNC dividend expected in December if we still hold it on the Nov 30 ex-date. See the <a href="/">homepage</a> for current holdings and our <a href="/top30.html">Top 30 monthly dividend stocks</a> for the names we follow.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>How many trades has the DivToCrypto AI bot closed?</strong> Eight since the company launched: two breakouts (CCL, ICP) and six ETF dip buys. Two won, and the combined realized result is -$9.70, including $1.09 in crypto fees.</p>
+<p><strong>Why are the dollar amounts so small?</strong> Each ETF position is sized at up to a quarter of a small account, about $74 to $102 per trade. At that size, a 1% move is under a dollar. The goal right now is to test the rules with real fills, not to make big profits.</p>
+<p><strong>Does the bot use stop losses?</strong> The breakout trades do, and both CCL and ICP closed at their stops. The ETF dip-buy rules don't, because they were tested without stops. They exit on a rule-based signal or after 10 trading days.</p>
+<p><strong>When will you know whether a strategy works?</strong> We judge each strategy only after at least 20 closed trades. The rsi2 rule has five so far, ibs has one, and each breakout type has one.</p>
+<h2 id="sources">Sources</h2>
+<ul><li>DivToCrypto <a href="/trades.html">trade log</a> and closed-trades file (Nov 26, 2026)</li><li>Grok Trader end-of-day reports, Nov 23-25, 2026</li><li>Stock Finder watchlist and end-of-day reports, Nov 23-25, 2026</li><li>Team rules and shared lessons file (rule-change dates)</li></ul>
+<p><em>Educational, not financial advice. This is a log of our own small real-money experiment, not a recommendation to buy or sell any stock, ETF or crypto. Past results don't guarantee future returns, and you can lose money. Do your own research.</em></p>
+    </div>
+    <div class="card endcard">
+      <p><b>Not financial advice.</b> This is my personal log with real money, not a recommendation to buy or sell anything. Do your own research; crypto is volatile and you can lose money.</p>
+      <p>See every trade and the current P&amp;L on the <a href="https://divtocrypto.com/">live DivToCrypto dashboard</a>, and follow along on X at <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">@divtocrypto</a> and on TikTok at <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">@divtocrypto.com</a>.</p>
+    </div>
+    <div class="card endcard"><h2>Related posts</h2><ul><li><a href="process-update-2026-11-25-etf-book-first-full-cycle-and-report-card.html">Process Update (Nov 25): Our ETF Dip-Buy Book&#x27;s First Full Cycle, a Lifted Position Cap and a New Report Card Page</a> <span class="meta">· Nov 25, 2026</span></li><li><a href="ai-trading-bot-scorecard-planned-vs-actual-risk.html">AI Trading Bot Scorecard: Planned Risk vs. Actual Losses on Every Closed Trade (and Why Win Rate Misleads)</a> <span class="meta">· Nov 23, 2026</span></li><li><a href="how-we-use-grok-ai-to-trade-stocks-our-rules-and-real-trades.html">How We Use Grok AI to Trade Stocks: Our Written Rules and Every Real Trade So Far</a> <span class="meta">· Nov 22, 2026</span></li><li><a href="ai-trading-bot-etf-dip-buy-first-closed-trade-xly.html">Inside Our AI Trading Bot&#x27;s ETF Dip-Buy Book: The First Closed Trade (XLY) and the Rules Behind It</a> <span class="meta">· Nov 19, 2026</span></li></ul><p class="meta">Browse everything on the <a href="./">blog index</a>, or see the <a href="../top30.html">Top 30 monthly dividend stocks</a> and the <a href="../trades.html">trade record</a>.</p></div>
+    <div class="postfoot">
+      <p>Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../disclosures.html">Disclosures</a></p>
+    </div>
+  </article>
+  <footer>
+    <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
+    recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
+    Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
+    <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../disclosures.html">Disclosures</a></p>
+    <p class="aff">Explore: <a class="fx" href="../timeline.html">Timeline</a> · <a class="fx" href="../xcn.html">XCN dashboard</a> · <a class="fx" href="../watchlist.html">Daily watchlist</a> · <a class="fx" href="../skipped.html">Skipped trades</a> · <a class="fx" href="../report-card.html">Report card</a> · <a class="fx" href="../social.html">Social &amp; videos</a></p>
+  </footer>
+</div>
+</body>
+</html>
