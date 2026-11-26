@@ -1,41 +1,41 @@
 {
   "brand": "Dividends to Crypto",
   "youtube_url": "https://www.youtube.com/@divtocrypto",
-  "updated": "Nov 25, 2026 3:42 PM CT",
-  "prices_as_of": "Nov 25, 2026 3:42 PM CT",
+  "updated": "Nov 26, 2026 7:21 AM CT",
+  "prices_as_of": "Nov 26, 2026 7:21 AM CT",
   "summary": {
     "total_invested": 338.08,
     "gross_buys": 940.58,
     "sell_proceeds": 602.5,
     "open_cost_basis": 324.91,
-    "current_value": 257.9,
-    "unrealized_pl": -67.01,
-    "unrealized_pct": -20.62,
+    "current_value": 267.19,
+    "unrealized_pl": -57.72,
+    "unrealized_pct": -17.76,
     "realized_pl": -13.17,
     "realized_pct": -2.14,
     "dividends": 0.0,
     "dividends_reinvested": 0.0,
-    "total_pl": -80.18,
-    "total_pct": -23.72,
+    "total_pl": -70.89,
+    "total_pct": -20.97,
     "trade_count": 24
   },
   "public_portfolio": {
-    "total": 595.75,
+    "total": 708.79,
     "components": [
       {
         "key": "robinhood_crypto",
         "label": "Robinhood crypto (XCN)",
-        "value": 257.9
+        "value": 267.19
       },
       {
         "key": "monthly_dividends",
         "label": "AGNC (dividend holdings)",
-        "value": 46.85
+        "value": 47.6
       },
       {
         "key": "robinhood_cash",
         "label": "Robinhood cash",
-        "value": 291,
+        "value": 394,
         "rounded": true
       },
       {
@@ -46,7 +46,7 @@
       }
     ],
     "note": "Some holdings are kept private and are not included in this total.",
-    "as_of": "Nov 25, 2026 3:42 PM CT"
+    "as_of": "Nov 26, 2026 7:21 AM CT"
   },
   "holdings": [
     {
@@ -77,7 +77,7 @@
       "symbol": "ICP",
       "asset_type": "crypto",
       "quantity": 0.0,
-      "price": 2.0246,
+      "price": 1.99425,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": -0.0,
@@ -89,7 +89,7 @@
       "symbol": "SPY",
       "asset_type": "stock",
       "quantity": 0.0,
-      "price": 718.79,
+      "price": 716.75,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -101,10 +101,10 @@
       "symbol": "XCN",
       "asset_type": "crypto",
       "quantity": 89688.0,
-      "price": 0.00287551,
+      "price": 0.002979075,
       "cost_basis": 324.91,
-      "market_value": 257.9,
-      "unrealized_pl": -67.01,
+      "market_value": 267.19,
+      "unrealized_pl": -57.72,
       "realized_pl": 0.0,
       "platform": "Robinhood",
       "avg_cost": 0.003622669699402373
@@ -113,7 +113,7 @@
       "symbol": "XLB",
       "asset_type": "stock",
       "quantity": 0.0,
-      "price": 50.19,
+      "price": 51.1842,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -125,7 +125,7 @@
       "symbol": "XLE",
       "asset_type": "stock",
       "quantity": 0.0,
-      "price": 60.42,
+      "price": 60.88,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -137,7 +137,7 @@
       "symbol": "XLF",
       "asset_type": "stock",
       "quantity": 0.0,
-      "price": 56.125,
+      "price": 56.4801,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -149,7 +149,7 @@
       "symbol": "XLV",
       "asset_type": "stock",
       "quantity": 0.0,
-      "price": 184.77,
+      "price": 183.62,
       "cost_basis": 0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -161,7 +161,7 @@
       "symbol": "XLY",
       "asset_type": "stock",
       "quantity": 0.0,
-      "price": 117.72,
+      "price": 117.48,
       "cost_basis": -0.0,
       "market_value": 0.0,
       "unrealized_pl": 0.0,
@@ -513,7 +513,7 @@
         "quantity": 0.0,
         "cost_basis": 0.0,
         "avg_cost": null,
-        "price": 0.00287551,
+        "price": 0.002979075,
         "market_value": 0.0,
         "unrealized_pl": 0.0,
         "none_yet": true,
@@ -522,7 +522,7 @@
     }
   },
   "monthly_dividends": {
-    "as_of": "2026-11-25T13:17:43.000Z",
+    "as_of": "2026-11-26T13:21:18.000Z",
     "holdings": [
       {
         "symbol": "AGNC",
@@ -530,8 +530,8 @@
         "status": "held",
         "shares": 5.748514,
         "avg_cost": 8.7,
-        "market_value": 46.85,
-        "yield_pct": 18.11,
+        "market_value": 47.6,
+        "yield_pct": 17.65,
         "monthly_dps": 0.12,
         "est_monthly": 0.69,
         "est_annual": 8.28,
@@ -543,7 +543,7 @@
     ],
     "pending": [],
     "totals": {
-      "market_value": 46.85,
+      "market_value": 47.6,
       "est_monthly": 0.69,
       "est_annual": 8.28,
       "received": 0
