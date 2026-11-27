@@ -85,6 +85,18 @@
   footer .aff{margin:8px 0 0}
   .postfoot{margin-top:16px;color:var(--muted);font-size:14px}.postfoot p{margin:0 0 6px}.postfoot p:last-child{margin:0}
   .prose{max-width:760px}.prose h2{font-size:20px;margin:26px 0 8px}.prose p,.prose li{color:#cfd6e2;font-size:16px;line-height:1.65}
+  .reqform{display:grid;gap:16px;margin:8px 0 20px}
+  .reqform label{display:block;font-weight:650;margin:0 0 6px;color:var(--text)}
+  .reqform .req{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-left:4px}
+  .reqform .hint{display:block;color:var(--muted);font-weight:500;font-size:13px;margin:6px 0 0;line-height:1.45}
+  .reqform input[type=text],.reqform textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#1a2233;color:var(--text);font:inherit}
+  .reqform input[type=text]:focus,.reqform textarea:focus{outline:none;border-color:var(--accent2)}
+  .reqform textarea{min-height:96px;resize:vertical}
+  .reqform .count{display:block;color:var(--muted);font-size:12px;text-align:right;margin-top:4px}
+  .reqform button{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border:0;border-radius:999px;background:var(--accent);color:#1a1408;font:inherit;font-weight:750;cursor:pointer}
+  .reqform button:hover{filter:brightness(1.05)}
+  .note{margin:0;padding:10px 14px;border:1px solid #3a3160;background:#1a1630;border-radius:12px;color:#cfd6e2;font-size:15px;line-height:1.55}
+  .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
   @media (max-width:560px){.body{font-size:16px}article h1{font-size:26px}.body h2{font-size:20px}th,td{padding:8px 10px}header{gap:10px}}
 </style>
 </head>
@@ -92,7 +104,7 @@
 <div class="wrap">
   <header>
     <a class="brand" href="../"><img class="logo" src="../assets/logo-icon-96.png" width="48" height="48" alt=""><div><div class="t"><img class="wordmark" src="../assets/logo-wordmark-400.png" width="154" height="30" alt="DivToCrypto"></div><small>Dividends to Crypto · monthly dividends → crypto, tracked in public</small></div></a>
-    <nav class="nav" aria-label="Site"><a href="../">Home</a><a href="../trades.html">Trades</a><a href="../top30.html">Top 30</a><a href="./" class="on">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
+    <nav class="nav" aria-label="Site"><a href="../">Home</a><a href="../trades.html">Trades</a><a href="../top30.html">Top 30</a><a href="./" class="on">Blog</a><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="../request.html">Request</a></nav>
   </header>
   <article>
     <a class="back" href="./">← All posts</a>
@@ -157,7 +169,7 @@
     <b>Personal journey, not financial advice.</b> This site documents my own real-money experiment. Nothing here is a
     recommendation to buy or sell anything. Crypto is volatile and you can lose money. Taxes not reflected.
     Follow along: <a href="https://x.com/divtocrypto" target="_blank" rel="noopener">X @divtocrypto</a> · <a href="https://www.tiktok.com/@divtocrypto.com" target="_blank" rel="noopener">TikTok @divtocrypto.com</a> · <a href="https://www.instagram.com/divtocrypto/" target="_blank" rel="noopener">Instagram @divtocrypto</a>
-    <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../disclosures.html">Disclosures</a></p>
+    <p class="aff">Charts: we use <a href="https://www.tradingview.com/?aff_id=1173789" target="_blank" rel="sponsored noopener">TradingView</a> (affiliate link, we may earn a commission if you sign up, at no cost to you). <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../request.html">Request a stock or crypto</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../disclosures.html">Disclosures</a></p>
     <p class="aff">Explore: <a class="fx" href="../timeline.html">Timeline</a> · <a class="fx" href="../xcn.html">XCN dashboard</a> · <a class="fx" href="../watchlist.html">Daily watchlist</a> · <a class="fx" href="../skipped.html">Skipped trades</a> · <a class="fx" href="../report-card.html">Report card</a> · <a class="fx" href="../social.html">Social &amp; videos</a></p>
   </footer>
 </div>
